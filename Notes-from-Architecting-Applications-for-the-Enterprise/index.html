@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="ru">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Артём Карпов" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Experienced software engineer with a passion for software creation and problem solving with a proactive manner to overcoming technical challenges. After graduating with Bachelor in Applied math. Artyo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Обо мне &#x2F; About">
+<meta property="og:url" content="http://www.artkpv.net/about/index.html">
+<meta property="og:site_name" content="Артём Карпов">
+<meta property="og:description" content="Experienced software engineer with a passion for software creation and problem solving with a proactive manner to overcoming technical challenges. After graduating with Bachelor in Applied math. Artyo">
+<meta property="og:locale" content="ru">
+<meta property="og:updated_time" content="2019-12-04T11:31:19.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Обо мне &#x2F; About">
+<meta name="twitter:description" content="Experienced software engineer with a passion for software creation and problem solving with a proactive manner to overcoming technical challenges. After graduating with Bachelor in Applied math. Artyo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.artkpv.net/about/">
+
+
+
+
+
+  <title>Notes from "Architecting Applications for the Enterprise" | Артём Карпов</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ru">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Артём Карпов</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Главная</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br>О сайте | About</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Notes from "Architecting Applications for the Enterprise"</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Размещено</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+03:00">2017-07-21</time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/images/aa4e_cover.png">
+<p>That great book written by D. Esposito &amp; A. Saltarello collects recipes for making solutions for enterprise applications. Though it is not a usual cookbook but guiding principals for making a ‘dish’. It is based on author’s experience and common practices from other books. Second edition published in Jan 2015 seems to be a good summation of best practices with a brief history of them for that time in .NET world.</p>
+<p>Authors begins by giving answers to such questions as what is architecture of applications? who are software architects? how modern apps developing differs from past? We can divide the book into two parts (though authors divide it into 4 parts). In the first one there are answers to these questions: what is needed for success work? what’s required from a team? what is code quality and how to achieve it? and other. In the second one, practical recommendations for developers: what types of architecture they see? what are parts of those? main advantages and disadvantages.</p>
+<p>To my mind to understand the book a practical experience in software developing is required, it is not for beginners. </p>
+<p>Below are notes and mind maps of the book.</p>
+<a id="more"></a>
+<!-- ![](ch.0_intro.png) -->
+<h1 id="Ch-1-Architects-and-architecture"><a href="#Ch-1-Architects-and-architecture" class="headerlink" title="Ch.1 Architects and architecture"></a>Ch.1 Architects and architecture</h1><ul>
+<li>Acknowledge requirements. See the standard: ISO/IEC 9126 (newer one is ISO/IEC 25010), it defines a general set of quality characteristics required in software products. Divide them into:<ul>
+<li>Functional. Given-When-Then.</li>
+<li>Non-funcitonal. </li>
+</ul>
+</li>
+<li>Do agile (not upfront = waterfall)</li>
+<li>Break down the system</li>
+<li>Identify and evaluate technologies</li>
+<li>Formulate specifications</li>
+</ul>
+<img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.1_Architects_and_architecture_today.png">
+<p><br></p>
+<h1 id="Ch-2-Designing-for-success"><a href="#Ch-2-Designing-for-success" class="headerlink" title="Ch.2 Designing for success"></a>Ch.2 Designing for success</h1><ul>
+<li>Avoid BBM (Big Ball of Mud) (cause of failures) <ul>
+<li>Avoid technical debt (TDBT)</li>
+</ul>
+</li>
+<li>Capture all the client asked for (Ubiquitous Language — UL). Adapt quickly.</li>
+<li>Don’t stick to RAD when the system grows. </li>
+<li>Define unclear places</li>
+<li>Test early</li>
+<li>Don’t do if owner unknown</li>
+<li>Report in case of crisis (problem) = be open &amp; transparent </li>
+<li>Monitor BBM. Symptoms: rigid; not reusable; hard to fix; other.<ul>
+<li>Use metrics. </li>
+<li>Use static code analysis. R#, CodeRush, etc.</li>
+<li>(In team) Avoid knowledge/information silo (bottleneck) </li>
+</ul>
+</li>
+<li>… (see advice for team) … </li>
+<li>Use tools to assist coding </li>
+<li>(In team) Tell coder — “bad code”, not “bad coder” </li>
+<li>(In team) Inspect before check-in</li>
+<li>(In team) (Make adequate deadlines) Don’t push people to heroes </li>
+<li>(In team) Encourage practice</li>
+<li>Reconsider architecture when requirements change (avoide BBM): continuous change</li>
+<li>(In mess) Get out of it first: 1) stop; 2) isolate; 3) iteratively refactor. </li>
+<li>(In mess) How with legacy code (code w/o tests) ? </li>
+<li>(In team) (On when to add a manpower)</li>
+</ul>
+<img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.2_designing_for_success.png">
+<p><br></p>
+<h1 id="Ch-3-Principles-of-software-design"><a href="#Ch-3-Principles-of-software-design" class="headerlink" title="Ch.3 Principles of software design"></a>Ch.3 Principles of software design</h1><ul>
+<li>Do structured design</li>
+<li>High cohesion (about number of responsibilities), low coupling</li>
+<li>Do Separation of Concerns </li>
+<li>Do Isolate parts (hide infomation)</li>
+<li>Object-Oriented Design (specially for Domain Model)<ul>
+<li>Do pertinent classes</li>
+<li>Program to interface</li>
+<li>Composition is better than inheritance</li>
+<li>(consider functional programming: OOD can be hard)</li>
+<li>…</li>
+</ul>
+</li>
+<li>OOD: aim to SOLID<ul>
+<li>…</li>
+<li>Patterns for dependency resolution: Service Locator, Dependency Injection</li>
+</ul>
+</li>
+<li>(while coding) aim to Keep It Simple, Stupid (KISS)</li>
+<li>(while coding) aim to You Ain’t Gonna Need It (YAGNI)</li>
+<li>(while coding) aim to Don’t Repeat Yourself (DRY)</li>
+<li>(while coding) Tell don’t ask</li>
+<li>Don’t use patterns blindly (know them: what it is? how to? value?) </li>
+<li>Refactor</li>
+<li>Do Defensive programming (If-Then-Throw, Code Contracts)</li>
+</ul>
+<img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.3_Principles_of_software_design.png">
+<p><br></p>
+<h1 id="Ch-4-Writing-software-of-quality"><a href="#Ch-4-Writing-software-of-quality" class="headerlink" title="Ch.4 Writing software of quality"></a>Ch.4 Writing software of quality</h1><ul>
+<li>Write testable, extensible and readable code (this raises effectiveness of refactoring, which is required for maintainable code, which is always) </li>
+<li>Write testable code: <ul>
+<li>write automated tests;</li>
+<li>Design for Testability (DFT) (technique);</li>
+<li>Unit tests: Arrange-Act-Assert;</li>
+<li>Integration tests: Big Bang (all components at once); </li>
+<li>Acceptance tests: on deployed solution;</li>
+<li>Consider TDD; </li>
+<li>Do high code coverage (tests) on important scenarios (critical parts: domain mostly); </li>
+<li>Consider Microsoft Pex (autogenerates code tests); </li>
+</ul>
+</li>
+<li>Write extensible code;<ul>
+<li>avoid over-engineering (easily extensible); </li>
+<li>consider interface based; </li>
+<li>consider plugin architecture;</li>
+<li>consider state machine; </li>
+</ul>
+</li>
+<li>Write readable code (important: saves money and other): <ul>
+<li>write it readable always (tests also);</li>
+<li>CCC: comments, consistency, clarity; </li>
+<li>write comments to clear up goals of code; for public things; for decisions; </li>
+<li>consistency: apply guidelines; do clean code;</li>
+<li>clarity: group code, nest code (formatting), </li>
+<li>make it short: aim to &lt;30 lines per method, narrow; </li>
+</ul>
+</li>
+</ul>
+<img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.4_Writing_software_of_quality.png">
+<p><br></p>
+<h1 id="Ch-5-Discovering-the-domain-architecture"><a href="#Ch-5-Discovering-the-domain-architecture" class="headerlink" title="Ch.5 Discovering the domain architecture"></a>Ch.5 Discovering the domain architecture</h1><ul>
+<li>Understand domain, its segments (bounded contexts), define supporting architecture for each (see DDD)</li>
+<li>Crunch knowledge and implement faithfully it (it is easy to do it wrong though). DDD.</li>
+<li>Consider using DDD but make sure you understand it. </li>
+<li>Strongly consider using analytical part of DDD: defining bounded contexts and relations between them. And consider using strategic part of DDD (supporting architecture) for a bounded context. </li>
+<li>…</li>
+<li>(UL) Define from everyday communication. (It overlaps development and domain) </li>
+<li>(UL) Define glossary (in plain text or in UML)</li>
+<li>Keep UL and model in sync</li>
+<li>Monitor if subdomain appear: two meaning of one term and other. And extract BC — splitting (not partitioning!)</li>
+<li>Consider variants of context mapping (shared kernel and other). See relations between BCs. </li>
+<li>Give each BC its architecture (see list of common architectures) </li>
+<li>Layered architecture… (description as a whole and for each layer, history)</li>
+</ul>
+<img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.5_Discovering_the_domain_architecture.png">
+<p><br></p>
+<h1 id="Ch-6-Presentation-Layer"><a href="#Ch-6-Presentation-Layer" class="headerlink" title="Ch.6 Presentation Layer"></a>Ch.6 Presentation Layer</h1><ul>
+<li>Consider UI/UX before domain or persistence</li>
+<li>Focus on interactions</li>
+<li>Make view model for screens</li>
+<li>(See advice about technologies: Asp.net mvc, Web Forms,</li>
+<li>(See advice on responsive design)</li>
+<li>(See advice on Single-Page applications)</li>
+</ul>
+<img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.6_presentation_layer.png">
+<p><br></p>
+<h1 id="Ch-7-Mythical-Business-Layer"><a href="#Ch-7-Mythical-Business-Layer" class="headerlink" title="Ch.7 Mythical Business Layer"></a>Ch.7 Mythical Business Layer</h1><ul>
+<li>Consider these main patterns: TS, DM, ADM (Now obsolete: Active Record, Table Module)</li>
+<li>Focus on tasks (AL to orchestrate; in BL — Services)</li>
+<li>In TS: script per action</li>
+<li>In DM. When complexity… (see map)</li>
+<li>In ADM. For not complex <em>only</em>. It is more about TS. More AntiPattern</li>
+<li>Use DTO to cross boundaries (input/view models, across tiers)</li>
+</ul>
+<img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.7_the_mythical_business_layer.png">
+<p><br></p>
+<h1 id="Ch-8-Introduction-to-Domain-Model"><a href="#Ch-8-Introduction-to-Domain-Model" class="headerlink" title="Ch.8 Introduction to Domain Model"></a>Ch.8 Introduction to Domain Model</h1><p>Though this book has some introduction to DM it is better to address Eric Evan’s famous book.<br><img src="/Notes-from-Architecting-Applications-for-the-Enterprise/ch.8_intro_domain_model.png"></p>
+<!-- TODO --> 
+<!-- % asset_img ch.10_Introducing_CQRS.png %} -->
+<!-- % asset_img ch.14_The_persistence_layer.png %} -->
+<p>(Still more chapters to outline. Please see book.)</p>
+<h1 id="Terms"><a href="#Terms" class="headerlink" title="Terms"></a>Terms</h1><p>Bounded context - BC<br>DDD<br>Supporting architecture<br>Ubiquitous language - UL<br>Context mapping — diagram of BC<br>Domain<br>Domain model<br>Upstream and downstream contexts — upstream forces downstream to change<br>TS — Transact Script<br>DM — Domain Model<br>ADM — Anemic Domain Model</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li>Domain-Driven Design by Eric Evans</li>
+<li>Enterprise Applications by Fowler and others</li>
+<li>Patterns of OOP by GoF</li>
+<li>(About cohesion/coupling first) Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design (Yourdon Press, 1976) /  Larry Constantine and Edward Yourdon</li>
+<li>“Extreme Programming Explained” by Beck, 1999</li>
+<li>WarExtreme Programming </li>
+<li>Robert Martin on SOLID </li>
+<li>Pragmatic Programmer by Andy Hunt, Dave Thomas </li>
+<li>Their source code at <a href="http://naa4e.codeplex.com/" target="_blank" rel="noopener">http://naa4e.codeplex.com/</a> </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tag/книги/" rel="tag"># книги</a>
+          
+            <a href="/tag/books/" rel="tag"># books</a>
+          
+            <a href="/tag/programming/" rel="tag"># programming</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Patterns_of_Enterprise/" rel="next" title="Notes from PoEAA">
+                <i class="fa fa-chevron-left"></i> Notes from PoEAA
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/CodeComplete/" rel="prev" title="Code Complete, 2nd by Steve McConnell">
+                Code Complete, 2nd by Steve McConnell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Содержание
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Обзор
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Артём Карпов</p>
+              <p class="site-description motion-element" itemprop="description">Разработка ПО</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">Архив</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">Тэги</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:artyomkarpov@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/artkpv" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://linkedin.com/in/artkpv" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://stackoverflow.com/users/511144" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.hackerrank.com/ArtyomKarpov" target="_blank" title="Hackerrank">
+                      
+                        <i class="fa fa-fw fa-line-chart"></i>Hackerrank</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-1-Architects-and-architecture"><span class="nav-number">1.</span> <span class="nav-text">Ch.1 Architects and architecture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-2-Designing-for-success"><span class="nav-number">2.</span> <span class="nav-text">Ch.2 Designing for success</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-3-Principles-of-software-design"><span class="nav-number">3.</span> <span class="nav-text">Ch.3 Principles of software design</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-4-Writing-software-of-quality"><span class="nav-number">4.</span> <span class="nav-text">Ch.4 Writing software of quality</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-5-Discovering-the-domain-architecture"><span class="nav-number">5.</span> <span class="nav-text">Ch.5 Discovering the domain architecture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-6-Presentation-Layer"><span class="nav-number">6.</span> <span class="nav-text">Ch.6 Presentation Layer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-7-Mythical-Business-Layer"><span class="nav-number">7.</span> <span class="nav-text">Ch.7 Mythical Business Layer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch-8-Introduction-to-Domain-Model"><span class="nav-number">8.</span> <span class="nav-text">Ch.8 Introduction to Domain Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Terms"><span class="nav-number">9.</span> <span class="nav-text">Terms</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">10.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Артём Карпов</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.1"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
