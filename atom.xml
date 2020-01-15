@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2017-08-21T10:44:36.000Z</updated>
+  <updated>2020-01-15T15:32:05.225Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Сытые философы или конкурентное программирование на .NET</title>
+    <link href="http://www.artkpv.net/dining-philosophers/"/>
+    <id>http://www.artkpv.net/dining-philosophers/</id>
+    <published>2019-05-21T21:00:00.000Z</published>
+    <updated>2020-01-15T15:32:05.225Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/dining-philosophers/dotnet_logo.png&quot;&gt;
+&lt;p&gt;Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков/процессов, до модели акторов (в следующих частях). Статья может быть полезна для первого знакомства или для того, чтобы освежить свои знания.&lt;/p&gt;
+&lt;p&gt;Зачем вообще уметь это? Транзисторы достигают своего минимального размера, закон Мура упирается в ограничение скорости света и поэтому рост наблюдается в количестве, транзисторов можно делать больше. При этом количество данных растет, а пользователи ожидают немедленной реакции систем. В такой ситуации “обычное” программирование, когда у нас один выполняющий поток, уже не эффективно. Нужно как-то решать проблему одновременного или конкурентного выполнения. Причем, проблема эта существует на разных уровнях: на уровне потоков, на уровне процессов, на уровне машин в сети (распределенные системы). В .NET есть качественные, проверенные временем, технологии для быстрого и эффективного решения таких задач.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="programming, concurrency, dotnet" scheme="http://www.artkpv.net/tag/programming-concurrency-dotnet/"/>
+    
+  </entry>
   
   <entry>
     <title>Code Complete, 2nd by Steve McConnell</title>
@@ -69,8 +89,8 @@
   
   <entry>
     <title>Notes from PoEAA</title>
-    <link href="http://www.artkpv.net/Patterns_of_Enterprise/"/>
-    <id>http://www.artkpv.net/Patterns_of_Enterprise/</id>
+    <link href="http://www.artkpv.net/Patterns-of-Enterprise/"/>
+    <id>http://www.artkpv.net/Patterns-of-Enterprise/</id>
     <published>2017-07-16T21:00:00.000Z</published>
     <updated>2017-08-21T10:44:36.000Z</updated>
     
