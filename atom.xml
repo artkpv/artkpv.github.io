@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2020-03-05T12:49:11.094Z</updated>
+  <updated>2020-03-05T12:51:05.374Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/"/>
     <id>http://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/</id>
     <published>2020-03-05T11:47:55.000Z</published>
-    <updated>2020-03-05T12:49:11.094Z</updated>
+    <updated>2020-03-05T12:51:05.374Z</updated>
     
     <summary type="html">
     
@@ -34,6 +34,8 @@
     </summary>
     
     
+      <category term="programming, dotnet" scheme="http://www.artkpv.net/tag/programming-dotnet/"/>
+    
   </entry>
   
   <entry>
@@ -41,7 +43,7 @@
     <link href="http://www.artkpv.net/dining-philosophers/"/>
     <id>http://www.artkpv.net/dining-philosophers/</id>
     <published>2019-05-21T21:00:00.000Z</published>
-    <updated>2020-01-15T15:32:05.225Z</updated>
+    <updated>2020-03-05T12:51:06.921Z</updated>
     
     <summary type="html">
     
