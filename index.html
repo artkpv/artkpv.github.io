@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Поиск...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="Разработка ПО">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Артём Карпов">
+<meta property="og:url" content="http://www.artkpv.net/index.html">
+<meta property="og:site_name" content="Артём Карпов">
+<meta property="og:description" content="Разработка ПО">
+<meta property="og:locale" content="ru_RU">
+<meta property="article:author" content="Артём Карпов">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.artkpv.net/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'ru'
+  };
+</script>
+<title>Артём Карпов</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Показать/скрыть меню" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Артём Карпов</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Главная</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>О сайте</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Архив</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Содержание
+        </li>
+        <li class="sidebar-nav-overview">
+          Обзор
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Артём Карпов</p>
+  <div class="site-description" itemprop="description">Разработка ПО</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">Архив</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tag/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">Тэги</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:artyomkarpov@gmail.com" title="E-Mail → mailto:artyomkarpov@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/artkpv" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;artkpv" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://linkedin.com/in/artkpv" title="Linkedin → http:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;artkpv" rel="noopener" target="_blank">Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://stackoverflow.com/users/511144" title="StackOverflow → http:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;511144" rel="noopener" target="_blank">StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hackerrank.com/ArtyomKarpov" title="Hackerrank → https:&#x2F;&#x2F;www.hackerrank.com&#x2F;ArtyomKarpov" rel="noopener" target="_blank">Hackerrank</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/artworks" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;artworks" rel="noopener" target="_blank">Codeforces</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Sample-ASP-NET-Core-Web-API-project/" class="post-title-link" itemprop="url">Sample ASP.NET Core Web API project</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2020-03-05 14:47:55" itemprop="dateCreated datePublished" datetime="2020-03-05T14:47:55+03:00">2020-03-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2020-03-13 18:11:19" itemprop="dateModified" datetime="2020-03-13T18:11:19+03:00">2020-03-13</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img src="/Sample-ASP-NET-Core-Web-API-project/ASP.NET-Web-API-Logo.png" class="">
+
+<p>I published a new sample <a target="_blank" rel="noopener" href="https://dotnet.microsoft.com/apps/aspnet">Web API</a> project that automates back-end side for a biking application. It implements <a target="_blank" rel="noopener" href="https://oauth.net/2/">OAuth 2</a> security for authentication on a separate server (<a href="identityserver4.readthedocs.io/">IdentityServer4</a>) and has many other good features found in many today systems. This project also shows how we can easily automate development from CLI only using PowerShell, Python. It was done in Vim and command line environment. This became possible because Microsoft did great work porting its tools into other platforms (<a target="_blank" rel="noopener" href="https://github.com/OmniSharp/Omnisharp-vim">OmniSharp-Vim</a>, <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/core/tools/">dotnet cli</a>). </p>
+<p>Please see the sample project at Github: <a target="_blank" rel="noopener" href="https://github.com/artkpv/Sample-ASP-Core-API-with-OAuth">https://github.com/artkpv/Sample-ASP-Core-API-with-OAuth</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/dining-philosophers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/dining-philosophers/" class="post-title-link" itemprop="url">Сытые философы или конкурентное программирование на .NET</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2019-05-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-22T00:00:00+03:00">2019-05-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2020-03-05 15:51:06" itemprop="dateModified" datetime="2020-03-05T15:51:06+03:00">2020-03-05</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img src="/dining-philosophers/dotnet_logo.png" class="">
+
+<p>Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков/процессов, до модели акторов (в следующих частях). Статья может быть полезна для первого знакомства или для того, чтобы освежить свои знания.</p>
+<p>Зачем вообще уметь это? Транзисторы достигают своего минимального размера, закон Мура упирается в ограничение скорости света и поэтому рост наблюдается в количестве, транзисторов можно делать больше. При этом количество данных растет, а пользователи ожидают немедленной реакции систем. В такой ситуации “обычное” программирование, когда у нас один выполняющий поток, уже не эффективно. Нужно как-то решать проблему одновременного или конкурентного выполнения. Причем, проблема эта существует на разных уровнях: на уровне потоков, на уровне процессов, на уровне машин в сети (распределенные системы). В .NET есть качественные, проверенные временем, технологии для быстрого и эффективного решения таких задач.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/dining-philosophers/#more" rel="contents">
+                Читать полностью &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/CodeComplete/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/CodeComplete/" class="post-title-link" itemprop="url">Code Complete, 2nd by Steve McConnell</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2017-08-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-08-06T00:00:00+03:00">2017-08-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-08-21 13:44:36" itemprop="dateModified" datetime="2017-08-21T13:44:36+03:00">2017-08-21</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img src="/CodeComplete/cover.png" class="">
+
+
+<p>Consider one book that would try to compile all best practices for all past years for software construction. With about 450 items in bibliography of most important publications at the time (second edition published in 2004 y.) this book endeavours to bring development process at a totally new level. Essentially this book interprets most important those publications and gives guidelines for building software. It takes recommendations of gurus in the field and scientists and presents practical rules for effectively building quality software thus narrowing the gap between production and research. Hence the title of the book which implies that it is some complete set of laws. </p>
+<p>The book is divided into seven parts. Giving some base terms and ideas in part I, author goes from the very bottom of construction process, the code itself (parts II, III, IV) to upper processes. Part V is about working with existing code. Controlling system development is in part VI. And the last part VII is about requirements to creator itself. For quick use the book includes checklists for all stages of construction and many figures and tables as well as key terms. Thus can be used as a quick reference.</p>
+<p>Below are my notes from the book (unfinished).</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/CodeComplete/#more" rel="contents">
+                Читать полностью &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Notes-from-Architecting-Applications-for-the-Enterprise/" class="post-title-link" itemprop="url">Notes from "Architecting Applications for the Enterprise"</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+03:00">2017-07-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-08-21 13:44:36" itemprop="dateModified" datetime="2017-08-21T13:44:36+03:00">2017-08-21</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img src="/images/aa4e_cover.png" class="">
+
+<p>That great book written by D. Esposito &amp; A. Saltarello collects recipes for making solutions for enterprise applications. Though it is not a usual cookbook but guiding principals for making a ‘dish’. It is based on author’s experience and common practices from other books. Second edition published in Jan 2015 seems to be a good summation of best practices with a brief history of them for that time in .NET world.</p>
+<p>Authors begins by giving answers to such questions as what is architecture of applications? who are software architects? how modern apps developing differs from past? We can divide the book into two parts (though authors divide it into 4 parts). In the first one there are answers to these questions: what is needed for success work? what’s required from a team? what is code quality and how to achieve it? and other. In the second one, practical recommendations for developers: what types of architecture they see? what are parts of those? main advantages and disadvantages.</p>
+<p>To my mind to understand the book a practical experience in software developing is required, it is not for beginners. </p>
+<p>Below are notes and mind maps of the book.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Notes-from-Architecting-Applications-for-the-Enterprise/#more" rel="contents">
+                Читать полностью &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Patterns-of-Enterprise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Patterns-of-Enterprise/" class="post-title-link" itemprop="url">Notes from PoEAA</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2017-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-17T00:00:00+03:00">2017-07-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-08-21 13:44:36" itemprop="dateModified" datetime="2017-08-21T13:44:36+03:00">2017-08-21</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/poeaa.jpg" alt="PoEAA"></p>
+<p>This is the book you need if you wish to develop an application for quickly evolving, complex rules of some enterprise. Though it has some out dated parts probably every serious programmer should read it. The book is about patterns for building enterprise applications those ordered for some specific users and with main limitation being development time and intended to run long. Authors compiled many years of top professional developers wisdom. They do not need an introduction I guess (esp. Martin Fowler).</p>
+<p>Book is large and divided into two parts. The first one gives some tutorial on applying patterns. The second part is a reference. </p>
+<p>Below is my very short notes to some key chapters. </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Patterns-of-Enterprise/#more" rel="contents">
+                Читать полностью &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/pragmatic-programmer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/pragmatic-programmer/" class="post-title-link" itemprop="url">Notes from The Pragmatic Programmer book</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2017-07-04 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-04T00:00:00+03:00">2017-07-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-08-21 13:44:36" itemprop="dateModified" datetime="2017-08-21T13:44:36+03:00">2017-08-21</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/pragmatic_programmer.jpg" alt="pragmatic programmer"></p>
+<p>This is a popular book from 1999 y. which don’t lose its value even now was created by coders who did their applications in 80-90th. It looks like authors got their success as writers or speakers more than by actually coding something. As the title entails it is about how to become productive programmer, rules for it. Those vary from general (like fix a ‘broken window’) to specific ones (like use postconditions). Most of the time it is better to think out your examples to connect dots, to remember it but still examples from the book can be taken also. It has some enlightening thoughts about programming philosophy, e.g. it states that the main matter we mangle with is plain text thus we have to master right tools. I use rules from this book in my everyday work and strongly advice this to any programmer regardless of her programming language or platform. So below are my notes from this book.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/pragmatic-programmer/#more" rel="contents">
+                Читать полностью &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Script-to-sync-Toggl-entries-with-Assembla/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Script-to-sync-Toggl-entries-with-Assembla/" class="post-title-link" itemprop="url">Script to sync Toggl entries with Assembla</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2015-06-25 00:00:00" itemprop="dateCreated datePublished" datetime="2015-06-25T00:00:00+03:00">2015-06-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-07-20 12:14:24" itemprop="dateModified" datetime="2017-07-20T12:14:24+03:00">2017-07-20</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>См. скрипт под катом.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Script-to-sync-Toggl-entries-with-Assembla/#more" rel="contents">
+                Читать полностью &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/translation-of-the-introduction-to-bdd-by-don-north/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/translation-of-the-introduction-to-bdd-by-don-north/" class="post-title-link" itemprop="url">Перевод. Введение в программирование через поведение (BDD)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2014-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-11T00:00:00+04:00">2014-03-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-07-04 18:41:20" itemprop="dateModified" datetime="2017-07-04T18:41:20+03:00">2017-07-04</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>(<i>Прим. Оригинал статьи на <a target="_blank" rel="noopener" href="http://dannorth.net/introducing-bdd">http://dannorth.net/introducing-bdd</a>. Дэн Норт — преподаватель agile методологий разработки. Разрабатывает ПО и учит этому около 20 лет. Создатель собственного агентства по консультированию и разработке ПО. Ввел понятие разработка через поведение (BDD).</i> Опубликовал этот перевод на Хабре <a target="_blank" rel="noopener" href="http://habrahabr.ru/post/216923/">здесь</a>.)</p>
+<p><i>История: Эта статья впервые появилась в журнале <a target="_blank" rel="noopener" href="http://www.stickyminds.com/resources/magazine-articles">Better Software</a> в марте 2006. Она была переведена на несколько языков.</i></p>
+<p>Однажды я столкнулся с проблемой. Обучая разработчиков практикам agile программирования, таким как TDD в различных проектах, я часто встречал непонимание и растерянность. Они хотели знать, где начать, что тестировать, а что не тестировать, как много тестировать за раз, как называть тесты и как понять, почему тесты падают. </p>
+<p>Чем больше я пользовался TDD, тем больше я понимал, что не столько оттачиваю своё мастерство, достигая новых его вершин, сколько то, что это было движение в слепую. Я помню, как мне все чаще приходила мысль: “Эх, вот бы мне кто-нибудь сказал это раньше!”, чем мысль: “Отлично, дорога ясна”. Я решил, что нужно найти способ обучать TDD, показывающий, как верно работать с ним сразу и без ошибок.</p>
+<p>И этот способ — это программирование через поведение. Оно выросло из выработанных agile практик и призвано сделать их доступнее и эффективнее для команд, незнакомых с ними. Со временем, BDD стало включать в себя agile анализ и автоматическое приемочное (<i>прим. </i>acceptance) тестирование.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/translation-of-the-introduction-to-bdd-by-don-north/#more" rel="contents">
+                Читать полностью &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Exporting-from-alfabank-to-gnucash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Exporting-from-alfabank-to-gnucash/" class="post-title-link" itemprop="url">Экспортируем проводки из интернет банкинга Альфабанк в GnuCash (QIF)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2014-03-09 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-09T00:00:00+04:00">2014-03-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-07-04 19:42:46" itemprop="dateModified" datetime="2017-07-04T19:42:46+03:00">2017-07-04</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Для толкового учета личных финансов, после недолгого интернет поиска, выбрал популярную и свободную GnuCash. Программа начата в конце 90-х годов, написана частью на LISP, имеет функцию двойной записи и много функции. Пришлось изучить, что такое двойная запись, в чем очень помогли посты на <a target="_blank" rel="noopener" href="http://www.ashep.org/tag/gnucash/">http://www.ashep.org/tag/gnucash/</a>. </p>
+<p>Но вводить вручную проводки из интернет банкинга не хотелось, а хотелось, чтобы все было быстро. Внешнего программного интерфейса для Альфабанка я не нашел в открытом доступе, поэтому написал небольшой скрипт для конвертирования CSV файла, легко скачиваемого из интернет банкинга (подробная выписка), в файл QIF. Скрипт можно достать на <a target="_blank" rel="noopener" href="https://github.com/w1ld/csv-to-qif-converter">https://github.com/w1ld/csv-to-qif-converter</a> . Для его использования нужно создать дополнительный файл с описанием правил конвертирования, там же можно добавить связанные счета, т.е. то на какой счет будет сделана проводка. Это описывается с использованием Powershell в том файле. Пример такого файла можно найти рядом со скриптом. </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Артём Карпов</span>
+</div>
+  <div class="powered-by">Генератор — <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

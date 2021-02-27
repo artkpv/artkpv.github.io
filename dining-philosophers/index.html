@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Поиск...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков&#x2F;процессов, до модели акторов (в след">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Сытые философы или конкурентное программирование на .NET">
+<meta property="og:url" content="http://www.artkpv.net/dining-philosophers/index.html">
+<meta property="og:site_name" content="Артём Карпов">
+<meta property="og:description" content="Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков&#x2F;процессов, до модели акторов (в след">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="http://www.artkpv.net/dining-philosophers/dotnet_logo.png">
+<meta property="og:image" content="http://www.artkpv.net/dining-philosophers/livelock.png">
+<meta property="og:image" content="http://www.artkpv.net/dining-philosophers/starvation.png">
+<meta property="og:image" content="http://www.artkpv.net/dining-philosophers/spinlock.png">
+<meta property="article:published_time" content="2019-05-21T21:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-05T12:51:06.921Z">
+<meta property="article:author" content="Артём Карпов">
+<meta property="article:tag" content="programming, concurrency, dotnet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.artkpv.net/dining-philosophers/dotnet_logo.png">
+
+
+<link rel="canonical" href="http://www.artkpv.net/dining-philosophers/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ru'
+  };
+</script>
+<title>Сытые философы или конкурентное программирование на .NET | Артём Карпов</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Показать/скрыть меню" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Артём Карпов</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Главная</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>О сайте</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Архив</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Содержание
+        </li>
+        <li class="sidebar-nav-overview">
+          Обзор
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0"><span class="nav-number">1.</span> <span class="nav-text">Задача</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%9F%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B-%D1%81-%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B5%D0%B9"><span class="nav-number">2.</span> <span class="nav-text">Проблемы с синхронизацией</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%D0%91%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D1%84%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84%D1%8B"><span class="nav-number">2.1.</span> <span class="nav-text">Блокированные философы</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%D0%93%D0%BE%D0%BB%D0%BE%D0%B4-%D1%84%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84%D0%BE%D0%B2"><span class="nav-number">2.2.</span> <span class="nav-text">Голод философов</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%D0%A1%D0%BC%D0%B5%D1%80%D1%82%D1%8C-%D1%84%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84%D0%B0"><span class="nav-number">2.3.</span> <span class="nav-text">Смерть философа</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%9E%D1%84%D0%B8%D1%86%D0%B8%D0%B0%D0%BD%D1%82"><span class="nav-number">3.</span> <span class="nav-text">Официант</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F"><span class="nav-number">3.1.</span> <span class="nav-text">Решения в пространстве пользователя</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D1%80%D0%B5%D0%B6%D0%B8%D0%BC%D0%B5-%D1%8F%D0%B4%D1%80%D0%B0"><span class="nav-number">3.2.</span> <span class="nav-text">Решения в режиме ядра</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%D0%93%D0%B8%D0%B1%D1%80%D0%B8%D0%B4%D0%BD%D1%8B%D0%B5-%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F"><span class="nav-number">3.3.</span> <span class="nav-text">Гибридные решения</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE-%D1%84%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84%D0%BE%D0%B2-%D0%B8%D0%BB%D0%B8-async-await"><span class="nav-number">3.4.</span> <span class="nav-text">Много философов или async &#x2F; await</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%97%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5"><span class="nav-number">4.</span> <span class="nav-text">Заключение</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%98%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B8"><span class="nav-number">5.</span> <span class="nav-text">Источники</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Артём Карпов</p>
+  <div class="site-description" itemprop="description">Разработка ПО</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">Архив</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tag/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">Тэги</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:artyomkarpov@gmail.com" title="E-Mail → mailto:artyomkarpov@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/artkpv" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;artkpv" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://linkedin.com/in/artkpv" title="Linkedin → http:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;artkpv" rel="noopener" target="_blank">Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://stackoverflow.com/users/511144" title="StackOverflow → http:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;511144" rel="noopener" target="_blank">StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hackerrank.com/ArtyomKarpov" title="Hackerrank → https:&#x2F;&#x2F;www.hackerrank.com&#x2F;ArtyomKarpov" rel="noopener" target="_blank">Hackerrank</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/artworks" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;artworks" rel="noopener" target="_blank">Codeforces</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ru">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/dining-philosophers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Сытые философы или конкурентное программирование на .NET
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2019-05-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-22T00:00:00+03:00">2019-05-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2020-03-05 15:51:06" itemprop="dateModified" datetime="2020-03-05T15:51:06+03:00">2020-03-05</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/dining-philosophers/dotnet_logo.png" class="">
+
+<p>Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков/процессов, до модели акторов (в следующих частях). Статья может быть полезна для первого знакомства или для того, чтобы освежить свои знания.</p>
+<p>Зачем вообще уметь это? Транзисторы достигают своего минимального размера, закон Мура упирается в ограничение скорости света и поэтому рост наблюдается в количестве, транзисторов можно делать больше. При этом количество данных растет, а пользователи ожидают немедленной реакции систем. В такой ситуации “обычное” программирование, когда у нас один выполняющий поток, уже не эффективно. Нужно как-то решать проблему одновременного или конкурентного выполнения. Причем, проблема эта существует на разных уровнях: на уровне потоков, на уровне процессов, на уровне машин в сети (распределенные системы). В .NET есть качественные, проверенные временем, технологии для быстрого и эффективного решения таких задач.</p>
+<span id="more"></span>
+
+<h2 id="Задача"><a href="#Задача" class="headerlink" title="Задача"></a>Задача</h2><p>Эдсгер Дейкстра задавал эту проблему своим ученикам еще в 1965. Устоявшаяся формулировка такая. Есть некоторое (обычно пять) количество философов и столько же вилок. Они сидят за круглым столом, вилки между ними. Философы могут есть из своих тарелок с бесконечной пищей, думать или ждать. Чтобы поесть философу, нужно взять две вилки (последний делит вилку с первым). Взять и положить вилку - два раздельных действия. Все философы безмолвные. Задача найти такой алгоритм, чтобы все они думали и были сыты спустя даже 54 года.</p>
+<p>Сначала попробуем решить эту задачу через использование разделяемого места. Вилки лежат на общем столе и философы просто их берут, когда они есть, и кладут обратно. Здесь появляются проблемы с синхронизацией, когда именно брать вилки? что делать если вилки нет? и др. Но сначала давайте запустим философов.</p>
+<p>Для запуска потоков используем пул потоков через <code>Task.Run</code> метод:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> cancelTokenSource = <span class="keyword">new</span> CancellationTokenSource();</span><br><span class="line">Action&lt;<span class="built_in">int</span>&gt; create = (i) =&gt; RunPhilosopher(i, cancelTokenSource.Token);</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; philosophersAmount; i++) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> icopy = i;</span><br><span class="line">    <span class="comment">// Поместить задачу в очередь пула потоков. Метод RunDeadlock не запускаеться </span></span><br><span class="line">    <span class="comment">// сразу, а ждет своего потока. Асинхронный запуск.</span></span><br><span class="line">    philosophers[i] = Task.Run(() =&gt; create(icopy), cancelTokenSource.Token);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Пул потоков создан для оптимизации создания и удаления потоков. У этого пула есть очередь с задачами и CLR создает или удаляет потоки в зависимости от количества этих задач. Один пул на все AppDomain’ы. Этот пул стоит использовать почти всегда, т.к. не нужно заморачиваться с созданием, удалением потоков, их очередями и пр. Можно и без пула, но тогда придется напрямую использовать <code>Thread</code>, это целесообразно для случаев, когда нужно поменять приоритет потоку, когда у нас долгая операция, для Foreground потока и др. </p>
+<p>А <code>System.Threading.Tasks.Task</code> класс, как раз позволяет легко работать с этим пулом потоков (или вообще обходиться без него). Он представляет собой асинхронную операцию. Грубо говоря, это тот же <code>Thread</code>, но со всякими удобствами: возможность запускать таск после блока других тасков, возвращать их из функций, удобно их прерывать и мн. др. Они нужны для поддержки async/await конструкций (Task-based Asynchronous Pattern, синтаксический сахар для ожидания IO операции). Об этом еще поговорим.</p>
+<p><code>CancelationTokenSource</code> здесь нужен, чтобы поток мог сам завершится по сигналу вызывающего потока.</p>
+<h2 id="Проблемы-с-синхронизацией"><a href="#Проблемы-с-синхронизацией" class="headerlink" title="Проблемы с синхронизацией"></a>Проблемы с синхронизацией</h2><h3 id="Блокированные-философы"><a href="#Блокированные-философы" class="headerlink" title="Блокированные философы"></a>Блокированные философы</h3><p>Хорошо, мы умеем создавать потоки, давайте попробуем пообедать:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Кто какие вилки взял. К примеру: 1 1 3 3 - 1й и 3й взяли первые две пары.</span></span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span>[] forks = Enumerable.Repeat(<span class="number">0</span>, philosophersAmount).ToArray();</span><br><span class="line"></span><br><span class="line"><span class="comment">// То же, что RunPhilosopher()</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RunDeadlock</span>(<span class="params"><span class="built_in">int</span> i, CancellationToken token</span>) </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Ждать вилку, взять её. Эквивалентно: </span></span><br><span class="line">    <span class="comment">// while(true) </span></span><br><span class="line">    <span class="comment">//     if forks[fork] == 0 </span></span><br><span class="line">    <span class="comment">//          forks[fork] = i+1</span></span><br><span class="line">    <span class="comment">//          break</span></span><br><span class="line">    <span class="comment">//     Thread.Sleep() или Yield() или SpinWait()</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">TakeFork</span>(<span class="params"><span class="built_in">int</span> fork</span>)</span> =&gt;</span><br><span class="line">        SpinWait.SpinUntil(() =&gt; </span><br><span class="line">            Interlocked.CompareExchange(<span class="keyword">ref</span> forks[fork], i+<span class="number">1</span>, <span class="number">0</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Для простоты, но можно с Interlocked.Exchange:</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">PutFork</span>(<span class="params"><span class="built_in">int</span> fork</span>)</span> =&gt; forks[fork] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        TakeFork(Left(i));</span><br><span class="line">        TakeFork(Right(i));</span><br><span class="line">        eatenFood[i] = (eatenFood[i] + <span class="number">1</span>) % (<span class="built_in">int</span>.MaxValue - <span class="number">1</span>);</span><br><span class="line">        PutFork(Left(i));</span><br><span class="line">        PutFork(Right(i));</span><br><span class="line">        Think(i);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Завершить работу по-хорошему.</span></span><br><span class="line">        token.ThrowIfCancellationRequested();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Здесь мы сначала пробуем взять левую, а потом правую вилки и если получилось, то едим и кладем их обратно. Взятие одной вилки атомарно, т.е. два потока не могут взять одну одновременно (неверно: первый читает, что вилка свободна, второй – тоже, первый берет, второй берет). Для этого <code>Interlocked.CompareExchange</code>, который должен быть реализован с помощью инструкции процессора (<code>TSL</code>, <code>XCHG</code>), которая блокирует участок памяти для атомарного последовательного чтения и записи. А SpinWait эквивалентно конструкции <code>while(true)</code> только с небольшой “магией” – поток занимает процессор (<code>Thread.SpinWait</code>), но иногда передает управление другому потоку (<code>Thread.Yeild</code>) или засыпает (<code>Thread.Sleep</code>).</p>
+<p>Но это решение не работает, т.к. потоки скоро (у меня в течении секунды) блокируются: все философы берут свою левую вилку, а правой нет. Массив forks тогда имеет значения: 1 2 3 4 5. </p>
+<img src="/dining-philosophers/livelock.png" class="">
+
+<p>На рисунке, блокирование потоков (deadlock). Зеленым цветом – выполнение, красным – синхронизация, серым – поток спит. Ромбиками обозначено время запуска Task’ов.</p>
+<h3 id="Голод-философов"><a href="#Голод-философов" class="headerlink" title="Голод философов"></a>Голод философов</h3><p>Хотя чтобы мыслить особенно много еды не нужно, но голод кого угодно заставить бросить философию. Попробуем смоделировать ситуацию голодания потоков в нашей задаче. Голодание – это когда поток работает, но без существенной работы, другими словами это тот же дедлок, только теперь поток не спит, а активно ищет как бы поесть, но еды нет. Для того, чтобы избежать частую блокировку будем класть вилку назад, если не смогли взять другую.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// То же что и в RunDeadlock, но теперь кладем вилку назад и добавляем плохих философов.</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RunStarvation</span>(<span class="params"><span class="built_in">int</span> i, CancellationToken token</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">bool</span> hasTwoForks = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">var</span> waitTime = TimeSpan.FromMilliseconds(<span class="number">50</span>);</span><br><span class="line">        <span class="comment">// Плохой философов может уже иметь вилку:</span></span><br><span class="line">        <span class="built_in">bool</span> hasLeft = forks[Left(i)] == i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (hasLeft || TakeFork(Left(i), i + <span class="number">1</span>, waitTime))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (TakeFork(Right(i), i + <span class="number">1</span>, TimeSpan.Zero))</span><br><span class="line">                hasTwoForks = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                PutFork(Left(i)); <span class="comment">// Иногда плохой философ отдает вилку назад.</span></span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (!hasTwoForks)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (token.IsCancellationRequested) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        eatenFood[i] = (eatenFood[i] + <span class="number">1</span>) % (<span class="built_in">int</span>.MaxValue - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">bool</span> goodPhilosopher = i % <span class="number">2</span> == <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// А плохой философ забывает положить свою вилку обратно:</span></span><br><span class="line">        <span class="keyword">if</span> (goodPhilosopher)</span><br><span class="line">            PutFork(Left(i));</span><br><span class="line">        <span class="comment">// А если и правую не положит, то хорошие будут вообще без еды.</span></span><br><span class="line">        PutFork(Right(i));</span><br><span class="line"></span><br><span class="line">        Think(i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (token.IsCancellationRequested)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Теперь можно ждать определенное время.</span></span><br><span class="line"><span class="function"><span class="built_in">bool</span> <span class="title">TakeFork</span>(<span class="params"><span class="built_in">int</span> fork, <span class="built_in">int</span> philosopher, TimeSpan? waitTime = <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> SpinWait.SpinUntil(</span><br><span class="line">        () =&gt; Interlocked.CompareExchange(<span class="keyword">ref</span> forks[fork], philosopher, <span class="number">0</span>) == <span class="number">0</span>,</span><br><span class="line">              waitTime ?? TimeSpan.FromMilliseconds(<span class="number">-1</span>)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>В этом коде важно то, что два из четырех философа забывают положить свою левую вилку. И получается, что они едят больше еды, а другие начинают голодать, хотя у потоков одинаковый приоритет. Здесь они не совсем голодают, т.к. плохие философы кладут свои вилки иногда назад. У меня получается, что хорошие едят где-то в 5 раз меньше, чем плохие. Так небольшая ошибка в коде приводит к тому, что падает производительность. Здесь еще стоит заметить, что возможна редкая ситуация, когда все философы берут левую вилку, правой нет, они кладут левую, ждут, опять берут левую и т.д. Эта ситуация тоже голодание, больше похожая на взаимную блокировку. Повторить ее у меня не получилось. Ниже картинка для ситуации, когда два плохих философа забрали обе вилки, а два хороших голодают.</p>
+<img src="/dining-philosophers/starvation.png" class="">
+
+<p>Здесь видно, что потоки просыпаются иногда и пробуют получить ресурс. Два ядра из четырех ничего не делают (зеленый график вверху). </p>
+<h3 id="Смерть-философа"><a href="#Смерть-философа" class="headerlink" title="Смерть философа"></a>Смерть философа</h3><p>Ну и еще одна проблема, которая может прервать славный обед философов – это если один из них внезапно умрёт с вилками в руках (и его так и похоронят). Тогда соседи останутся без обеда. Пример кода для этого случая вы можете придумать и сами, например выбрасывается <code>NullReferenceException</code> после того, как философ берет вилки. И, между прочим, исключение будет не обработанным и вызывающий код его просто так не поймает (для этого <code>AppDomain.CurrentDomain.UnhandledException</code> и др.). Поэтому обработчики ошибок необходимы в самих потоках и с корректным завершением.</p>
+<h2 id="Официант"><a href="#Официант" class="headerlink" title="Официант"></a>Официант</h2><p>Хорошо, как нам решить эту проблему с взаимными блокировками, голоданием и смертями? Будем допускать только одного философа до вилок, добавим взаимное исключение (mutual exclusion) потоков для этого места. Как это сделать? Предположим, что рядом с философами стоит официант, который дает разрешение какому-нибудь одному философу взять вилки. Как нам сделать этого официанта и как философы будут просить его, вопросы интересные. </p>
+<p>Простейший способ – это когда философы будут просто постоянно просить официанта дать доступ к вилкам. Т.е. теперь философы будут не ждать вилку рядом, а ждать или просить официанта. Сначала используем для этого только User Space, в нем мы не используем прерывания для вызова каких-нибудь процедур из ядра (о них ниже).</p>
+<h3 id="Решения-в-пространстве-пользователя"><a href="#Решения-в-пространстве-пользователя" class="headerlink" title="Решения в пространстве пользователя"></a>Решения в пространстве пользователя</h3><p>Здесь будем делать тоже, что раньше делали с одной вилкой и двумя философами, будем крутиться в цикле и ждать. Но теперь это будут все философы и как бы только одна вилка, т.е. можно сказать будет есть только тот философ, который взял эту “золотую вилку” у официанта. Для этого используем SpinLock.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> SpinLock spinLock = <span class="keyword">new</span> SpinLock();  <span class="comment">// Наш &quot;официант&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RunSpinLock</span>(<span class="params"><span class="built_in">int</span> i, CancellationToken token</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Взаимная блокировка через busy waiting. Вызываем до try, чтобы</span></span><br><span class="line">        <span class="comment">// выбрасить исключение в случае ошибки в самом SpinLock.</span></span><br><span class="line">        <span class="built_in">bool</span> hasLock = <span class="literal">false</span>;</span><br><span class="line">        spinLock.Enter(<span class="keyword">ref</span> hasLock);</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Здесь может быть только один поток (mutual exclusion).</span></span><br><span class="line">            forks[Left(i)] = i + <span class="number">1</span>;  <span class="comment">// Берем вилку сразу, без ожидания.</span></span><br><span class="line">            forks[Right(i)] = i + <span class="number">1</span>;</span><br><span class="line">            eatenFood[i] = (eatenFood[i] + <span class="number">1</span>) % (<span class="built_in">int</span>.MaxValue - <span class="number">1</span>);</span><br><span class="line">            forks[Left(i)] = <span class="number">0</span>;</span><br><span class="line">            forks[Right(i)] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(hasLock) spinLock.Exit();  <span class="comment">// Избегаем проблемы со смертью философа.</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Think(i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (token.IsCancellationRequested)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>SpinLock</code> это блокировщик, с, грубо говоря, тем же <code>while(true) &#123; if (!lock) break; &#125;</code>, но с еще большей “магией”, чем в <code>SpinWait</code> (который там используется). Теперь он умеет считать ожидающих, немного усыплять их и мн. др. В общем, делает всё возможное для оптимизации. Но надо помнить, что это всё тот же активный цикл, который ест ресурсы процессора и держит поток, который может привести к голоданию, если один из философов становится приоритетнее других, но не имеет золотой вилки (Priority Inversion problem). Поэтому используем его только для очень очень коротких изменений в общей памяти, без всяких сторонних вызовов, вложенных блокировок и пр. сюрпризов.</p>
+<img src="/dining-philosophers/spinlock.png" class="">
+
+<p>Рисунок для <code>SpinLock</code>. Потоки постоянно “воюют” за золотую вилку. Случаются провалы – на рисунке выделенная область. Ядра используются не полностью: только около 2/3 этими четырьмя потоками.</p>
+<p>Другое решение здесь было бы использовать только <code>Interlocked.CompareExchange</code> с тем же активным ожиданием, как показано в коде выше (в голодающих философах), но это, как было уже сказано, теоретически может привести к блокировке. </p>
+<p>Про <code>Interlocked</code> стоит сказать, что там не только <code>CompareExchange</code>, но и другие методы для атомарного чтения И записи. А через повтор изменения в случае, если другой поток успевает внести свои изменения (чтение 1, чтение 2, запись 2, запись 1 плохая), он может использоваться для сложных изменений одного значения (Interlocked Anything паттерн).</p>
+<h3 id="Решения-в-режиме-ядра"><a href="#Решения-в-режиме-ядра" class="headerlink" title="Решения в режиме ядра"></a>Решения в режиме ядра</h3><p>Чтобы избежать потери ресурсов в цикле, посмотрим как можно блокировать поток. Другими словами, продолжая наш пример, посмотрим, как официант усыпит философа и разбудит его только тогда, когда надо. Сначала рассмотрим, как это сделать через режим ядра операционной системы. Все структуры там часто оказываются медленнее, чем те, что в пространстве пользователя. Медленнее в несколько раз, например <code>AutoResetEvent</code> может быть в 53 раза медленнее <code>SpinLock</code> [Рихтер]. Но с их помощью можно синхронизировать процессы по всей системе, управляемые или нет.</p>
+<p>Основная конструкция здесь это семафор, предложенный Дейкстрой более полувека назад. Семафор это, упрощенно говоря, положительное целое число, управляемое системой, и две операции на нем, – увеличить и уменьшить. Если уменьшить не получается, ноль, то вызывающий поток блокируется. Когда число увеличивается каким-нибудь другим активным потоком/процессом, тогда потоки пропускаются, а семафор опять уменьшается на число прошедших. Можно представить поезда в узком месте с семафором. .NET предлагает несколько конструкций с подобными функциями: <code>AutoResetEvent</code>, <code>ManualResetEvent</code>, <code>Mutex</code> и сам <code>Semaphore</code>. Мы будем использовать <code>AutoResetEvent</code>, это самая простая из этих конструкций: только два значения 0 и 1 (false, true). Ее метод <code>WaitOne()</code> блокирует вызывающий поток, если значение было 0, а если 1, то понижает до 0 и пропускает его. А метод <code>Set()</code> повышает до 1 и пропускает одного ожидающего, который опять понижает до 0. Действует, как турникет в метро.</p>
+<p>Усложним решение и будем использовать блокировку для каждого философа, а не для всех сразу. Т.е. теперь есть могут сразу несколько философов, а не один. Но мы опять блокируем доступ к столу, для того чтобы корректно, избегая гонок (race conditions), взять вилки. </p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Для блокирования отдельного философа.</span></span><br><span class="line"><span class="comment">// Инициализируется: new AutoResetEvent(true) для каждого.</span></span><br><span class="line"><span class="keyword">private</span> AutoResetEvent[] philosopherEvents;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Для доступа к вилкам / доступ к столу.</span></span><br><span class="line"><span class="keyword">private</span> AutoResetEvent tableEvent = <span class="keyword">new</span> AutoResetEvent(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Рождение философа.</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Run</span>(<span class="params"><span class="built_in">int</span> i, CancellationToken token</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        TakeForks(i); <span class="comment">// Ждет вилки.</span></span><br><span class="line">        <span class="comment">// Обед. Может быть и дольше.</span></span><br><span class="line">        eatenFood[i] = (eatenFood[i] + <span class="number">1</span>) % (<span class="built_in">int</span>.MaxValue - <span class="number">1</span>);</span><br><span class="line">        PutForks(i); <span class="comment">// Отдать вилки и разблокировать соседей.</span></span><br><span class="line">        Think(i);</span><br><span class="line">        <span class="keyword">if</span> (token.IsCancellationRequested) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Ожидать вилки в блокировке.</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TakeForks</span>(<span class="params"><span class="built_in">int</span> i</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">bool</span> hasForks = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (!hasForks) <span class="comment">// Попробовать еще раз (блокировка не здесь).</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Исключающий доступ к столу, без гонок за вилками.</span></span><br><span class="line">        tableEvent.WaitOne();</span><br><span class="line">        <span class="keyword">if</span> (forks[Left(i)] == <span class="number">0</span> &amp;&amp; forks[Right(i)] == <span class="number">0</span>)</span><br><span class="line">            forks[Left(i)] = forks[Right(i)] = i + <span class="number">1</span>;</span><br><span class="line">        hasForks = forks[Left(i)] == i + <span class="number">1</span> &amp;&amp; forks[Right(i)] == i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (hasForks)</span><br><span class="line">            <span class="comment">// Теперь философ поест, выйдет из цикла. Если Set </span></span><br><span class="line">            <span class="comment">// вызван дважды, то значение true.</span></span><br><span class="line">            philosopherEvents[i].Set();</span><br><span class="line">        <span class="comment">// Разблокировать одного ожидающего. После него значение tableEvent в false.</span></span><br><span class="line">        tableEvent.Set(); </span><br><span class="line">        <span class="comment">// Если имеет true, не блокируется, а если false, то будет ждать Set от соседа.</span></span><br><span class="line">        philosopherEvents[i].WaitOne();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Отдать вилки и разблокировать соседей.</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PutForks</span>(<span class="params"><span class="built_in">int</span> i</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tableEvent.WaitOne(); <span class="comment">// Без гонок за вилками.</span></span><br><span class="line">    forks[Left(i)] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// Пробудить левого, а потом и правого соседа, либо AutoResetEvent в true.</span></span><br><span class="line">    philosopherEvents[LeftPhilosopher(i)].Set();</span><br><span class="line">    forks[Right(i)] = <span class="number">0</span>;</span><br><span class="line">    philosopherEvents[RightPhilosopher(i)].Set();</span><br><span class="line">    tableEvent.Set();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Чтобы понять, что тут происходит, рассмотрим случай, когда философу не удалось взять вилки, тогда его действия будут такими. Он ждет доступа к столу. Получив его он пробует взять вилки. Не получилось. Он отдает доступ к столу (взаимное исключение). И проходит свой “турникет” (<code>AutoResetEvent</code>) (вначале они открыты). Попадает опять в цикл, т.к. у него нет вилок. Пробует взять их и останавливается у своего “турникета”. Какой-нибудь более удачливый сосед справа или слева, закончив есть, разблокирует нашего философа, “открывая его турникет”. Наш философ проходит его (и он закрывается за ним) во второй раз. Пробует в третий раз взять вилки. Удачно. И проходит свой турникет, чтобы отобедать.</p>
+<p>Когда в таком коде будут случайные ошибки (они всегда есть), например будет неверно указан сосед или создан один и тот же объект <code>AutoResetEvent</code> для всех (<code>Enumerable.Repeat</code>), тогда философы будут ждать уже разработчиков, т.к. поиск ошибок в таком коде довольно сложное занятие. Ещё одна проблема с этим решением в том, что оно не гарантирует, что какой-нибудь философ не начнет голодать.</p>
+<h3 id="Гибридные-решения"><a href="#Гибридные-решения" class="headerlink" title="Гибридные решения"></a>Гибридные решения</h3><p>Мы рассмотрели два подхода к синхронизации, когда мы остаемся в режиме пользователя и крутимся в цикле и, когда мы блокируем поток через ядро. Первый метод хорош для кратких блокировок, второй для длительных. Часто требуется сначала кратко ожидать изменения переменной в цикле, а потом заблокировать поток, когда ожидание долгое. Этот подход реализован в т.н. гибридных конструкциях. Здесь есть те же конструкции, что были для режима ядра, но теперь с циклом в режиме пользователя: <code>SemaphorSlim</code>, <code>ManualResetEventSlim</code> и др. Самая популярная конструкция здесь это <code>Monitor</code>, т.к. в C# есть известный всем <code>lock</code> синтаксис. <code>Monitor</code> это тот же семафор с максимальным значением 1 (мютекс), но с поддержкой ожидания в цикле, рекурсии, Condition Variable паттерна (о нем ниже) и др. Посмотрим на решение с ним.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Спрячем объект для Монитора от всех, чтобы без дедлоков.</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">readonly</span> <span class="built_in">object</span> _lock = <span class="keyword">new</span> <span class="built_in">object</span>();</span><br><span class="line"><span class="comment">// Время ожидания потока.</span></span><br><span class="line"><span class="keyword">private</span> DateTime?[] _waitTimes = <span class="keyword">new</span> DateTime?[philosophersAmount];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Run</span>(<span class="params"><span class="built_in">int</span> i, CancellationToken token</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        TakeForks(i);</span><br><span class="line">        eatenFood[i] = (eatenFood[i] + <span class="number">1</span>) % (<span class="built_in">int</span>.MaxValue - <span class="number">1</span>);</span><br><span class="line">        PutForks(i);</span><br><span class="line">        Think(i);</span><br><span class="line">        <span class="keyword">if</span> (token.IsCancellationRequested) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Наше сложное условие для Condition Variable паттерна.</span></span><br><span class="line"><span class="function"><span class="built_in">bool</span> <span class="title">CanIEat</span>(<span class="params"><span class="built_in">int</span> i</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Если есть вилки:</span></span><br><span class="line">    <span class="keyword">if</span> (forks[Left(i)] != <span class="number">0</span> &amp;&amp; forks[Right(i)] != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> now = DateTime.Now;</span><br><span class="line">    <span class="comment">// Может, если соседи не более голодные, чем текущий.</span></span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> p <span class="keyword">in</span> <span class="keyword">new</span> <span class="built_in">int</span>[] &#123;LeftPhilosopher(i), RightPhilosopher(i)&#125;)</span><br><span class="line">        <span class="keyword">if</span> (_waitTimes[p] != <span class="literal">null</span> &amp;&amp; now - _waitTimes[p] &gt; now - _waitTimes[i])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TakeForks</span>(<span class="params"><span class="built_in">int</span> i</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Зайти в Монитор. То же самое: lock(_lock) &#123;..&#125;.</span></span><br><span class="line">    <span class="comment">// Вызываем вне try, чтобы возможное исключение выбрасывалось выше.</span></span><br><span class="line">    <span class="built_in">bool</span> lockTaken = <span class="literal">false</span>;</span><br><span class="line">    Monitor.Enter(_lock, <span class="keyword">ref</span> lockTaken);</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        _waitTimes[i] = DateTime.Now;</span><br><span class="line">        <span class="comment">// Condition Variable паттерн. Освобождаем лок, если не выполненно </span></span><br><span class="line">        <span class="comment">// сложное условие. И ждем пока кто-нибудь сделает Pulse / PulseAll.</span></span><br><span class="line">        <span class="keyword">while</span> (!CanIEat(i))</span><br><span class="line">            Monitor.Wait(_lock); </span><br><span class="line">        forks[Left(i)] = i + <span class="number">1</span>;</span><br><span class="line">        forks[Right(i)] = i + <span class="number">1</span>;</span><br><span class="line">        _waitTimes[i] = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (lockTaken) Monitor.Exit(_lock);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PutForks</span>(<span class="params"><span class="built_in">int</span> i</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// То же самое: lock (_lock) &#123;..&#125;.</span></span><br><span class="line">    <span class="built_in">bool</span> lockTaken = <span class="literal">false</span>;</span><br><span class="line">    Monitor.Enter(_lock, <span class="keyword">ref</span> lockTaken);</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        forks[Left(i)] = <span class="number">0</span>;</span><br><span class="line">        forks[Right(i)] = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// Освободить все потоки в очереди ПОСЛЕ вызова Monitor.Exit.</span></span><br><span class="line">        Monitor.PulseAll(_lock); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (lockTaken) Monitor.Exit(_lock);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Здесь мы опять блокируем весь стол для доступа к вилкам, но теперь мы разблокируем все сразу потоки, а не соседей, когда кто-нибудь заканчивает есть. Т.е. сначала, кто-нибудь ест и блокирует соседей, а когда этот кто-нибудь заканчивает, но хочет сразу опять есть, он уходит в блокировку и будит своих соседей, т.к. его время ожидания меньше. </p>
+<p>Так мы избегаем дедлоков и голодания какого-нибудь философа. Используем цикл для краткого ожидания и блокируем поток для долгого. Разблокировка сразу всех работает медленнее, чем если бы была разблокировка только соседа, как в решении с <code>AutoResetEvent</code>, но разница не должна быть большой, т.к. потоки должны остаться в режиме пользователя сначала. </p>
+<p>У <code>lock</code> синтаксиса есть неприятные сюрпризы. Рекомендуют использовать <code>Monitor</code> напрямую [Рихтер] [Эрик Липперт]. Один из них в том, что <code>lock</code> всегда выходит из <code>Monitor</code>, даже если было исключение, и тогда другой поток может изменить состояние общей памяти. В таких случаях чаще лучше уходить в дедлок или как-то безопасно завершать программу. Другой сюрприз в том, что Monitor использует блоки синхронизации (<code>SyncBlock</code>), которые есть во всех объектах. Поэтому, если выбран неподходящий объект, можно легко получить дедлок (например, если сделать лок на интернированную строку). Используем всегда скрытый объект для этого.</p>
+<p>Condition Variable паттерн позволяет более кратко реализовать ожидание какого-нибудь сложного условия. В .NET он неполный, на мой взгляд, т.к. по идее там должны быть несколько очередей на нескольких переменных (как в Posix Threads), а не на одном локе. Тогда можно было бы сделать их для всех философов. Но и в таком виде он позволяет сократить код.</p>
+<h3 id="Много-философов-или-async-await"><a href="#Много-философов-или-async-await" class="headerlink" title="Много философов или async / await"></a>Много философов или <code>async</code> / <code>await</code></h3><p>Хорошо, теперь мы умеем эффективно блокировать потоки. Но, а если у нас становится много философов? 100? 10000? Например, нам пришло 100000 запросов на веб-сервер. Создавать для каждого запроса поток будет накладным, т.к. столько потоков параллельно не будут выполняться. Будут выполняться только столько, сколько логических ядер (у меня 4). А все остальные будут просто отнимать ресурсы. Одно из решений этой проблемы async / await паттерн. Идея его в том, что функция не держит поток, если для её продолжения нужно что-то подождать. А когда, она это что-то происходит, она возобновляет свое выполнение (но не обязательно в том же потоке!). В нашем случае, мы будем ждать вилки. </p>
+<p><code>SemaphoreSlim</code> имеет для этого <code>WaitAsync()</code> метод. Вот реализация с использованием этого паттерна. </p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Запуск такой же, как раньше. Где-нибудь в программе:</span></span><br><span class="line">Task.Run(() =&gt; Run(i, cancelTokenSource.Token));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Запуск философа.</span></span><br><span class="line"><span class="comment">// Ключевое слово async -- компилятор транслирует этот метот в асинхронный.</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Run</span>(<span class="params"><span class="built_in">int</span> i, CancellationToken token</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// await -- будем ожидать какого-то события.</span></span><br><span class="line">        <span class="keyword">await</span> TakeForks(i);</span><br><span class="line">        <span class="comment">// После await, продолжение возможно в другом потоке.</span></span><br><span class="line">        eatenFood[i] = (eatenFood[i] + <span class="number">1</span>) % (<span class="built_in">int</span>.MaxValue - <span class="number">1</span>);</span><br><span class="line">        <span class="comment">// Может быть несколько событий для ожидания.</span></span><br><span class="line">        <span class="keyword">await</span> PutForks(i);</span><br><span class="line"></span><br><span class="line">        Think(i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (token.IsCancellationRequested) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">async</span> Task <span class="title">TakeForks</span>(<span class="params"><span class="built_in">int</span> i</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">bool</span> hasForks = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (!hasForks)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Взаимоисключающий доступ к столу:</span></span><br><span class="line">        <span class="keyword">await</span> _tableSemaphore.WaitAsync();</span><br><span class="line">        <span class="keyword">if</span> (forks[Left(i)] == <span class="number">0</span> &amp;&amp; forks[Right(i)] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            forks[Left(i)] = i+<span class="number">1</span>;</span><br><span class="line">            forks[Right(i)] = i+<span class="number">1</span>;</span><br><span class="line">            hasForks = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        _tableSemaphore.Release();</span><br><span class="line">        <span class="comment">// Будем ожидать, чтобы сосед положил вилки:</span></span><br><span class="line">        <span class="keyword">if</span> (!hasForks)</span><br><span class="line">            <span class="keyword">await</span> _philosopherSemaphores[i].WaitAsync();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Ждем доступа к столу и кладем вилки.</span></span><br><span class="line"><span class="function"><span class="keyword">async</span> Task <span class="title">PutForks</span>(<span class="params"><span class="built_in">int</span> i</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">await</span> _tableSemaphore.WaitAsync();</span><br><span class="line">    forks[Left(i)] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// &quot;Пробудить&quot; соседей, если они &quot;спали&quot;.</span></span><br><span class="line">    _philosopherSemaphores[LeftPhilosopher(i)].Release();</span><br><span class="line">    forks[Right(i)] = <span class="number">0</span>;</span><br><span class="line">    _philosopherSemaphores[RightPhilosopher(i)].Release();</span><br><span class="line">    _tableSemaphore.Release();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Метод с <code>async</code> / <code>await</code> транслируется в хитрый конечный автомат, который сразу возвращает свой внутренний <code>Task</code>. Через него можно ждать завершения метода, отменять его и всё прочее, что можно делать с Task. Внутри метода, конечный автомат, контролирует выполнение. Суть в том, что если нет задержки, то выполнение синхронное, а если есть, то поток освобождается. Для лучшего понимания этого лучше посмотреть этот конечный автомат. Можно создавать цепочки из этих <code>async</code> / <code>await</code> методов. </p>
+<p>Потестируем. Работа 100 философов на машине с 4 логическими ядрами, 8 секунд. Предыдущее решение с Monitor выполняло только 4 первых потока, а остальные вообще не выполнялись. Каждый из этих 4 потоков простаивал около 2мс. А решение с async / await выполняло все 100, при этом в среднем каждый ждал 6.8 секунд. Конечно, в реальных системах простаивание по 6 секунд неприемлемо и лучше не обрабатывать столько запросов так. Решение же с Monitor оказалось не масштабируемым вообще.</p>
+<h2 id="Заключение"><a href="#Заключение" class="headerlink" title="Заключение"></a>Заключение</h2><p>Как видно из этих небольших примеров, .NET поддерживает много конструкций синхронизации. Не всегда, впрочем, очевидно, как их использовать. Надеюсь эта статья оказалась полезной. Пока на этом завершаем, но осталось еще много интересного, например потокобезопасные коллекции, TPL Dataflow, Reactive программирование, Software Transaction модель и др. </p>
+<h2 id="Источники"><a href="#Источники" class="headerlink" title="Источники"></a>Источники</h2><ul>
+<li>Визуализация потоков: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/visualstudio/profiling/concurrency-visualizer">Concurrency Visualizer</a></li>
+<li>MSDN: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/standard/threading/">Threading</a>, <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/">Asynchronous programming patterns</a> и мн. др.</li>
+<li>[Рихтер] - CLR via C#, Jeffrey Richter</li>
+<li>[Эрик Липперт] - <a target="_blank" rel="noopener" href="https://blogs.msdn.microsoft.com/ericlippert/2009/03/06/locks-and-exceptions-do-not-mix/">О lock</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/artkpv/dotnetconcurrency">Исходный код</a></li>
+<li>Картинка - “Танец среди мечей”, Г. Семирадский</li>
+</ul>
+<p>Публикация на Хабре: <a target="_blank" rel="noopener" href="https://habr.com/ru/post/447898/">https://habr.com/ru/post/447898/</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tag/programming-concurrency-dotnet/" rel="tag"># programming, concurrency, dotnet</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/CodeComplete/" rel="prev" title="Code Complete, 2nd by Steve McConnell">
+                  <i class="fa fa-chevron-left"></i> Code Complete, 2nd by Steve McConnell
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Sample-ASP-NET-Core-Web-API-project/" rel="next" title="Sample ASP.NET Core Web API project">
+                  Sample ASP.NET Core Web API project <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Артём Карпов</span>
+</div>
+  <div class="powered-by">Генератор — <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

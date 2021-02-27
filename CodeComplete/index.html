@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Поиск...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="Consider one book that would try to compile all best practices for all past years for software construction. With about 450 items in bibliography of most important publications at the time (second">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code Complete, 2nd by Steve McConnell">
+<meta property="og:url" content="http://www.artkpv.net/CodeComplete/index.html">
+<meta property="og:site_name" content="Артём Карпов">
+<meta property="og:description" content="Consider one book that would try to compile all best practices for all past years for software construction. With about 450 items in bibliography of most important publications at the time (second">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="http://www.artkpv.net/CodeComplete/cover.png">
+<meta property="article:published_time" content="2017-08-05T21:00:00.000Z">
+<meta property="article:modified_time" content="2017-08-21T10:44:36.000Z">
+<meta property="article:author" content="Артём Карпов">
+<meta property="article:tag" content="книги">
+<meta property="article:tag" content="books">
+<meta property="article:tag" content="programming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.artkpv.net/CodeComplete/cover.png">
+
+
+<link rel="canonical" href="http://www.artkpv.net/CodeComplete/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ru'
+  };
+</script>
+<title>Code Complete, 2nd by Steve McConnell | Артём Карпов</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Показать/скрыть меню" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Артём Карпов</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Главная</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>О сайте</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Архив</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Содержание
+        </li>
+        <li class="sidebar-nav-overview">
+          Обзор
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-I-Foundation-Code-Complete"><span class="nav-number">1.</span> <span class="nav-text">Part I. Foundation - Code Complete</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Welcome-to-Software-construction"><span class="nav-number">1.1.</span> <span class="nav-text">Chapter 1. Welcome to Software construction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Measure-Twice-Cut-Once-Upstream-prerequisites"><span class="nav-number">1.2.</span> <span class="nav-text">Chapter 3. Measure Twice, Cut Once: Upstream prerequisites.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-II-Creating-High-Quality-Code-Code-Complete"><span class="nav-number">2.</span> <span class="nav-text">Part II. Creating High-Quality Code - Code Complete</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Design-in-Construction"><span class="nav-number">2.1.</span> <span class="nav-text">Chapter 5. Design in Construction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-Working-Classes"><span class="nav-number">2.2.</span> <span class="nav-text">Chapter 6. Working Classes.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-7-High-Quality-Routines"><span class="nav-number">2.3.</span> <span class="nav-text">Chapter 7. High-Quality Routines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-8-Defensive-Programming"><span class="nav-number">2.4.</span> <span class="nav-text">Chapter 8 Defensive Programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-9-Pseudocode-Programming-Process-PPP-%D0%92%D1%8B%D0%B3%D0%BB%D1%8F%D0%B4%D0%B8%D1%82-%D0%B8%D0%B7%D0%B1%D1%8B%D1%82%D0%BE%D1%87%D0%BD%D0%BE-25-09-2013-13-01"><span class="nav-number">2.5.</span> <span class="nav-text">Chapter 9. Pseudocode Programming Process (PPP). (Выглядит избыточно 25.09.2013 13:01)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-III-Variables"><span class="nav-number">3.</span> <span class="nav-text">Part III. Variables</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-10-General-Issues-in-Using-Variables"><span class="nav-number">3.1.</span> <span class="nav-text">Chapter 10. General Issues in Using Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-11-The-Power-of-Variable-Names"><span class="nav-number">3.2.</span> <span class="nav-text">Chapter 11. The Power of Variable Names</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-12-Fundamental-Data-Types"><span class="nav-number">3.3.</span> <span class="nav-text">Chapter 12. Fundamental Data Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-13-Unusual-Data-Types"><span class="nav-number">3.4.</span> <span class="nav-text">Chapter 13. Unusual Data Types.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-V-Code-improvements-Code-Complete"><span class="nav-number">4.</span> <span class="nav-text">Part V. Code improvements. - Code Complete</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-22-Developer-Testing"><span class="nav-number">4.1.</span> <span class="nav-text">Chapter 22. Developer Testing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-23-Debugging"><span class="nav-number">4.2.</span> <span class="nav-text">Chapter 23. Debugging</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Артём Карпов</p>
+  <div class="site-description" itemprop="description">Разработка ПО</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">Архив</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tag/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">Тэги</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:artyomkarpov@gmail.com" title="E-Mail → mailto:artyomkarpov@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/artkpv" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;artkpv" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://linkedin.com/in/artkpv" title="Linkedin → http:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;artkpv" rel="noopener" target="_blank">Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://stackoverflow.com/users/511144" title="StackOverflow → http:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;511144" rel="noopener" target="_blank">StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hackerrank.com/ArtyomKarpov" title="Hackerrank → https:&#x2F;&#x2F;www.hackerrank.com&#x2F;ArtyomKarpov" rel="noopener" target="_blank">Hackerrank</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/artworks" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;artworks" rel="noopener" target="_blank">Codeforces</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ru">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/CodeComplete/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Code Complete, 2nd by Steve McConnell
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2017-08-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-08-06T00:00:00+03:00">2017-08-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-08-21 13:44:36" itemprop="dateModified" datetime="2017-08-21T13:44:36+03:00">2017-08-21</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/CodeComplete/cover.png" class="">
+
+
+<p>Consider one book that would try to compile all best practices for all past years for software construction. With about 450 items in bibliography of most important publications at the time (second edition published in 2004 y.) this book endeavours to bring development process at a totally new level. Essentially this book interprets most important those publications and gives guidelines for building software. It takes recommendations of gurus in the field and scientists and presents practical rules for effectively building quality software thus narrowing the gap between production and research. Hence the title of the book which implies that it is some complete set of laws. </p>
+<p>The book is divided into seven parts. Giving some base terms and ideas in part I, author goes from the very bottom of construction process, the code itself (parts II, III, IV) to upper processes. Part V is about working with existing code. Controlling system development is in part VI. And the last part VII is about requirements to creator itself. For quick use the book includes checklists for all stages of construction and many figures and tables as well as key terms. Thus can be used as a quick reference.</p>
+<p>Below are my notes from the book (unfinished).</p>
+<span id="more"></span>
+
+
+<h1 id="Part-I-Foundation-Code-Complete"><a href="#Part-I-Foundation-Code-Complete" class="headerlink" title="Part I. Foundation - Code Complete"></a>Part I. Foundation - Code Complete</h1><h2 id="Chapter-1-Welcome-to-Software-construction"><a href="#Chapter-1-Welcome-to-Software-construction" class="headerlink" title="Chapter 1. Welcome to Software construction"></a>Chapter 1. Welcome to Software construction</h2><ul>
+<li>1.1 What is Software Construction?<ul>
+<li>Construction(programming) - process of building includes:<ul>
+<li>coding and debugging</li>
+<li>unit testing</li>
+<li>integration </li>
+<li>integration testing </li>
+<li>detailed design </li>
+<li>construction planning  </li>
+</ul>
+</li>
+<li>Not construction:<ul>
+<li>problem definition</li>
+<li>system testing  </li>
+<li>documenting requirements</li>
+<li>software architecture  </li>
+</ul>
+</li>
+<li>Coding - putting design into code, mechanically. </li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-3-Measure-Twice-Cut-Once-Upstream-prerequisites"><a href="#Chapter-3-Measure-Twice-Cut-Once-Upstream-prerequisites" class="headerlink" title="Chapter 3. Measure Twice, Cut Once: Upstream prerequisites."></a>Chapter 3. Measure Twice, Cut Once: Upstream prerequisites.</h2><ul>
+<li>Introduction<ul>
+<li>Doing prerequisites is a must for high-quality software. Prerequisites can take up to 65% of total cost. </li>
+</ul>
+</li>
+<li>3.1 Importance of Prerequisites<ul>
+<li>Important to define prerequisites at the beginning to get away from trouble. </li>
+<li>Make prerequisites as they reduce risk of failure.</li>
+<li>The earlier an error found, cheaper to fix it. </li>
+</ul>
+</li>
+<li>3.2 Determine the kind of software you’re working on<ul>
+<li>Determine the kind to get balance between preparation and construction<ul>
+<li>3 kinds of projects (soft) and their development characteristic.</li>
+</ul>
+</li>
+<li>Make prerequisites in iterative approach</li>
+<li>The earlier error is found, the cheaper to fix it. (I principle)<ul>
+<li>Focus on prerequisites in iterative and in sequential approach</li>
+</ul>
+</li>
+<li>Choose approaches:<ul>
+<li>80 prereq. before, 20 later (sequan.)</li>
+<li>20 prereq. before, 80 later (iterat.)</li>
+</ul>
+</li>
+<li>How to choose between sequential and iterative approaches</li>
+</ul>
+</li>
+<li>3.3 Problem-Definition Prerequisite<ul>
+<li>Define the problem from user’s point of view in user’s language</li>
+</ul>
+</li>
+<li>3.4 Requirements Prerequisite<ul>
+<li>Make official requirements (Spec doc) in user’s language:<ul>
+<li>Explicit req. make user to choose</li>
+<li>Avoiding arguing</li>
+<li>Lowers cost  (see I principle)</li>
+</ul>
+</li>
+<li>(He won’t tell about how to make good req)</li>
+<li>Beware — requirements will change</li>
+<li>How to handle changing requirements during construction<ul>
+<li>Assess the req. themselfs using the checklist in Chapter.</li>
+<li>Make everyone know the cost of req. change</li>
+<li>Have procedure-control procedure for changes</li>
+<li>Use iterative appr. to get feedback quickly</li>
+<li>Can’t get on with change request? Dump project</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3.5 Architecture Prerequisite<ul>
+<li>Have a good architecture before construction</li>
+<li>Here are common components of arch. doc:<ul>
+<li>Make system overview, state alternatives and reasons to choose between them<ul>
+<li>state building blocks (classes or modules) (should correspond to requirements)</li>
+<li>communication between them</li>
+</ul>
+</li>
+<li>Specify major classes (20% classes makes 80% of func) and rationale for them</li>
+<li>Data design: specify main tables and files.</li>
+<li>Describe an impact of business rules on architecture</li>
+<li>Specify UI if it is not done in SRS</li>
+<li>…</li>
+<li>Error Processing<ul>
+<li>Should be treated at architecure level: important</li>
+<li>Choose strategies:<ul>
+<li>corrective (tries to recover) vs detective </li>
+<li>active (warn beforehand) or passive (report on failure)</li>
+<li>how to propagate errors (discard data, process error, tell later)</li>
+<li>how to handle error messages to user (UI)</li>
+<li>how to handle errors (logging, throwing, catching)</li>
+<li>at what level to handle error (up in call chain, in separate class)?</li>
+<li>define level of responsibility for class (see Defensive Programming)</li>
+<li>Use Default Error strategies or create ?</li>
+</ul>
+</li>
+<li>Choose techniques to handle and recover from error (fault tolerance)</li>
+</ul>
+</li>
+<li>State and reason things that impossible to implement (unfeasible)</li>
+<li>Overengineering(TBD - didn’t understand)</li>
+<li>State why custom-built component is better then component can be bought</li>
+<li>Indicate strategies to handle possible future changes: what is likely to change and how it will be handled</li>
+<li>…</li>
+</ul>
+</li>
+<li>Architecture should be consistent</li>
+<li>Architecture doc should have history</li>
+<li>Architecture should have objectives</li>
+<li>Arch. should indicate motivations</li>
+<li>Arch. should be as machine/language independent as possible</li>
+<li>Arch. doc should be understandable</li>
+</ul>
+</li>
+<li>3.6 Amount of Time to Spend on Upstream Prerequisites<ul>
+<li>Only upstream prereq., usually it is up to 30% of time (schedule) </li>
+<li>On large project req. analyst is needed. On small — not</li>
+<li>Requirements works should be scheduled as a different project (architecture design can be also)</li>
+</ul>
+</li>
+</ul>
+<h1 id="Part-II-Creating-High-Quality-Code-Code-Complete"><a href="#Part-II-Creating-High-Quality-Code-Code-Complete" class="headerlink" title="Part II. Creating High-Quality Code - Code Complete"></a>Part II. Creating High-Quality Code - Code Complete</h1><h2 id="Chapter-5-Design-in-Construction"><a href="#Chapter-5-Design-in-Construction" class="headerlink" title="Chapter 5. Design in Construction"></a>Chapter 5. Design in Construction</h2><ul>
+<li>Introduction<ul>
+<li>Design should be done on all type of projects, from smaller one to bigger one: all projects will benefit</li>
+</ul>
+</li>
+<li>5.1 Design Challenges<ul>
+<li>Design is invention of a scheme that would put requirements into operational soft.</li>
+<li>Design is a wicked problem: design could not be clearly defined before it is solved.<br>Design (process) is full of mistakes and open-ended (sloppy).</li>
+<li>And other challenges: it is always heuristics (invention), restrictions, nondeterministic (many different solutions), emergent</li>
+</ul>
+</li>
+<li>5.2 Key Design Concepts<ul>
+<li>Manage complexity, break system into simple pieces. So that I can focus on one part while not thinking about other parts. If it is not it is a bad design.</li>
+<li>At first minimize complexity of essential then accidental. Essential is a problem itself that should be solved (domain, real world concepts). Accidental is IDE, programming language, OS, tools, etc.</li>
+<li>Try to hit the following goals of design: managing complexity, expandability, reusability, layers, maintainability, loose coupling</li>
+<li>Make design in levels.<ul>
+<li>Level 1. System. Nothing to design?</li>
+<li>Level 2. Division on subsystems or packages (UI, business rules, database).</li>
+<li>Subsystem or package — groups of objects (classes). What are they and how they can communicate.</li>
+<li>Minimize number of connections. Each should have a reason. Degrees for connections from light to heavy: call of a routine, containing class, inheriting class.<ul>
+<li>Common subsystems:<ul>
+<li>Business rules. Laws on domain. Such as number of vacation days.</li>
+<li>UI (asp.net WebForms, razor views)</li>
+<li>Database access (sql server calls, mysql server calls)</li>
+<li>System dependencies (windows os calls)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Level 3. Division on classes. What they are, what connections they have and what interfaces? Key point: distinguish between objects and classes.</li>
+<li>Level 4. Division on routines and data. What all routines of a class are?</li>
+<li>Level 5. In routine. What paragraphs, pseudocode, algorithms.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5.3 Design Building Blocks: Heuristics<ul>
+<li>Heuristics — way to think about design that produce a good one.</li>
+<li>“By the book” or real-world object approach:<ul>
+<li>Determine objects</li>
+<li>Determine what can be done to objects</li>
+<li>Determine what objects can do to other objects: contain or inherit.</li>
+<li>Determine what should be hidden and what shown (public and protected iterfaces)</li>
+</ul>
+</li>
+<li>Form consistent abstractions<ul>
+<li>Then I can focus on interface rather then details. Example: house (details are doors, windows, etc), door (doorknob, wood), doorknob (wood fibers, molecules of steel or varnish, etc).</li>
+</ul>
+</li>
+<li>Encapsulate details that is forbid to look at complexity (What a door made with? A wood, glass, steel?) .</li>
+<li>Use Inheritance when it simplifies design. Inheritance — defining similarities and differences between objects. Polymorphism — ability to deal with objects by language without knowing their specific kinds.</li>
+<li>Hide secrets. Many scientists say it is important to hide information.<ul>
+<li>Decide what part of a class is visible (interface) and what is not. It hides more then reveals.</li>
+<li>Hide details: file formats, data types used, etc.</li>
+<li>Hide information on all levels: data types, routines signatures, classes, packages.</li>
+<li>Possible barriers to hiding:<ul>
+<li>…</li>
+<li>Performance issues due to wrapping info in classes or calling routines.<br>First hide then determine bottlenecks if needed. It will be easy to make optimize highly modular system.</li>
+</ul>
+</li>
+<li>“What should I hide?” - should be asked while designing an interface and other</li>
+</ul>
+</li>
+<li>Identify and isolate objects likely to change. Like 1) Business logic; 2) hardware dependencies; 3) input/output; 4) complicated design; 5) unstable language features; and other</li>
+<li>Keep coupling loose<ul>
+<li>Module — a routine or a class.</li>
+<li>Make coupling loose as simple as possible (e.g. sin(angle) -&gt; initVars(var1,var2,var3) -&gt; modules use same global var) (see coupling kinds)</li>
+<li>Criteria:<ul>
+<li>Size — number of connections (parameters in routines, members in class)</li>
+<li>Visibility — making connection obvious (passing parameter instead of global var)</li>
+<li>Flexibility — how easily a module can be called (if referring to third object then it is not as easy as passing only needed data of that object, see example).</li>
+</ul>
+</li>
+<li>Coupling is not loose if you think about more things (global data, inner func of other modules, etc) when creating a module.</li>
+</ul>
+</li>
+<li>Look for common Design Patterns. Patterns pluses listed.</li>
+<li>Aim for strong cohesion. Cohesion — how strong all code of a module aims to a purpose.</li>
+<li>Formalize class contracts. (Debug.Assert…)</li>
+<li>…</li>
+</ul>
+</li>
+<li>Design practices.<ul>
+<li>Iterate. From high-level to down-level and back (Top-down), from abstractions to details and back. Or start with down-level (Bottom-Up).</li>
+<li>Divide program</li>
+<li>Try top-down or bottom-up approaches. They have weaknesses and advantages. Top-down more essential. Use bottom-up when can’t make abstracts.</li>
+<li>Make prototypes if stuck. Prototype — a throwaway code that will answer specific design question (performance e.g.). See common problems with prototypes.</li>
+<li>Collaborate.</li>
+<li>Check McConnell advices on how much design is enough (experience? = low. Mission critical? = medium.)</li>
+<li>Capture the work (see tools and techniques)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-6-Working-Classes"><a href="#Chapter-6-Working-Classes" class="headerlink" title="Chapter 6. Working Classes."></a>Chapter 6. Working Classes.</h2><ul>
+<li>Introduction<ul>
+<li>Create cohesive classes. One responsibility per class. They allow to work on a part of a program without knowing of other parts.</li>
+</ul>
+</li>
+<li>6.1 Class Foundations: Abstract Data Types (ADTs)<ul>
+<li>ADT - a data and operations on it. Operations describe data to other parts and allow operations on it.</li>
+<li>Think in terms of ADT. Not “a node added to a list” but “a cell added to a spreadsheet” or “a passenger to a car simulation”.</li>
+<li>Treat low-level data types (lists e.g.), common objects (e.g. files), simple items (e.g. light on/off) as ADT.</li>
+<li>Treat ADT independently from where they are stored.</li>
+</ul>
+</li>
+<li>6.2 Good class interface<ul>
+<li>Good abstraction:<ul>
+<li>Good: the one that represent one abstraction and hides details.</li>
+<li>Bad: poor cohesion, no connections between members.</li>
+<li>Persist consistent level of abstraction. Bad design: inherit to allow some operation but the operation would not be connected to a type.</li>
+<li>Be sure you know what abstraction is needed. E.g. exposing too many operations.</li>
+<li>Check that you provide pair services (on and off, add and remove, etc.) if needed.</li>
+<li>Check that there are no two abstracts in one class.</li>
+<li>? how to use programatic instead of sematic interface?</li>
+<li>Check abstraction/cohesion when adding a new member to avoid interface erosion</li>
+</ul>
+</li>
+<li>Good encapsulation<ul>
+<li>Hide as much as possible. Make level of accessability low. Do not if it is consistent with abstraction.</li>
+<li>Don’t expose private members.</li>
+<li>Don’t include private members to interface (C++ only?)</li>
+<li>Don’t make assumption on how the interface would be used</li>
+<li>Check that class’s interface is understandable and not requires to look into inner details. Avoid assumptions on inner work from client code.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>6.3 Design and implementation issues<ul>
+<li>Containment (“has a”) — idea about an object containing other objects or primitive types.<ul>
+<li>Prefer 7+(-)2 members of  object: easy to remember (studies from psy).</li>
+</ul>
+</li>
+<li>Inheritance (“is a”) — idea that a class is a specialization of another class.<ul>
+<li>Comply to Liskov Substitution Principle (LSP) when using inheritance. LSP — subtypes must be possible to use as base classes w/o knowing their specialization. </li>
+<li>Use inheritance only if a subclass is truly a specialization of another class. </li>
+<li>…</li>
+<li>Be critical if only on derived class, no implementation in overridden routine.</li>
+<li>Replace switch/case with polymorphism if it doesn’t break abstraction (creation of meaningless members like DoCommand)</li>
+</ul>
+</li>
+<li>Don’t use multiple inheritance.  </li>
+<li>On members:<ul>
+<li>minimize classes intantiated, external routines calls, number of members, implicit members (e.g. private constructor) and other. Don’t fan out — spread like fan (touch many things around).</li>
+</ul>
+</li>
+<li>On constructors:<ul>
+<li>Initialize all members in all constructors ?</li>
+<li>About singleton and private constructor</li>
+<li>About shallow and deep copies (reference and members copies) </li>
+</ul>
+</li>
+<li>Reasons to create class:<ul>
+<li>model real world objects</li>
+<li>hide info<ul>
+<li>complex algorithm</li>
+<li>access to database, files or smth</li>
+</ul>
+</li>
+<li>to reuse functionality</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-7-High-Quality-Routines"><a href="#Chapter-7-High-Quality-Routines" class="headerlink" title="Chapter 7. High-Quality Routines"></a>Chapter 7. High-Quality Routines</h2><ul>
+<li>Introduction<ul>
+<li>Routine – is a method callable for a single purpose. </li>
+<li>(See example of bad routine)</li>
+</ul>
+</li>
+<li>7.1 Valid reason to create a routine<ul>
+<li>Create routine in order to <ul>
+<li>reduce complexity (e.g. extraction of a method) (the most important reason) (even if it is two or three lines!)</li>
+<li>give a name to abstraction</li>
+<li>avoid duplicates</li>
+<li>hide sequences (e.g. PopStack() for getting top and decrementing topStack variable).</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>7.2 Design at the Routine level<ul>
+<li>Aim for as cohesive routines as possible  (Cosine() is more cohesive than CosineAndTan())</li>
+<li>Write routines that do one and only one operation (functional cohesion).</li>
+<li>There are the following acceptable cohesive procedures: functional, sequential, communicational and temporal cohesion. (???) There are unacceptable cohesion of routines. (???) (TODO: check this).</li>
+</ul>
+</li>
+<li>7.3 Good routines names.<ul>
+<li>Describe priciesly what it does</li>
+<li>Avoid meaningless names</li>
+<li>…</li>
+<li>Describe what function returns</li>
+<li>Use verb for what procedure does on objects. Don’t use object names: it’s passed to procedure.</li>
+<li>…</li>
+</ul>
+</li>
+<li>7.4 Routines length<ul>
+<li>Consider not to write long routines (less important then other complexities such as number of variables and other)</li>
+</ul>
+</li>
+<li>7.5 How to use routing parameters<ul>
+<li>… (order, types and other)</li>
+</ul>
+</li>
+<li>7.6 Special Considerations in the Use of Functions<ul>
+<li>Procedure is a routine that returns a value and function is a routine that does not.</li>
+<li>Don’t mess functions with procedures (like <code>if(FormatOutput(report) == success) \\smth</code> )</li>
+</ul>
+</li>
+<li>7.7 Macro Routines and Inline Routines<ul>
+<li>… (Mostly advices for C++)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-8-Defensive-Programming"><a href="#Chapter-8-Defensive-Programming" class="headerlink" title="Chapter 8 Defensive Programming"></a>Chapter 8 Defensive Programming</h2><ul>
+<li>Intro<ul>
+<li>Defensive programming is writing code (procedures) that protects itself from bad input (other code or users).</li>
+</ul>
+</li>
+<li>8.1 Protecting Your Programs from Invalid Inputs<ul>
+<li>GIGO (garbage in, garbage out) is process of giving bad input and receiving bad output even if the algorithm is right.</li>
+<li>Don’t make GIGO. Use garbage in, nothing out or error out or no garbage in. </li>
+<li>Check all input from external sources </li>
+<li>Check all input for routines</li>
+</ul>
+</li>
+<li>8.2 Assertions <ul>
+<li>Assertion is code that checks errors that should never occur (or error in my code).</li>
+<li>Use for assumptions </li>
+<li>Use for errors that should never happen, use error-handling for errors that can happen.</li>
+<li>Use for checking and documenting preconditions (promises of client code) and postconditions (promises of host code). </li>
+<li>If client code is trusted (another class) then assert, if not (input data) then use error-handling. </li>
+<li>If app should be robust (long living ones) then do both assertions and error-handling.</li>
+</ul>
+</li>
+<li>8.3 Error-Handling Techniques [in routines or in whole system] (checks errors that should occur, or error in outer(?) data) <ul>
+<li>There are number of them: return closest legal value, return error code (exception), display UI message, call other error handling routing, log message and other.</li>
+<li>Only correctness or only robustness can be chosen for error handling techniques. That is what to return? Nothing? Error message? Or fix invalid value?</li>
+<li>Decide which technique to choose on a high design level </li>
+</ul>
+</li>
+<li>8.4 Exceptions <ul>
+<li>Exception is means to say “I don’t know what to do with this case”. The second way to use them is to create some workflow. </li>
+<li>Use to notify other parts about an error.</li>
+<li>Exceptions can increase complexity by requiring calling code to know about exceptions.</li>
+<li>Handle error locally if it can be handled there, don’t pass it to other code.</li>
+<li>Throw exceptions on the same level of abstraction as interface (example: EndOfFileException in GetTaxiID() method)</li>
+<li>…</li>
+<li>Handle exceptions that external libraries used throw</li>
+<li>Consider to use centralized exception reporter (there are trade offs)</li>
+<li>Consider to create my own exception base class.</li>
+<li>…</li>
+<li>Consider to use other error-handling techniques or shut all down and release resources.</li>
+</ul>
+</li>
+<li>8.5 Barricade Your Program to Contain the Damage Caused by Errors <ul>
+<li>At packages level create validation classes. They pass dirty data to classes supposed to handle clean data (firewall in terms of OOP).</li>
+<li>At class level write public members that assume data is dirty, private members — data is clean.</li>
+<li>Covert questionable data to proper data types as soon as possible (e.g. string “true” to true boolean)</li>
+<li>Use assertions inside barricade (my code is wrong) and use error-handling techniques outside barricade (data is wrong).</li>
+</ul>
+</li>
+<li>8.6 Debugging Aids (не понял)<ul>
+<li>Use more resources to add debugging aids .. (What is debugging aids? Code that run on dev only?)</li>
+<li>Fail hard at development (e.g. throw exception in switch/case) to fail soft at production.</li>
+<li>Remove debugging aids (preprocessor)</li>
+<li>…</li>
+</ul>
+</li>
+<li>8.7 </li>
+</ul>
+<h2 id="Chapter-9-Pseudocode-Programming-Process-PPP-Выглядит-избыточно-25-09-2013-13-01"><a href="#Chapter-9-Pseudocode-Programming-Process-PPP-Выглядит-избыточно-25-09-2013-13-01" class="headerlink" title="Chapter 9. Pseudocode Programming Process (PPP). (Выглядит избыточно 25.09.2013 13:01)"></a>Chapter 9. Pseudocode Programming Process (PPP). (Выглядит избыточно 25.09.2013 13:01)</h2><ul>
+<li>Intro<ul>
+<li>PPP is better than Test-driven development (see 9.4). PPP makes it easier to write routines and classes with details. It writes documentation altogether. </li>
+</ul>
+</li>
+<li>9.1 Summary of building classes and routines. <ul>
+<li>This is iterative process. Details in routine bring up new routines.</li>
+</ul>
+</li>
+<li>9.2 Pseudo Code for Pros<ul>
+<li>PPP — process to design a class, a routine, a program using pseudocode (English like notation describing algorithms)</li>
+<li>PPP is important. </li>
+<li>Guidelines:<ul>
+<li>Avoid low level details but write at low enough level to get statements quickly</li>
+<li>Write intents</li>
+<li>Iterate</li>
+</ul>
+</li>
+<li>Benefits … </li>
+</ul>
+</li>
+<li>9.3 Constructing routines by using PPP<ul>
+<li>…</li>
+<li>Design using PPP, testing using unit tests. Interface is got from PPP. </li>
+<li>…</li>
+</ul>
+</li>
+<li>9.4 Alternatives… </li>
+<li>Notes:<ul>
+<li><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Literate_Programming">http://en.wikipedia.org/wiki/Literate_Programming</a></li>
+<li><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/480432/do-you-pseudo-code?answertab=votes#tab-top">http://stackoverflow.com/questions/480432/do-you-pseudo-code?answertab=votes#tab-top</a></li>
+</ul>
+</li>
+</ul>
+<p>Words:</p>
+<ul>
+<li>Heuristic - эвристический, изобретательный</li>
+<li>Sloppy - небрежный, неряшливый</li>
+<li>Cohesive - связанный, единый.</li>
+<li>Cohesion – единство, спаянность. </li>
+<li>Deficiency - нехватка.</li>
+</ul>
+<h1 id="Part-III-Variables"><a href="#Part-III-Variables" class="headerlink" title="Part III. Variables"></a>Part III. Variables</h1><h2 id="Chapter-10-General-Issues-in-Using-Variables"><a href="#Chapter-10-General-Issues-in-Using-Variables" class="headerlink" title="Chapter 10. General Issues in Using Variables"></a>Chapter 10. General Issues in Using Variables</h2><ul>
+<li>10.1 Data Literacy</li>
+<li>10.2 Making variable declarations easy. Don’t use implicit variable declarations.</li>
+<li>10.3 Guidelines for initializing variables<ul>
+<li>Invalid initializing leads to debugging horror</li>
+<li>(Advice for C++ and VB mostly. Skipping most. Mostly this is not a problem with R# and modern IDEs)</li>
+<li>Declare variables and initialize directly before their first use. </li>
+<li>Initialize all members in constructor</li>
+<li>Know you initialization variable value</li>
+</ul>
+</li>
+<li>10.4 Scope<ul>
+<li>Scope — is how popular variable is (global, local, class, etc).</li>
+<li>Span of variable — sum of statements between references of a variable. </li>
+<li>Live time — Difference between first and last statements with a variable. </li>
+<li>Keep the span, scope and live time as short as possible: less vulnerable, easier to see, less initialization errors, more readable, easier to refactor.</li>
+<li>Guidelines: variables for loop at beginning of loop, group variables usage, extract methods of the groups, expand scope as a last resort.</li>
+<li>All this guidelines are for readability purposes. It is easy to write programs when all variables are global but it is harder to read it. </li>
+</ul>
+</li>
+<li>10.5 Persistence <ul>
+<li>Beware of variable life time. Problems from using variable of shorter life then expected. (And smth other)</li>
+</ul>
+</li>
+<li>10.6 Binding Time<ul>
+<li>Binding time is a time when variable and its value are bound together.</li>
+<li>Types:<ul>
+<li>When code written, hard-coded</li>
+<li>At compile time</li>
+<li>Load time (e.g. at soft start)</li>
+<li>Object initialization (e.g. at window init)</li>
+<li>Each time (e.g. at window drawn)</li>
+</ul>
+</li>
+<li>The later types the more flexible, but more complex. Ensure to choose reasonably between flexibility and complexity.</li>
+</ul>
+</li>
+<li>10.7 Relationship Between Data Types and Control Structures<ul>
+<li>Sequential data type (user’s age, name, profession) corresponds to sequential code structure. Selective — selective. Iterative (array) — iterative. </li>
+</ul>
+</li>
+<li>10.8 Using each variable exactly for one purpose. <ul>
+<li>Use a variable exactly for one purpose</li>
+<li>Don’t hide variable purpose by using it to store two meanings</li>
+<li>Remove unused variables.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-11-The-Power-of-Variable-Names"><a href="#Chapter-11-The-Power-of-Variable-Names" class="headerlink" title="Chapter 11. The Power of Variable Names"></a>Chapter 11. The Power of Variable Names</h2><ul>
+<li>11.1. Considerations in Choosing Good Names<ul>
+<li>Choose naming fully, accurately and as specific as possible. </li>
+<li>Choose name in terms on ‘what’ rather than ‘how’, or in terms of problem domain.</li>
+<li>… (about how long it should be and other)</li>
+</ul>
+</li>
+<li>… (About conversions and other)</li>
+<li>…</li>
+<li>Code is read far more times then it is written. Name variables for readability. </li>
+</ul>
+<h2 id="Chapter-12-Fundamental-Data-Types"><a href="#Chapter-12-Fundamental-Data-Types" class="headerlink" title="Chapter 12. Fundamental Data Types"></a>Chapter 12. Fundamental Data Types</h2><ul>
+<li>…</li>
+<li>Use in enumerations the first and the last members to indicate start and end of a loop.<br>enum { First=0, ColorBlur=0, ColorLightBlue=1, ColorRed =2, Last = 2 }</li>
+<li>…</li>
+<li>Use new types (structures) for data that might change. </li>
+<li>…</li>
+<li>Use check list in the paragraph.</li>
+</ul>
+<h2 id="Chapter-13-Unusual-Data-Types"><a href="#Chapter-13-Unusual-Data-Types" class="headerlink" title="Chapter 13. Unusual Data Types."></a>Chapter 13. Unusual Data Types.</h2><ul>
+<li>13.1 Structures…  (They are unusual because it is a mix of basic types)</li>
+<li>13.2 Pointers … (pointers overview, tips for C like languages).</li>
+<li>13.3 Global data … (Don’t use it unless it can’t be otherwise. In that case use routine to access it.)</li>
+</ul>
+<h1 id="Part-V-Code-improvements-Code-Complete"><a href="#Part-V-Code-improvements-Code-Complete" class="headerlink" title="Part V. Code improvements. - Code Complete"></a>Part V. Code improvements. - Code Complete</h1><h2 id="Chapter-22-Developer-Testing"><a href="#Chapter-22-Developer-Testing" class="headerlink" title="Chapter 22. Developer Testing"></a>Chapter 22. Developer Testing</h2><ul>
+<li>Introduction<ul>
+<li>Testing described. It divided onto black and white boxes testing. Testing is not debugging (finding reason of bug and correcting it)</li>
+<li>Testing: <ul>
+<li>unit (testing of unit), </li>
+<li>component (same as unit but developed by multiple programmers), </li>
+<li>integration (how components works together), </li>
+<li>regression (retesting of tested) </li>
+<li>and system testings (tests in environment, system that software supposed to work in) </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>22.1. Role of Developer Testing in Software Quality<ul>
+<li>About how efficient developer testing is, what is hard in developer testing, how much time should it take, what to do with the results of testing, about advantages of testing during construction.</li>
+<li>Testing is not as efficient as collaborating development</li>
+<li>Difficulties:<ul>
+<li>testing countering goals of construction: find error VS don’t do error</li>
+<li>tested &lt;&gt; there are not bugs</li>
+<li>testing = measurement, not improvement of quality</li>
+<li>Not hoping to find error = no errors found. Should hope to find errors = errors found.</li>
+</ul>
+</li>
+<li>Testing (not debugging) should take 5-25% of construction.</li>
+<li>Results of testing: in assessment of soft; in corrections; in guidelines to become better developer.</li>
+<li>Testing should be done during construction (test first or test after): by routine; glass box allows better findings. </li>
+</ul>
+</li>
+<li>22.2 Recommended Approach to Developer Testing<ul>
+<li>Write test cases at prerequisites/design/construction stages</li>
+<li>It is cheaper to fix errors earlier.</li>
+<li>Better to test first because: <ul>
+<li>defects in prerequisites are found earlier = cheaper</li>
+<li>design tends to be better</li>
+<li>(more)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Developer testing is limited:<ul>
+<li>Tends to write test that code work (clean) not that the code does not work (dirty)</li>
+<li>Assessment of code coverage is wrong (lower). In avg it is about 50%.</li>
+<li>(one more)</li>
+</ul>
+</li>
+<li>22.3 Bag of testing tricks<ul>
+<li>It is almost impossible to test all test cases. There are too many test cases (case is unique set of input data).</li>
+<li>“Coverage monitor” tells how much code was covered.</li>
+<li>Test cases should be picked up so that new things come. The set of new things is a base. (TBD: read again: how to test sofware?)</li>
+<li>Methods to cover the base:<ul>
+<li>Structured basis testing (SBT): each statement is tested at least once. So calculate paths (if, while, for and other).</li>
+<li>To test control flow.</li>
+<li>(Logical (code) coverage testing has more test cases then SBT)</li>
+<li>Data flow testing.<ul>
+<li>About data states: defined, used, killed (+ entered and exited). About wrong data states, e.g. defined-killed. About wrong data states, e.g. defined-killed.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-23-Debugging"><a href="#Chapter-23-Debugging" class="headerlink" title="Chapter 23. Debugging"></a>Chapter 23. Debugging</h2><ul>
+<li>Introduction<ul>
+<li>Debugging - process of finding error reason and correcting it. Can take up to 50% of project construction time.</li>
+</ul>
+</li>
+<li>23.1 Overview of Debugging Issues<ul>
+<li>Debugging is not getting quality software! It is last resort: soft should be well defined, designed and constructed. </li>
+<li>Debugging speed varies: There is effective and not effective debugging. Sometimes it is 13 times faster.</li>
+<li>(TBD)</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/" rel="tag"># книги</a>
+              <a href="/tag/books/" rel="tag"># books</a>
+              <a href="/tag/programming/" rel="tag"># programming</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Notes-from-Architecting-Applications-for-the-Enterprise/" rel="prev" title="Notes from "Architecting Applications for the Enterprise"">
+                  <i class="fa fa-chevron-left"></i> Notes from "Architecting Applications for the Enterprise"
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/dining-philosophers/" rel="next" title="Сытые философы или конкурентное программирование на .NET">
+                  Сытые философы или конкурентное программирование на .NET <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Артём Карпов</span>
+</div>
+  <div class="powered-by">Генератор — <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Поиск...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="(Прим. Оригинал статьи на http:&#x2F;&#x2F;dannorth.net&#x2F;introducing-bdd. Дэн Норт — преподаватель agile методологий разработки. Разрабатывает ПО и учит этому около 20 лет. Создатель собственного агентства по ко">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Перевод. Введение в программирование через поведение (BDD)">
+<meta property="og:url" content="http://www.artkpv.net/translation-of-the-introduction-to-bdd-by-don-north/index.html">
+<meta property="og:site_name" content="Артём Карпов">
+<meta property="og:description" content="(Прим. Оригинал статьи на http:&#x2F;&#x2F;dannorth.net&#x2F;introducing-bdd. Дэн Норт — преподаватель agile методологий разработки. Разрабатывает ПО и учит этому около 20 лет. Создатель собственного агентства по ко">
+<meta property="og:locale" content="ru_RU">
+<meta property="article:published_time" content="2014-03-10T20:00:00.000Z">
+<meta property="article:modified_time" content="2017-07-04T15:41:20.000Z">
+<meta property="article:author" content="Артём Карпов">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.artkpv.net/translation-of-the-introduction-to-bdd-by-don-north/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ru'
+  };
+</script>
+<title>Перевод. Введение в программирование через поведение (BDD) | Артём Карпов</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Показать/скрыть меню" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Артём Карпов</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Главная</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>О сайте</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Архив</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Содержание
+        </li>
+        <li class="sidebar-nav-overview">
+          Обзор
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%92%D1%8B%D1%80%D0%B0%D0%B6%D0%B0%D0%B9%D1%82%D0%B5-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2-%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8"><span class="nav-number">1.</span> <span class="nav-text">Выражайте названия тестов (методов) предложениями</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%9D%D0%B5-%D0%BE%D1%88%D0%B8%D0%B1%D0%B0%D0%B9%D1%82%D0%B5%D1%81%D1%8C-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B9%D1%82%D0%B5-%D1%8D%D1%82%D0%BE%D1%82-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD-%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B4%D0%BB%D1%8F-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2"><span class="nav-number">2.</span> <span class="nav-text">Не ошибайтесь, используйте этот простой шаблон предложения для тестов</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%98%D0%BC%D0%B5%D0%BD%D1%83%D0%B9%D1%82%D0%B5-%D1%82%D0%B5%D1%81%D1%82%D1%8B-%D1%8F%D1%81%D0%BD%D0%BE-%D0%BF%D0%BE%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D0%BE%D0%BD%D0%B8-%D1%83%D0%BF%D0%B0%D0%B4%D1%83%D1%82"><span class="nav-number">3.</span> <span class="nav-text">Именуйте тесты ясно: поможет, когда они упадут</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B9%D1%82%D0%B5-%D1%81%D0%BB%D0%BE%D0%B2%D0%BE-%E2%80%9C%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%E2%80%9D-%D0%B0-%D0%BD%D0%B5-%E2%80%9C%D1%82%D0%B5%D1%81%D1%82%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">Используйте слово “поведение”, а не “тест”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JBehave-%D0%B0%D0%BA%D1%86%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%D1%81%D1%8F-%D0%BD%D0%B0-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8-%D0%B0-%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8"><span class="nav-number">5.</span> <span class="nav-text">JBehave акцентируется на поведении, а не на тестировании</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5-%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B5%D0%B5-%D1%81%D0%B0%D0%BC%D0%BE%D0%B5-%D0%B2%D0%B0%D0%B6%D0%BD%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5"><span class="nav-number">6.</span> <span class="nav-text">Определите следующее самое важное поведение</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%E2%80%94-%D1%8D%D1%82%D0%BE-%D1%82%D0%BE%D0%B6%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5"><span class="nav-number">7.</span> <span class="nav-text">Требования — это тоже поведение</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BDD-%D0%B4%D0%B0%D0%B5%D1%82-%E2%80%9C%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B9-%D0%B2%D1%81%D0%B5%D0%BC-%D1%8F%D0%B7%D1%8B%D0%BA%E2%80%9D-%D0%B4%D0%BB%D1%8F-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0"><span class="nav-number">8.</span> <span class="nav-text">BDD дает “доступный всем язык” для анализа</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%A1%D0%B4%D0%B5%D0%BB%D0%B0%D0%B9%D1%82%D0%B5-%D0%BA%D1%80%D0%B8%D1%82%D0%B5%D1%80%D0%B8%D0%B9-%D0%BF%D1%80%D0%B8%D0%BD%D1%8F%D1%82%D0%B8%D0%B9-%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D0%B5%D0%BC%D1%8B%D0%BC"><span class="nav-number">9.</span> <span class="nav-text">Сделайте критерий принятий выполняемым</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%D0%9D%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B5%D0%B5-%D0%B8-%D0%B1%D1%83%D0%B4%D1%83%D1%89%D0%B5%D0%B5-BDD"><span class="nav-number">10.</span> <span class="nav-text">Настоящее и будущее  BDD</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Артём Карпов</p>
+  <div class="site-description" itemprop="description">Разработка ПО</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">Архив</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tag/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">Тэги</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:artyomkarpov@gmail.com" title="E-Mail → mailto:artyomkarpov@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/artkpv" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;artkpv" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://linkedin.com/in/artkpv" title="Linkedin → http:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;artkpv" rel="noopener" target="_blank">Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://stackoverflow.com/users/511144" title="StackOverflow → http:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;511144" rel="noopener" target="_blank">StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hackerrank.com/ArtyomKarpov" title="Hackerrank → https:&#x2F;&#x2F;www.hackerrank.com&#x2F;ArtyomKarpov" rel="noopener" target="_blank">Hackerrank</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/artworks" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;artworks" rel="noopener" target="_blank">Codeforces</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ru">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/translation-of-the-introduction-to-bdd-by-don-north/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Перевод. Введение в программирование через поведение (BDD)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2014-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2014-03-11T00:00:00+04:00">2014-03-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-07-04 18:41:20" itemprop="dateModified" datetime="2017-07-04T18:41:20+03:00">2017-07-04</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>(<i>Прим. Оригинал статьи на <a target="_blank" rel="noopener" href="http://dannorth.net/introducing-bdd">http://dannorth.net/introducing-bdd</a>. Дэн Норт — преподаватель agile методологий разработки. Разрабатывает ПО и учит этому около 20 лет. Создатель собственного агентства по консультированию и разработке ПО. Ввел понятие разработка через поведение (BDD).</i> Опубликовал этот перевод на Хабре <a target="_blank" rel="noopener" href="http://habrahabr.ru/post/216923/">здесь</a>.)</p>
+<p><i>История: Эта статья впервые появилась в журнале <a target="_blank" rel="noopener" href="http://www.stickyminds.com/resources/magazine-articles">Better Software</a> в марте 2006. Она была переведена на несколько языков.</i></p>
+<p>Однажды я столкнулся с проблемой. Обучая разработчиков практикам agile программирования, таким как TDD в различных проектах, я часто встречал непонимание и растерянность. Они хотели знать, где начать, что тестировать, а что не тестировать, как много тестировать за раз, как называть тесты и как понять, почему тесты падают. </p>
+<p>Чем больше я пользовался TDD, тем больше я понимал, что не столько оттачиваю своё мастерство, достигая новых его вершин, сколько то, что это было движение в слепую. Я помню, как мне все чаще приходила мысль: “Эх, вот бы мне кто-нибудь сказал это раньше!”, чем мысль: “Отлично, дорога ясна”. Я решил, что нужно найти способ обучать TDD, показывающий, как верно работать с ним сразу и без ошибок.</p>
+<p>И этот способ — это программирование через поведение. Оно выросло из выработанных agile практик и призвано сделать их доступнее и эффективнее для команд, незнакомых с ними. Со временем, BDD стало включать в себя agile анализ и автоматическое приемочное (<i>прим. </i>acceptance) тестирование.</p>
+<span id="more"></span>
+
+<h2 id="Выражайте-названия-тестов-методов-предложениями"><a href="#Выражайте-названия-тестов-методов-предложениями" class="headerlink" title="Выражайте названия тестов (методов) предложениями"></a>Выражайте названия тестов (методов) предложениями</h2><p>Моё открытие, моё радостное “Ага!” я почувствовал, когда мне показали обманчиво простую утилиту <a target="_blank" rel="noopener" href="http://agiledox.sourceforge.net/">agiledox</a>, написанную моим коллегой, Крисом Стивенсоном. Она берёт класс с JUnit тестами и печатает названия их в виде простых предложений. Так тестируемый случай, выглядевший как:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerLookupTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span> </span>&#123;</span><br><span class="line">	testFindsCustomerById() &#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">	testFailsForDuplicateCustomers() &#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>печатается как-то так:</p>
+<blockquote>
+    CustomerLookup
+    <ul>
+    <li>finds customer by id</li>
+    <li>fails for duplicate customers</li>
+    <li>...</li>
+    </ul>
+</blockquote>
+<i>(Прим. "CustomerLookup [поиск заказчика]: находит заказчика по ID, не находит повторяющихся заказчиков,..")</i>
+
+<p>Слово “test” убрано из названия класса и из методов, и camel запись имен преобразована в обычный текст. Это все, что она делает, но эффект поразительный.</p>
+<p>Разработчики поняли, что так они могут создавать, по крайней мере, часть документации для себя и они стали это делать, записывать названия тестов в виде предложений. Более того, они обнаружили, что то, что, когда они записывали имена методов, используя лексику бизнес домена, созданная документация была понятна бизнес пользователям, аналитикам и тестировщикам. </p>
+<h2 id="Не-ошибайтесь-используйте-этот-простой-шаблон-предложения-для-тестов"><a href="#Не-ошибайтесь-используйте-этот-простой-шаблон-предложения-для-тестов" class="headerlink" title="Не ошибайтесь, используйте этот простой шаблон предложения для тестов"></a>Не ошибайтесь, используйте этот простой шаблон предложения для тестов</h2><p>Потом я нашел интересный шаблон предложения, по которому все имена тестов следует начинать со слова <i>будет</i> (<i>прим.</i> should). Это предложение — <b>This class <i>should</i> do something</b> (<i>прим.</i> Этот класс <i>будет</i> делать что-то) — предполагает, что вы можете написать тест только для текущего класса. Так вы не ошибетесь. Если вы обнаружите, что пытаетесь написать тест, который нельзя так выразить, то, видимо, это поведение другого объекта.</p>
+<p>К примеру, однажды, я пишу класс, проверяющий ввод с экрана. Большинство полей — это обычные детали клиента: имя, фамилия и другое; но потом там оказались поле для даты рождения и другое для возраста. Я начал писать, <code>ClientDetailsValidatorTest</code> (<i>прим.</i> валидатор деталей клиента) с такими методами, как <code>testShouldFailForMissingSurname</code> (<i>прим.</i> тест будет падать, если нет фамилии) и <code>testShouldFailForMissingTitle</code> (<i>прим.</i> тест будет падать, если нет заглавия).</p>
+<p>Потом я заморочился с вычислением возраста и погряз в мире запутанных бизнес правил: Что если есть дата рождения и возраст и они не совпадают? Что если день рождения сегодня? Какой возраст, если у меня, есть только дата рождения? Я начал писать тогда длинные названия тестов для описания этого поведения, но остановился и решил переместить все это. Поэтому я создал класс, названный <code>AgeCalculator</code> (<i>прим.</i> калькулятор возраста) со своим <code>AgeCalculatorTest</code> (<i>прим.</i> тест для калькулятора возраста). Так все поведение объекта для вычисления возраста переместилось в этот калькулятор и тогда <code>ClientDetailsValidator</code>у нужен был только один связанный тест, — проверка верного взаимодействия с калькулятором возраста.</p>
+<p>Если какой-то класс делает, что-то кроме одного, то это обычно признак того, что я должен насоздавать еще классов для этого другого. Я создаю, новый сервис в виде интерфейса, описывающего, <i>что он делает</i>, и передаю его конструктору первого класса:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientDetailsValidator</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> AgeCalculator ageCalc;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ClientDetailsValidator</span><span class="params">(AgeCalculator ageCalc)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.ageCalc = ageCalc;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Такой стиль создания объектов вместе, известный как <a target="_blank" rel="noopener" href="http://www.martinfowler.com/articles/injection.html">внедрение зависимости</a>, особенно полезен вместе с mock-объектами. </p>
+<h2 id="Именуйте-тесты-ясно-поможет-когда-они-упадут"><a href="#Именуйте-тесты-ясно-поможет-когда-они-упадут" class="headerlink" title="Именуйте тесты ясно: поможет, когда они упадут"></a>Именуйте тесты ясно: поможет, когда они упадут</h2><p>Спустя некоторое время, я обнаружил, что, изменяя код и ломая тесты, я мог ясно понять по их названиям предполагаемое поведение кода. Обыкновенно, происходило одно из трех:</p>
+<ul>
+    <li>Я написал ошибочный код. Плохой я. Решение: поправить код.</li>
+    <li>поведение было важным, но его переместили куда-то. Решение: переместить тест и, возможно, изменить его.</li>
+    <li>Поведение перестало быть верным: задачи системы изменились. Решение: <i>удалить этот тест</i>.</li>
+</ul>
+Последнее часто происходит в agile проектах, вместе с ростом понимания. К несчастью, новички TDD имеют врожденный страх перед удалением тестов, будто это каким-то образом снизит качество кода. 
+
+<p>Менее различимый оттенок слова <i>будет</i> (<i>прим.</i> should) становиться понятным, когда сравниваешь его с более формальной альтернативой <i>должен</i> (<i>прим.</i> will или shall). <i>Будет</i> подразумевает, что вы можете сомневаться в тестируемом поведении: “Действительно ли он это будет делать?” Это позволяет легче отличить ситуацию, когда тест действительно падает из-за сделанной в коде ошибки, от той, когда ваши представления о поведении системы уже неверны.  </p>
+<h2 id="Используйте-слово-“поведение”-а-не-“тест”"><a href="#Используйте-слово-“поведение”-а-не-“тест”" class="headerlink" title="Используйте слово “поведение”, а не “тест”"></a>Используйте слово “поведение”, а не “тест”</h2><p>Итак, теперь у меня был тот инструмент — agiledox — для того, чтобы убрать слово “тест” и использовать то предложение для каждого наименования теста. Тут я понял, что люди, изучая TDD, почти всегда спотыкаются о слово “тест”.</p>
+<p>Конечно, неверно, что тестирование не присуще TDD: итоговый набор методов — это хороший способ проверки работоспособности кода. Однако, если тесты неполно описывают поведение вашей системы, то они обманывают вас ложным чувством безопасности. </p>
+<p>Я стал использовать слово “поведение” вместо слова “тест”, когда работал с TDD, и обнаружил, что оно по всей видимости не только подходило, но и магическим образом отпадали все вопросы у учеников. Теперь у меня были ответы на некоторые из тех TDD вопросов. Как проще назвать ваш тест? — это предложение описывающее следующее интересное вам поведение. Вопрос как детально тестировать? становиться чисто теоретическим: вы можете описать только столько поведения, сколько позволяет предложение. Что делать, когда тест падает? — просто следуйте выше описанным шагам: либо вы сделали баг, либо поведение переместилось, либо тест больше не нужен. </p>
+<p>Я обнаружил, что думать поведениями, а не тестами, настолько выгодно, что я стал называть TDD тестированием через поведение или BDD. </p>
+<h2 id="JBehave-акцентируется-на-поведении-а-не-на-тестировании"><a href="#JBehave-акцентируется-на-поведении-а-не-на-тестировании" class="headerlink" title="JBehave акцентируется на поведении, а не на тестировании"></a>JBehave акцентируется на поведении, а не на тестировании</h2><p>Под конец 2003 года, я решил, что пришло время вложить деньги — ну или хотя бы мое время — в то, о чем я говорил. Я начал писать то, что должно было заменить JUnit — JBehave. В нем не было отсылки к тестированию, он замещал это лексикой, построенной вокруг проверяемого поведения. Все это для того, чтобы узнать как будет эволюционировать такой фреймворк, если я буду строго держаться за мои новые мантры о тестировании через поведение. Я также думал, что этот инструмент будет полезен для обучения TDD и BDD без отвлечений на слова производные от слова тест. </p>
+<p>Чтобы определить поведение для гипотетического <code>CustomerLookup</code> (<i>прим.</i> поиск заказчика) класса, я бы написал класс для поведения, названный, к примеру, <code>CustomerLookupBehavior</code> (<i>прим.</i> поведение поиска заказчика). Он бы содержал методы, которые начинались бы со слова “будет” (<i>прим.</i> should). Программа запускающая проверку поведения (<i>прим.</i> behaviour runner) тогда создавала бы этот класс поведения и вызывала бы каждый из методов, описывающих поведение по очереди, так же, как это делает JUnit для тестов. Она должна была бы потом отчитываться о прогрессе по ходу исполнения и выдавать итог в конце. </p>
+<p>Моя первая цель была сделать так, чтобы JBehave проверял сам себя. Я добавил поведение, которое позволяло этой программе запускать себя. У меня получилось перенести все JUnit тесты в JBehave поведения и получить ту же обратную связь, что и с JUnit.</p>
+<h2 id="Определите-следующее-самое-важное-поведение"><a href="#Определите-следующее-самое-важное-поведение" class="headerlink" title="Определите следующее самое важное поведение"></a>Определите следующее самое важное поведение</h2><p>Вскоре после этих экспериментов с JBehave, я стал понимать концепцию бизнес значимости (<i>прим.</i> business value). Конечно, я всегда знал, что я пишу код для чего-то, но я никогда не думал о значимости кода, который я писал сейчас. Мой коллега, бизнес аналитик Крис Маттс, подтолкнул меня к размышлениям о бизнес значимости в контексте тестирования через поведение. </p>
+<p>Имея вот эту цель — сделать JBehave самопроверяющим, я обнаружил, что для того, чтобы легче сосредотачиваться, нужно спрашивать себя: <b>“Какая следующая самая важная вещь, которую система не делает?”</b></p>
+<p>Этот вопрос потребует от вас определить значимость тех фич, которые вы еще не реализовали и расставить приоритеты для них. Также это поможет вам сформулировать имя для метода описывающего поведение: система не делает X (где X какое-то ясное поведение), и X важно; что означает, что система будет делать X, поэтому ваш следующий метод поведения вот такой:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shouldDoX</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Вот теперь у меня есть ответ на тот вопрос о TDD, а именно, где начать. </p>
+<h2 id="Требования-—-это-тоже-поведение"><a href="#Требования-—-это-тоже-поведение" class="headerlink" title="Требования — это тоже поведение"></a>Требования — это тоже поведение</h2><p>Так у меня в руках оказался фреймворк, который помогал мне понимать и, что важнее, объяснять, как работает TDD и подход, который избавлял меня от всех тех подводных камней, которые я обнаруживал.</p>
+<p>Ближе к концу 2004 года я как-то рассказывал открытый мной подход, основанный на поведении, Маттсу, и он сказал: “Но это в точности, как анализ”. И после некоторой паузы для обдумывания, мы решили применить все это основанное на поведении мышление для определения требований. Так, если бы мы смогли разработать удобную лексику для аналитиков, тестировщиков, разработчиков и для бизнеса, то мы были бы на верном пути устранения неопределенности и взаимонепонимания, которые появляются, когда техники разговаривают с людьми из бизнеса. </p>
+<h2 id="BDD-дает-“доступный-всем-язык”-для-анализа"><a href="#BDD-дает-“доступный-всем-язык”-для-анализа" class="headerlink" title="BDD дает “доступный всем язык” для анализа"></a>BDD дает “доступный всем язык” для анализа</h2><p>Где-то в это время Эрик Эванс опубликовал свой бестселлер, книгу “Предметно-ориентированное проектирование” (<i>прим.</i> Domain-Driven Design by Eric Evans). В ней он описывает концепцию моделирования системы, использующую доступный всем язык, основанный на бизнес модели, так чтобы бизнес лексика проникала прямо в код. </p>
+<p>Мы с Крисом поняли, что мы пытаемся определить доступный всем язык для <i>самого процесса анализа</i>! У нас был хороший старт. В общем доступе в нашей компании уже был шаблон для пользовательских историй, который выглядел так:</p>
+<blockquote>
+<b>As a</b> [X]
+<br/>
+    <b>I want</b> [Y]
+<br/>
+    <b>so that</b> [Z]
+</blockquote>
+(<i>прим.</i> Будучи X, я хочу Y, так, что произойдет Z.)
+
+<p>где Y — какая-то фича, Z — польза или значение этой фичи и X — человек (или роль), получающий пользу. Преимущество этого предложения в том, что он заставляет вас определить значение разрабатываемой истории во время первого определения ее. Ведь бывает, что когда нет реального бизнес значения истории, то происходит какая-то деградация до чего-то такого: “…Я хочу [какую-то фичу], ну и поэтому [я просто сделаю, да и все, хорошо?].” Наш метод позволяет вынести за рамки проверки эти довольно эзотерические требования. </p>
+<p>И с этого старта мы с Маттсом были на пути открытия, того что каждый agile тестировщик и так знает: поведение в пользовательской истории — это просто критерий принятия, а именно, если система выполняет все критерии принятия, то ее поведение верно; если нет — то нет. Поэтому мы создали шаблон предложения для записи критерия оценки пользовательской истории.    </p>
+<p>Этот шаблон должен был быть настолько простым, чтобы аналитик не ощущал бы ограничений и неестественности, но и упорядоченным настолько, что можно было бы поделить историю на составляющие фрагменты и автоматизировать их. Поэтому мы описали критерий принятия, используя понятие <i>сценарий</i>, который принимал следующую форму:</p>
+<blockquote>
+<b>Имея</b> (<i>прим.</i> given — данное) какой-то контекст,
+<br/>
+<b>Когда</b> (<i>прим.</i> when) происходит событие,
+<br/>
+<b>Тогда</b> (<i>прим.</i> then) проверить результат.
+</blockquote>
+Чтобы продемонстрировать это, давайте используем классический пример банкомата. Одна из карточек истории могла бы выглядеть так:
+<blockquote>
++Название: Клиент снимает наличные+
+<br/>
+<i>Являясь</i> клиентом,
+<br/>
+<i>Я хочу</i> снять деньги в банкомате,
+<br/>
+<i>Чтобы</i> мне не ждать в очереди в банке.
+<br/>
+</blockquote>
+Ну, а как мы поймем, что история завершена? У нас несколько сценариев: на счету есть деньги; на счету нет денег, но можно снять в пределах овердрафта; счет превысил овердрафт. Конечно, будут другие сценарии: счет окажется в овердрафте именно с этим снятием, или у банкомата нет денег. 
+
+<p>Используя Имея-Когда-Тогда шаблон, первые два сценария могут выглядеть так:</p>
+<blockquote>
++Сценарий 1: На счету есть деньги+
+<br/>
+<i>Имея</i> счет с деньгами
+<br/>
+<i>И</i> валидную карточку
+<br/>
+<i>И</i> банкомат с наличными
+<br/>
+<i>Когда</i> клиент запрашивает наличные
+<br/>
+<i>Тогда</i> убедиться, что со счета было списание
+<br/>
+<i>И</i> убедиться, что наличные выданы
+<br/>
+<i>И</i> убедиться, что карточка возвращена
+<br/>
+</blockquote>
+Заметьте, использование союза <i>и</i> для соединения нескольких начальных условий (<i>прим.</i> given) и результатов (<i>прим.</i> then) облегчает понимание.
+<blockquote>
++Сценарий 2: Снятие со счета превышает овердрафт+
+<br/>
+<i>Имея</i> счет с превышением лимита
+<br/>
+<i>И</i> валидную карточку
+<br/>
+<i>Когда</i> клиент запрашивает наличные
+<br/>
+<i>Тогда</i> убедиться, что сообщение об отказе показано
+<br/>
+<i>И</i> убедиться, что наличные не выданы
+<br/>
+<i>И</i> убедиться, что карточка возвращена
+<br/>
+</blockquote>
+Оба сценария основаны на одном и том же событии и даже имеют несколько общих исходных условий и результатов. Мы можем извлечь из этого выгоду, используя заново исходные условия, события и результаты.
+
+<h2 id="Сделайте-критерий-принятий-выполняемым"><a href="#Сделайте-критерий-принятий-выполняемым" class="headerlink" title="Сделайте критерий принятий выполняемым"></a>Сделайте критерий принятий выполняемым</h2><p>Фрагменты этого сценария — исходные условия, событие и результаты — достаточно малы, чтобы быть запрограммированными. У JBehave есть объектная модель, позволяющая явно соотнести фрагменты сценария с Java классами.</p>
+<p>Вы пишите класс, представляющий каждое исходное условие (<i>прим.</i> given) так:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountIsInCredit</span> <span class="keyword">implements</span> <span class="title">Given</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setup</span><span class="params">(World world)</span> </span>&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CardIsValid</span> <span class="keyword">implements</span> <span class="title">Given</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setup</span><span class="params">(World world)</span> </span>&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>и один для того события так:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerRequestsCash</span> <span class="keyword">implements</span> <span class="title">Event</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">occurIn</span><span class="params">(World world)</span> </span>&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>и так далее для результатов сценария. JBehave затем связывает это все вместе и выполняет. Он создает “мир”, который где-то существует для хранения ваших объектов, затем JBehave передает его каждому исходному условию (<i>прим.</i> given) по очереди так, что они могут инициализировать мир каким-то известным состоянием. JBehave, затем, просит событие “случиться” в этом мире, которое выполняет заявленное поведение конкретного сценария. И, наконец, JBehave передает управление любому результату, определенному нами в конкретной истории. </p>
+<p>Имея классы, представляющие каждый фрагмент сценария, мы можем использовать заново фрагменты для других сценариев или историй. Сначала, эти фрагменты реализованы, используя mock-объекты для установки на счету денег или задания карточке валидности — так мы создаем фундамент для реализации поведения. По мере того, как вы реализуете конкретное приложение, исходные условия и результаты изменяются и начинают использовать реальные классы, созданные вами, и таким образом, к моменту когда сценарий закончен, они становятся верными функциональными тестами от начала до конца.  </p>
+<h2 id="Настоящее-и-будущее-BDD"><a href="#Настоящее-и-будущее-BDD" class="headerlink" title="Настоящее и будущее  BDD"></a>Настоящее и будущее  BDD</h2><p>После некоторой паузы, JBehave снова активно разрабатывается. Его ядро достаточно закончено и надежно. Следующий шаг — это интеграция с популярными Java IDE такими как IntelliJ IDEA и Eclipse. </p>
+<p><a target="_blank" rel="noopener" href="http://daveastels.com/">Дейв Астель</a> активно продвигал BDD последнее время. Его блог и различные опубликованные статьи спровоцировали шквал активности. Самая заметная — это проект <a target="_blank" rel="noopener" href="http://rspec.rubyforge.org/">rspec</a> для создания BDD фреймворка на языке Ruby. Я начал работу над rbehave, который будет реализацией JBehave на Ruby.</p>
+<p>Мои коллеги, после использования BDD техник в различных реальных проектах, сообщали, что этот способ имеет огромный успех. JBehave подпрограмма для запуска историй — та часть, что проверяет критерий принятия — активно разрабатывается. </p>
+<p>В будущем мы хотим иметь такой редактор полного круга, который позволял бы бизнес аналитикам и тестировщикам записывать истории в обычном текстовом редакторе, который бы создавал stub-объекты для классов поведения, и все это на языке бизнес модели. BDD эволюционировал с помощью многих людей и я выражаю огромную благодарность им.   </p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Exporting-from-alfabank-to-gnucash/" rel="prev" title="Экспортируем проводки из интернет банкинга Альфабанк в GnuCash (QIF)">
+                  <i class="fa fa-chevron-left"></i> Экспортируем проводки из интернет банкинга Альфабанк в GnuCash (QIF)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Script-to-sync-Toggl-entries-with-Assembla/" rel="next" title="Script to sync Toggl entries with Assembla">
+                  Script to sync Toggl entries with Assembla <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Артём Карпов</span>
+</div>
+  <div class="powered-by">Генератор — <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

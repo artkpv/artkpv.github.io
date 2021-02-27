@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Поиск...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="This is a popular book from 1999 y. which don’t lose its value even now was created by coders who did their applications in 80-90th. It looks like authors got their success as writers or speakers mor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes from The Pragmatic Programmer book">
+<meta property="og:url" content="http://www.artkpv.net/pragmatic-programmer/index.html">
+<meta property="og:site_name" content="Артём Карпов">
+<meta property="og:description" content="This is a popular book from 1999 y. which don’t lose its value even now was created by coders who did their applications in 80-90th. It looks like authors got their success as writers or speakers mor">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="http://www.artkpv.net/images/pragmatic_programmer.jpg">
+<meta property="article:published_time" content="2017-07-03T21:00:00.000Z">
+<meta property="article:modified_time" content="2017-08-21T10:44:36.000Z">
+<meta property="article:author" content="Артём Карпов">
+<meta property="article:tag" content="книги">
+<meta property="article:tag" content="books">
+<meta property="article:tag" content="programming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.artkpv.net/images/pragmatic_programmer.jpg">
+
+
+<link rel="canonical" href="http://www.artkpv.net/pragmatic-programmer/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ru'
+  };
+</script>
+<title>Notes from The Pragmatic Programmer book | Артём Карпов</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Показать/скрыть меню" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Артём Карпов</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Главная</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>О сайте</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Архив</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Содержание
+        </li>
+        <li class="sidebar-nav-overview">
+          Обзор
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-1-About-philosophy-of-PP-about-love-of-PP-General-rules-of-PP"><span class="nav-number">1.</span> <span class="nav-text">Ch 1. About philosophy of PP, about love of PP. General rules of PP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-2-More-specific-PP-unspoken-rules"><span class="nav-number">2.</span> <span class="nav-text">Ch 2. More specific PP unspoken rules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-3-Tools-of-PP"><span class="nav-number">3.</span> <span class="nav-text">Ch 3. Tools of PP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-4-Protection-of-code-from-yourself-other-code-and-user"><span class="nav-number">4.</span> <span class="nav-text">Ch 4. Protection of code from yourself, other code and user.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-5-Bend-or-break-Rules-for-writing-reversible-decoupled-code"><span class="nav-number">5.</span> <span class="nav-text">Ch 5. Bend or break. Rules for writing reversible (decoupled) code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-6-Rules-that-apply-to-coding-activity"><span class="nav-number">6.</span> <span class="nav-text">Ch 6. Rules that apply to coding activity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-7-Preparing-for-coding-Rules-before-coding"><span class="nav-number">7.</span> <span class="nav-text">Ch 7. Preparing for coding. Rules before coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-8-Pragmatic-Projects-Rules-for-teams"><span class="nav-number">8.</span> <span class="nav-text">Ch. 8. Pragmatic Projects. (Rules for teams)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glossary"><span class="nav-number">9.</span> <span class="nav-text">Glossary</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Артём Карпов</p>
+  <div class="site-description" itemprop="description">Разработка ПО</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">Архив</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tag/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">Тэги</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:artyomkarpov@gmail.com" title="E-Mail → mailto:artyomkarpov@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/artkpv" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;artkpv" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://linkedin.com/in/artkpv" title="Linkedin → http:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;artkpv" rel="noopener" target="_blank">Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://stackoverflow.com/users/511144" title="StackOverflow → http:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;511144" rel="noopener" target="_blank">StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hackerrank.com/ArtyomKarpov" title="Hackerrank → https:&#x2F;&#x2F;www.hackerrank.com&#x2F;ArtyomKarpov" rel="noopener" target="_blank">Hackerrank</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/artworks" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;artworks" rel="noopener" target="_blank">Codeforces</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ru">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/pragmatic-programmer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Артём Карпов">
+      <meta itemprop="description" content="Разработка ПО">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Артём Карпов">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Notes from The Pragmatic Programmer book
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Размещено</span>
+
+      <time title="Создано: 2017-07-04 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-04T00:00:00+03:00">2017-07-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2017-08-21 13:44:36" itemprop="dateModified" datetime="2017-08-21T13:44:36+03:00">2017-08-21</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="/images/pragmatic_programmer.jpg" alt="pragmatic programmer"></p>
+<p>This is a popular book from 1999 y. which don’t lose its value even now was created by coders who did their applications in 80-90th. It looks like authors got their success as writers or speakers more than by actually coding something. As the title entails it is about how to become productive programmer, rules for it. Those vary from general (like fix a ‘broken window’) to specific ones (like use postconditions). Most of the time it is better to think out your examples to connect dots, to remember it but still examples from the book can be taken also. It has some enlightening thoughts about programming philosophy, e.g. it states that the main matter we mangle with is plain text thus we have to master right tools. I use rules from this book in my everyday work and strongly advice this to any programmer regardless of her programming language or platform. So below are my notes from this book.</p>
+<span id="more"></span>
+
+<h2 id="Ch-1-About-philosophy-of-PP-about-love-of-PP-General-rules-of-PP"><a href="#Ch-1-About-philosophy-of-PP-about-love-of-PP-General-rules-of-PP" class="headerlink" title="Ch 1. About philosophy of PP, about love of PP. General rules of PP"></a>Ch 1. About philosophy of PP, about love of PP. General rules of PP</h2><ol>
+<li>The cat ate my source code. Provide options, don’t make lame excuses. Take responsibility. </li>
+<li>Software Entropy. Don’t live with broken windows.</li>
+<li>Stoned soup and boiled frogs. </li>
+</ol>
+<ul>
+<li>Be catalyst for change. Permissions are not given then try it yourself. Excuses are cheaper then permissions. </li>
+<li>Keep tracking of the big picture. Remember the slowly boiled frog as it didn’t track temperature raise.</li>
+</ul>
+<h2 id="Ch-2-More-specific-PP-unspoken-rules"><a href="#Ch-2-More-specific-PP-unspoken-rules" class="headerlink" title="Ch 2. More specific PP unspoken rules"></a>Ch 2. More specific PP unspoken rules</h2><ol start="7">
+<li>Don’t Repeat Youself (DRY). It can be because it seems to be no other way (documentation and code) or it can be unseen (objects has the same field) or developers don’t want to not duplicate or there are many progers).</li>
+<li>Eliminate effect between unrelated parts (make that orthogonal, change in one doesn’t effect the other part) (that is similar to abstraction).</li>
+</ol>
+<ul>
+<li>(Examples, benefits, non-orthogonal systems minuses, better/worse technologies)</li>
+<li>While coding: avoid global data (and singletons), similar functions (check design) and coupled code.</li>
+<li>Assessment of orthogonality: unit tests don’t touch many objects, bug fixes don’t touch many files/objects. Make tags in GIT to assess how many files were touched on a bug fix (monthly assessments)</li>
+</ul>
+<ol start="9">
+<li>Reversibility</li>
+</ol>
+<ul>
+<li>Reversibility — the implementation way with possible future total change.</li>
+<li>Make reversible decisions: isolate database, client-server to standalone and back reversible application, isolate OS calls, etc. No decision is final.</li>
+</ul>
+<ol start="10">
+<li>Tracer Bullets</li>
+</ol>
+<ul>
+<li>Use tracer bullets to get feedback (target) quickly</li>
+<li>Tracer bullet is the same production code but without all functionality there. All parts connected. It is skeleton on which further parts are put.</li>
+<li>(See pluses: quick demo, integration environment, etc.)</li>
+</ul>
+<ol start="11">
+<li>Prototyping and Post-It notes</li>
+</ol>
+<ul>
+<li>..</li>
+</ul>
+<ol start="12">
+<li>Domain languages</li>
+</ol>
+<ul>
+<li>..</li>
+</ul>
+<ol start="13">
+<li>Estimating</li>
+</ol>
+<ul>
+<li>About importance of estimating</li>
+<li>Estimate to avoid surprises </li>
+<li>Choose worse accuracy for longer periods (e.g. 120 days -&gt; “about 6 weeks”).</li>
+<li>Ask someone who already done this</li>
+<li>Build a model of the system. For project: what steps to do (prerequisites, coding, testing, etc.)</li>
+<li>Don’t dismiss strange estimation. Check understanding of model.</li>
+<li>Keep track of estimates and analyse them.</li>
+<li>Iterate schedule with code<ul>
+<li>It is almost imposable to give correct estimation on start.</li>
+<li>Gain estimations as project goes. Run project in iterations. Estimate each iteration.</li>
+</ul>
+</li>
+<li>Don’t give quick estimates</li>
+</ul>
+<h2 id="Ch-3-Tools-of-PP"><a href="#Ch-3-Tools-of-PP" class="headerlink" title="Ch 3. Tools of PP"></a>Ch 3. Tools of PP</h2><p>In short: It convinces for using plain text, shell, one power editor, version control system and other.<br>Intro</p>
+<ul>
+<li>Don’t use single IDE. Get know basic tool set.</li>
+</ul>
+<ol start="14">
+<li>Keep knowledge in plain text.  Plain text is a self-explanatory and understandable text. Could be structured (XML, html, etc.). </li>
+</ol>
+<ul>
+<li>Advantages: it doesn’t get obsolete, it can be taken by many tools. And it can drive tests (?).</li>
+</ul>
+<ol start="15">
+<li>Shell games.</li>
+</ol>
+<ul>
+<li>Use shell to work with OS. Advantages: commands can be combined, and other. GUI is limited to what is shown.</li>
+</ul>
+<ol start="16">
+<li>Power editting.</li>
+</ol>
+<ul>
+<li>Use one power editor…</li>
+</ul>
+<ol start="17">
+<li>Source code control</li>
+<li>Debugging</li>
+</ol>
+<ul>
+<li>Fix the problem, don’t blame.</li>
+<li>Think about problem and don’t panic.</li>
+<li>Fix compiler warnings first.</li>
+</ul>
+<ol start="19">
+<li>Text manipulation (scripts)</li>
+</ol>
+<ul>
+<li>Learn text manipulation language : awk, sed, Perl, TCL, Python, etc.</li>
+</ul>
+<ol start="20">
+<li>Code generators (CG)</li>
+</ol>
+<ul>
+<li>Write code that writes code. That will reduce complexity and chance of mistake.</li>
+<li>Use passive CG to produce beginning of source code (e.g. Resharper) and for other</li>
+<li>Use active CG to synchronise things with each other. E.g. ORM or two different languages. And other. Active CG doesn’t break DRY principle. </li>
+</ul>
+<h2 id="Ch-4-Protection-of-code-from-yourself-other-code-and-user"><a href="#Ch-4-Protection-of-code-from-yourself-other-code-and-user" class="headerlink" title="Ch 4. Protection of code from yourself, other code and user."></a>Ch 4. Protection of code from yourself, other code and user.</h2><p>Intro. You can’t write perfect code. Protect code from itself and from other code. As on road, none is sure above actions of others. </p>
+<ol start="21">
+<li>Design by Contract (DBC) ( <a target="_blank" rel="noopener" href="http://research.microsoft.com/en-us/projects/contracts/">http://research.microsoft.com/en-us/projects/contracts/</a> and  <a target="_blank" rel="noopener" href="http://blogs.jetbrains.com/dotnet/2012/08/contract-annotations-in-resharper-7/">http://blogs.jetbrains.com/dotnet/2012/08/contract-annotations-in-resharper-7/</a>)</li>
+</ol>
+<ul>
+<li>Preconditions — a state of “world” in order to run routine. It is responsibility of a caller to pass good data.</li>
+<li>Postconditions — a state of “world” after routine has done work.</li>
+<li>Class invariants — something that should not change before and after routine execution in class.</li>
+<li>Program should do something no more no less. Contracts are for this insurance. </li>
+<li>Design with Contracts to adhere Orthogonality principle (? p.111)</li>
+<li>Use contracts to support Liscov Substitution principle. That is that a sub class can really be used as base class. It is very good suited for inheritance and polymorphism. </li>
+<li>Use DBC not to get into programming by coincidence. </li>
+<li>Use assertions if DBC is not supported. Assertions can’t substitute DBC.</li>
+<li>DbC supports crashing early. </li>
+<li>Invariants can be used to check values in loops.</li>
+<li>Inviolate requirements (laws) are thought as semantic contracts, project invariants. </li>
+</ul>
+<ol start="22">
+<li>Dead Program Tells No Lies.</li>
+</ol>
+<ul>
+<li>Crash early so that no damage done.</li>
+</ul>
+<ol start="23">
+<li>Assertive Programming</li>
+</ol>
+<ul>
+<li>Use assertions for situations that could never happen.</li>
+<li>Use assertions for prod also. Remove only critical for performance.</li>
+</ul>
+<ol start="24">
+<li>When To Use Exceptions</li>
+</ol>
+<ul>
+<li>Use them only for exceptional situations, unexpected. </li>
+<li>Use error handlers (routine called on exception) instead of exceptions if they can’t be used (in C, in remote calls when it is a lot of duplicates.</li>
+</ul>
+<ol start="25">
+<li>How to Balance Resources</li>
+</ol>
+<ul>
+<li>Deallocate resources in object or routine that allocated them. See example about file opening and closing.</li>
+<li>(See rules for nest allocation, also about deallocation in C++ and Java.)</li>
+<li>(About inability to balance resources…)</li>
+</ul>
+<h2 id="Ch-5-Bend-or-break-Rules-for-writing-reversible-decoupled-code"><a href="#Ch-5-Bend-or-break-Rules-for-writing-reversible-decoupled-code" class="headerlink" title="Ch 5. Bend or break. Rules for writing reversible (decoupled) code"></a>Ch 5. Bend or break. Rules for writing reversible (decoupled) code</h2><ol start="26">
+<li>Decoupling and the Law of Demeter</li>
+</ol>
+<ul>
+<li>Design code such that modules (cells) don’t interact with others much. Or decrease coupling.</li>
+<li>Use Law of Demeter: any function should only call methods of 1) self object, 2) passed params, 3) directly held objects (static in C#); 4) created in the object objects.</li>
+<li>Balance usage of the Law of Demeter. It leads to many wrapper methods and hence higher resource usage; on the other side, not using it leads to unflexible but performance design. </li>
+<li>(Also physical coupling should be reduced in large scale projects?)</li>
+</ul>
+<ol start="27">
+<li>Meta-programming</li>
+</ol>
+<ul>
+<li>Use metadata, don’t integrate. Use it everywhere. Get rid of details: kind of UI, algorithm choice and other.</li>
+<li>Metadata is data about data (e.g. database scheme), it is used and accessed at run time. It can be key/value pairs or some language (domain languages).</li>
+<li>Put abstractions into code, details in metadata. Think declaratively (?).</li>
+<li>Use metadata to configure even business logic (see Domain languages).</li>
+<li>If flexibility required consider rereading metadata in runtime.</li>
+</ul>
+<ol start="28">
+<li>Temporal coupling — couplings things or model in time. </li>
+</ol>
+<ul>
+<li>(About designing for concurrency.)</li>
+<li>…</li>
+</ul>
+<ol start="29">
+<li>It’s Just a View</li>
+</ol>
+<ul>
+<li>Solving the problem of decoupled objects communication with publish/subscribe protocol (observer pattern). </li>
+<li>Event — </li>
+<li>Model — abstract data itself. </li>
+<li>View — representation of data, subscribes to changes in model and logical events in controller.</li>
+<li>Controller — to control a view and provide a new data to model. Highly coupled with view.</li>
+<li>Separate views from models.</li>
+<li>Use MVC not only for GUI but it can be use in more general way.</li>
+</ul>
+<ol start="30">
+<li>Blackboards </li>
+</ol>
+<ul>
+<li>Blackboard — a space with consistent access where any object can access it to put/read/take or do smth else. Blackboard triggers event like smth put. Blackboard can be partitioned to ease data access.</li>
+<li>Use blackboard to coordinate workflow. (Helmes? Unit Of Work?)</li>
+<li>NExt: exerciess on 170</li>
+</ul>
+<h2 id="Ch-6-Rules-that-apply-to-coding-activity"><a href="#Ch-6-Rules-that-apply-to-coding-activity" class="headerlink" title="Ch 6. Rules that apply to coding activity"></a>Ch 6. Rules that apply to coding activity</h2><ol start="31">
+<li>Programming by coincidence</li>
+</ol>
+<ul>
+<li>It is programming on luck, not taking responsibility for all possible ways the code can run. Not thinking about what you write. Not knowing problem or requirements to the end before starting, not knowing context. Also it is not documenting assumptions. It is relying on unreliable things. </li>
+<li>Don’t program by coincidence </li>
+<li>Program deliberately: be aware of the code, and other.</li>
+</ul>
+<ol start="32">
+<li>Algorithm speed</li>
+</ol>
+<ul>
+<li><p>Use O() notation — order of an algorithm (See examples of O(1), O(n), O(n^2) etc))</p>
+</li>
+<li><p>Know about common algorithms (common sense):</p>
+<ul>
+<li>Get item from array — O(1)</li>
+<li>Loops — O(n)</li>
+<li>Loop in loop (bubble sort) — O(n*m)</li>
+<li>Quicksort (divine and conquer) — O(n*lg(n))</li>
+</ul>
+</li>
+<li><p>Estimate the Order, O() of an algorithm</p>
+</li>
+<li><p>Check you estimates</p>
+</li>
+<li><p>Don’t choose inappropriate algorithm</p>
+</li>
+<li><p>Don’t waste time on unneeded optimization for now.</p>
+</li>
+</ul>
+<ol start="33">
+<li>Refactoring</li>
+</ol>
+<ul>
+<li>Best metaphor for software development is gardening, not building construction. I can get out bad plants, move some plants to other places, get split some big plants, etc.</li>
+<li>Say to customers: refactoring is like managing “growth” (cancer form). If it is managed now it will grow and kill organism or it will be harder to remove it later. </li>
+<li>Refactor often, refactor early. </li>
+<li>Fowler:<ul>
+<li>Don’t refactor and add new functionality at once.</li>
+<li>Test often, test what is being refactored. </li>
+<li>Refactor in small steps</li>
+</ul>
+</li>
+</ul>
+<ol start="34">
+<li>Code That’s Easy To Test</li>
+</ol>
+<ul>
+<li><p>Like circuit a code can be tested. </p>
+</li>
+<li><p>Do it from isolated unit tests to tests as a whole.</p>
+</li>
+<li><p>Test against code contracts (border cases, non-supported values, smth other)</p>
+</li>
+<li><p>Design system to test: modularity.</p>
+</li>
+<li><p>Place tests:</p>
+<ul>
+<li>for small systems: in a class itself</li>
+<li>bigger: in a subdirectory </li>
+</ul>
+</li>
+<li><p>Use Test Harness for large projects (nUnit, jUnit etc).</p>
+</li>
+<li><p>Create test cases from debugging data.</p>
+</li>
+<li><p>Build a Test Window: </p>
+<ul>
+<li>log files,</li>
+<li>pop-up windows on hot-keys for help desk.</li>
+<li>web server built into application  to get full info.</li>
+</ul>
+</li>
+<li><p>Test Your Software or users will. </p>
+</li>
+</ul>
+<ol start="35">
+<li>Evil wizards</li>
+</ol>
+<ul>
+<li>Don’t use wizards (XSD) you don’t understand. That is because this code becomes your own. The third libraries are not. </li>
+</ul>
+<h2 id="Ch-7-Preparing-for-coding-Rules-before-coding"><a href="#Ch-7-Preparing-for-coding-Rules-before-coding" class="headerlink" title="Ch 7. Preparing for coding. Rules before coding"></a>Ch 7. Preparing for coding. Rules before coding</h2><ol start="36">
+<li>The Requirements Pit</li>
+</ol>
+<ul>
+<li>Strive for perfection by removing. </li>
+<li>Dig for requirements</li>
+<li>Requirement — abstract statement of a need; it is a need.</li>
+<li>Policy — vague statement with details, an example of a need. </li>
+<li>Document requirements and policies separately. Add hyper-links.</li>
+<li>Dig for underlying problem, need, reason, why they want it. Become an user.</li>
+<li>Document requirements using use cases. Use case — use of a system in abstract fashion, with describing an aim. </li>
+<li>(see Use case example and template)</li>
+<li>Nest use cases from general to specific ones. </li>
+<li>Use UML use case diagrams.</li>
+<li>Stay abstract. Beware of over-specifying.</li>
+<li>Use project glossary.</li>
+<li>Track requirements number and their impact on the system (LOC, bugs, etc.)</li>
+<li>Publish requirements for all members.</li>
+<li>(see challenges and exercise — UNDONE)</li>
+</ul>
+<ol start="37">
+<li>Solving impossible puzzles</li>
+</ol>
+<ul>
+<li>Find a box. Define real constraints. Check that they are for sure real. </li>
+</ul>
+<ol start="38">
+<li>Not until you’re ready</li>
+</ol>
+<ul>
+<li>Listen to nagging doubts, heed it. Prototype to find you whether it was procrastination or a real hidden problem. </li>
+</ul>
+<ol start="39">
+<li><p>Specification Trap </p>
+</li>
+<li><p>Circles and Arrows</p>
+</li>
+</ol>
+<ul>
+<li>(SKIPPED) (About how important design tools are. They are not important.)</li>
+</ul>
+<h2 id="Ch-8-Pragmatic-Projects-Rules-for-teams"><a href="#Ch-8-Pragmatic-Projects-Rules-for-teams" class="headerlink" title="Ch. 8. Pragmatic Projects. (Rules for teams)"></a>Ch. 8. Pragmatic Projects. (Rules for teams)</h2><ol start="41">
+<li>Pragmatic Teams</li>
+</ol>
+<ul>
+<li>(The same as in previous paragraphs but for teams)</li>
+<li>(SKIPPED)</li>
+</ul>
+<ol start="42">
+<li>Ubiquitous Automation </li>
+</ol>
+<ul>
+<li>Automate everything</li>
+<li>Don’t use manual procedures (people get it wrong)</li>
+<li>Use schedulers (cron at Linux, at in Windows) </li>
+<li>Things to automate: <ul>
+<li>regression tests</li>
+<li>night builds</li>
+<li>final builds</li>
+<li>administration tasks (emails, other?)</li>
+<li>Common web site (like pandoc for view on all docs and comments; and for build logs).</li>
+<li>… and other</li>
+</ul>
+</li>
+</ul>
+<ol start="43">
+<li>Ruthless Testing</li>
+</ol>
+<ul>
+<li><p>Be eager to find bugs.</p>
+</li>
+<li><p>Test often. Test early. Test automatically. </p>
+</li>
+<li><p>Test code can be bigger than work code. </p>
+</li>
+<li><p>Coding ain’t done, till all tests run. </p>
+</li>
+<li><p>What to test:</p>
+<ul>
+<li>Units. Unit tests. Units meet their contracts. Must</li>
+<li>Subsystems, system. Integration tests. Subsystems meet their contracts. Must</li>
+<li>Meeting of users’ needs. Validation and verification. </li>
+<li>Cases of the exhaustion of resources: errors, recovery. </li>
+<li>Performance. In real-world. In a need of more resources, is it scalable?</li>
+<li>Usability. By real users. As early as possible.</li>
+</ul>
+</li>
+<li><p>How to test</p>
+<ul>
+<li>Regression tests — tests run after functionality implemented. All automated tests. </li>
+<li>Test data. Can be real-world and synthetic.</li>
+<li>For GUI — automating tools. Decouple system so that model errors are found before view errors. Then it is easier to test GUI. </li>
+<li>Test the tests. Ensure that tests break in case of error. Then the tests work.</li>
+<li>Test state coverage, not code coverage. Number of states is huge. It is big problem. </li>
+</ul>
+</li>
+<li><p>When to test</p>
+<ul>
+<li>Test as soon as production code appears.</li>
+<li>Test before checking in.</li>
+<li>Make stress tests on regular basis.</li>
+</ul>
+</li>
+<li><p>Add test if a bug found. Find bugs once. Then it is the last time the bug found.</p>
+</li>
+</ul>
+<ol start="44">
+<li>It’s All Writing</li>
+</ol>
+<ul>
+<li><p>Do not duplicate effort while writing documentation. Use pragmatic advices from here. Treat English as Just another Programming language. </p>
+</li>
+<li><p>Keep it close at hand. </p>
+</li>
+<li><p>Two kinds of documentation. Internal documentation — source code, comments, design and other. External doc — user manuals, shipped to outside.</p>
+</li>
+<li><p>Build Documentation in, Don’t bolt it on. (?)</p>
+</li>
+<li><p>About comments.</p>
+<ul>
+<li>Comment why it is done so, not about how it is done (it is already in source code). In module level (assembly), data, type declarations, per-class, per-method. </li>
+<li>Use meaningful variable names. Don’t mislead by var. names.</li>
+<li>Leave in comments: author’s name, copyright notices. Can leave in comments: data of the last change.</li>
+</ul>
+</li>
+<li><p>Source code, documents, database tables are all views of a model (see It’s just a view). Choose one main source and generate other views from it.</p>
+</li>
+<li><p>Technical writers should also use basic principles of Pragmatic Programmers. </p>
+</li>
+<li><p>Produce documentation that can be kept up to date. Produce it automatically. Don’t violate DRY by copy-pasting. Paper is hard for it.</p>
+</li>
+<li><p>Use some markup language for doc. DocBook. (Markdown?)</p>
+</li>
+</ul>
+<ol start="45">
+<li>Great expectations</li>
+</ol>
+<ul>
+<li>Gently Exceed Your Users’ Expectations. <ul>
+<li>Communicate users. </li>
+<li>Don’t manage expectations.</li>
+<li>Everyone should understand what is expected and how it will be built. </li>
+<li>Give a little bit more. </li>
+</ul>
+</li>
+</ul>
+<ol start="46">
+<li>Pride and Prejudice.</li>
+</ol>
+<ul>
+<li>Sign your work.</li>
+</ul>
+<h2 id="Glossary"><a href="#Glossary" class="headerlink" title="Glossary"></a>Glossary</h2><ul>
+<li>Прагматизм (от др.-греч. πράγμα, родительный падеж πράγματος — «дело, действие») — философское течение, базирующееся на практике как критерии истины и смысловой значимости.</li>
+</ul>
+<p><em>Last updated at 2017-07-14</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/" rel="tag"># книги</a>
+              <a href="/tag/books/" rel="tag"># books</a>
+              <a href="/tag/programming/" rel="tag"># programming</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Script-to-sync-Toggl-entries-with-Assembla/" rel="prev" title="Script to sync Toggl entries with Assembla">
+                  <i class="fa fa-chevron-left"></i> Script to sync Toggl entries with Assembla
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Patterns-of-Enterprise/" rel="next" title="Notes from PoEAA">
+                  Notes from PoEAA <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Артём Карпов</span>
+</div>
+  <div class="powered-by">Генератор — <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
