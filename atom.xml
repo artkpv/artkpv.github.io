@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2021-03-01T06:56:49.135Z</updated>
+  <updated>2022-09-05T08:15:24.094Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ML Safety Scholars</title>
+    <link href="http://www.artkpv.net/mlss-summer-2022/"/>
+    <id>http://www.artkpv.net/mlss-summer-2022/</id>
+    <published>2022-09-05T08:01:59.000Z</published>
+    <updated>2022-09-05T08:15:24.094Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img src=&quot;/mlss-summer-2022/mlss_mnist_calibration.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;This summer I took part in &lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="ml" scheme="http://www.artkpv.net/tag/ml/"/>
+    
+  </entry>
   
   <entry>
     <title>Intro to plain text productivity</title>
@@ -40,7 +65,7 @@
     <link href="http://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/"/>
     <id>http://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/</id>
     <published>2020-03-05T11:47:55.000Z</published>
-    <updated>2020-03-13T15:11:19.713Z</updated>
+    <updated>2021-02-27T13:56:52.192Z</updated>
     
     
       
