@@ -23,15 +23,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Поиск...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="This is s summary of the Pragmatic AI Safety sequence posted on EA forum: https:&#x2F;&#x2F;forum.effectivealtruism.org&#x2F;s&#x2F;8EqNwueP6iw2BQpNo .">
+<meta name="description" content="This is s summary and critique on two publications about AI Safety: Pragmatic AI Safety and Risks from Learned Optimization. They are an introductory and are aiming to direct research.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pragmatic AI Safety. Summary and critique">
+<meta property="og:title" content="Summary and critique. PAIS and Risks from Learned Optimization">
 <meta property="og:url" content="http://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/index.html">
 <meta property="og:site_name" content="Артём Карпов">
-<meta property="og:description" content="This is s summary of the Pragmatic AI Safety sequence posted on EA forum: https:&#x2F;&#x2F;forum.effectivealtruism.org&#x2F;s&#x2F;8EqNwueP6iw2BQpNo .">
+<meta property="og:description" content="This is s summary and critique on two publications about AI Safety: Pragmatic AI Safety and Risks from Learned Optimization. They are an introductory and are aiming to direct research.">
 <meta property="og:locale" content="ru_RU">
 <meta property="article:published_time" content="2022-10-20T14:54:13.000Z">
-<meta property="article:modified_time" content="2022-10-20T16:55:13.176Z">
+<meta property="article:modified_time" content="2022-10-25T17:46:30.578Z">
 <meta property="article:author" content="Артём Карпов">
 <meta property="article:tag" content="ml ai-safety">
 <meta name="twitter:card" content="summary">
@@ -49,7 +49,7 @@
     lang   : 'ru'
   };
 </script>
-<title>Pragmatic AI Safety. Summary and critique | Артём Карпов</title>
+<title>Summary and critique. PAIS and Risks from Learned Optimization | Артём Карпов</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48410443-1"></script>
     <script>
@@ -168,7 +168,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Complex-Systems-for-AI-Safety-PAIS-3"><span class="nav-number">1.</span> <span class="nav-text">Complex Systems for AI Safety. PAIS 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Perform-Tractable-Research-While-Avoiding-Capabilities-Externalities-PAIS-4"><span class="nav-number">2.</span> <span class="nav-text">Perform Tractable Research While Avoiding Capabilities Externalities. PAIS 4</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Pragmatic-AI-Safety-sequence"><span class="nav-number">1.</span> <span class="nav-text">The Pragmatic AI Safety sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Complex-Systems-for-AI-Safety-PAIS-3"><span class="nav-number">1.1.</span> <span class="nav-text">Complex Systems for AI Safety. PAIS 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Perform-Tractable-Research-While-Avoiding-Capabilities-Externalities-PAIS-4"><span class="nav-number">1.2.</span> <span class="nav-text">Perform Tractable Research While Avoiding Capabilities Externalities. PAIS 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Risks-from-Learned-Optimizaiton"><span class="nav-number">2.</span> <span class="nav-text">Risks from Learned Optimizaiton</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -260,7 +260,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Pragmatic AI Safety. Summary and critique
+          Summary and critique. PAIS and Risks from Learned Optimization
         </h1>
 
         <div class="post-meta-container">
@@ -270,10 +270,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Размещено</span>
-      
 
-      <time title="Создано: 2022-10-20 17:54:13 / Изменено: 19:55:13" itemprop="dateCreated datePublished" datetime="2022-10-20T17:54:13+03:00">2022-10-20</time>
+      <time title="Создано: 2022-10-20 17:54:13" itemprop="dateCreated datePublished" datetime="2022-10-20T17:54:13+03:00">2022-10-20</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2022-10-25 20:46:30" itemprop="dateModified" datetime="2022-10-25T20:46:30+03:00">2022-10-25</time>
+      </span>
 
   
 </div>
@@ -285,10 +291,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>This is s summary of the Pragmatic AI Safety sequence posted on EA forum: <a target="_blank" rel="noopener" href="https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo">https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo</a> .</p>
+        <p>This is s summary and critique on two publications about AI Safety: Pragmatic AI Safety and Risks from Learned Optimization. They are an introductory and are aiming to direct research.</p>
 <span id="more"></span>
 
-<h1 id="Complex-Systems-for-AI-Safety-PAIS-3"><a href="#Complex-Systems-for-AI-Safety-PAIS-3" class="headerlink" title="Complex Systems for AI Safety. PAIS 3"></a>Complex Systems for AI Safety. PAIS 3</h1><p>Article introduces complex systems theory and applies it to AI Safety field by naming factors that contribute to it. This addresses the third pillow in PAIS sequence (Systems view).</p>
+<h1 id="The-Pragmatic-AI-Safety-sequence"><a href="#The-Pragmatic-AI-Safety-sequence" class="headerlink" title="The Pragmatic AI Safety sequence"></a>The Pragmatic AI Safety sequence</h1><p>Posted on EA forum: <a target="_blank" rel="noopener" href="https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo">https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo</a> .</p>
+<h2 id="Complex-Systems-for-AI-Safety-PAIS-3"><a href="#Complex-Systems-for-AI-Safety-PAIS-3" class="headerlink" title="Complex Systems for AI Safety. PAIS 3"></a>Complex Systems for AI Safety. PAIS 3</h2><p>Article introduces complex systems theory and applies it to AI Safety field by naming factors that contribute to it. This addresses the third pillow in PAIS sequence (Systems view).</p>
 <p>Claims:</p>
 <ul>
 <li>Complex systems (CS) found in AI Safety: neural nets, RL agent, AI lab, government and business, and other.</li>
@@ -326,7 +333,7 @@
 <li>Inherits complex systems theory which is based on decades of research and real-life cases and applies to ai safety. For example, Systems Theory stated that internal goals comes first long before it was found in AI systems (mesa-optimization).</li>
 </ul>
 <p>Discussion at <a target="_blank" rel="noopener" href="https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo/p/eHYxg7cFxqQPGo7hD">https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo/p/eHYxg7cFxqQPGo7hD</a></p>
-<h1 id="Perform-Tractable-Research-While-Avoiding-Capabilities-Externalities-PAIS-4"><a href="#Perform-Tractable-Research-While-Avoiding-Capabilities-Externalities-PAIS-4" class="headerlink" title="Perform Tractable Research While Avoiding Capabilities Externalities. PAIS 4"></a>Perform Tractable Research While Avoiding Capabilities Externalities. PAIS 4</h1><p>How to perform long tail but safe AI research? This addresses the first (ML research precedents) and second (capabilities externalities) pillows in the PAIS sequence.</p>
+<h2 id="Perform-Tractable-Research-While-Avoiding-Capabilities-Externalities-PAIS-4"><a href="#Perform-Tractable-Research-While-Avoiding-Capabilities-Externalities-PAIS-4" class="headerlink" title="Perform Tractable Research While Avoiding Capabilities Externalities. PAIS 4"></a>Perform Tractable Research While Avoiding Capabilities Externalities. PAIS 4</h2><p>How to perform long tail but safe AI research? This addresses the first (ML research precedents) and second (capabilities externalities) pillows in the PAIS sequence.</p>
 <ul>
 <li>Aim at long tail impact research (low probability, high stakes): no zero variables as long tail process multiplies rather than adds variables; research should be on tractable but unknown issues at the edge of known; start early; prepare for critical dangerous moments beforehand.</li>
 <li>Research that operates near infinity variables or asymptotic (example is superintelligence) is problematic and should be avoided because they have longer feedback loops. Instead, aim for shorter feedback loops (low hanging fruits, best in terms of cost-benefit).</li>
@@ -334,6 +341,10 @@
 <li>As it is high stakes (humanity extinction), safety research should avoid capabilities advancement always where possible.</li>
 </ul>
 <p>Discussion at <a target="_blank" rel="noopener" href="https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo/p/WmrCQTkTgDuk5RhCP">https://forum.effectivealtruism.org/s/8EqNwueP6iw2BQpNo/p/WmrCQTkTgDuk5RhCP</a></p>
+<h1 id="Risks-from-Learned-Optimizaiton"><a href="#Risks-from-Learned-Optimizaiton" class="headerlink" title="Risks from Learned Optimizaiton"></a>Risks from Learned Optimizaiton</h1><p><a target="_blank" rel="noopener" href="https://www.alignmentforum.org/s/r9tYkB2a8Fp4DN8yB">https://www.alignmentforum.org/s/r9tYkB2a8Fp4DN8yB</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1906.01820">https://arxiv.org/abs/1906.01820</a></p>
+<p>Parent optimization process might intentionally or unintentionally create another child optimization process. It’s more likely if a problem couldn’t be fully solved by a parent optimizer, there are too many policies to create; the smaller parent the more likelihood of child optimizer appearance and vice versa; the parent is biased towards simplicity. Less likely if the parent has less state or not enough power to find a child. Examples of child optimization are evolution and human brain, teacher and student, society and corporation, programmer and a program that searches solutions to NP problem, and so on.</p>
+<p>A child is likely to have goals different to parent’s goals when it is free from parent’s control or deployed in another environment. In that case a child’s goals might be totally different from parent’s ones, or be near them, or be not optimal. If a child’s objective is totally different from the parent’s then it might nevertheless increase the parent’s objective if it doesn’t interfere with its own goals or if it can pursue its own goals afterwards. It is unclear how to match a child’s objective, which is indirectly learned, to the parent’s one (inner alignment). Especially risky is a child’s deception that happens if the child can project or plan many steps ahead, knows the parent’s objective, and there is a threat of shutting down or modification. Deception is more likely as we create objective proxies, or not train well before deployment.</p>
+<p>It is likely that without child optimization systems will be much less useful but with this optimization in place the existential risk from AI increases.</p>
 
     </div>
 
