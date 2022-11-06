@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2022-10-31T11:02:13.242Z</updated>
+  <updated>2022-11-06T16:23:54.265Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Summary and critique. PAIS and Risks from Learned Optimization</title>
+    <title>About PAIS and Risks from Learned Optimization</title>
     <link href="http://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/"/>
     <id>http://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/</id>
     <published>2022-10-20T14:54:13.000Z</published>
-    <updated>2022-10-31T11:02:13.242Z</updated>
+    <updated>2022-11-06T16:23:54.265Z</updated>
     
     
     <summary type="html">&lt;p&gt;This is summary and critique on two publications about AI Safety: Pragmatic AI Safety and Risks from Learned Optimization. They are an introductory and are aiming to direct research.&lt;/p&gt;</summary>
