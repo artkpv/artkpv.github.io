@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Артём Карпов</title>
+  <title>Artyom Karpov</title>
   <icon>http://www.artkpv.net/icon.png</icon>
   
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://www.artkpv.net/</id>
   
   <author>
-    <name>Артём Карпов</name>
+    <name>Artyom Karpov</name>
     
   </author>
   
