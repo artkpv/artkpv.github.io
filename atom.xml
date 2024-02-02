@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2023-06-30T08:25:46.901Z</updated>
+  <updated>2024-02-02T12:28:35.791Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How important is AI hacking as LLMs advance</title>
+    <link href="http://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/"/>
+    <id>http://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/</id>
+    <published>2024-02-02T12:17:41.000Z</published>
+    <updated>2024-02-02T12:28:35.791Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;TL;DR. Offensive technologies will likely become more advanced while the&lt;br&gt;defense ones will lag behind. AI hacking capabilities might be the&lt;br&gt;second most important problem after AI alignment. &lt;/p&gt;
+&lt;p&gt;Epistemic status: Exploratory / brainstorming. &lt;/p&gt;
+&lt;img src=&quot;/How-important-is-AI-hacking-as-LLMs-advance/ai_hacking.png&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+    <category term="AI Safety, hacking" scheme="http://www.artkpv.net/tag/AI-Safety-hacking/"/>
+    
+  </entry>
   
   <entry>
     <title>Third condition of the deceptive alignment</title>
