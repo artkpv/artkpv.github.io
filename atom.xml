@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2024-02-02T12:48:32.775Z</updated>
+  <updated>2024-02-27T10:49:34.752Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Inducing human-like biases in moral reasoning LMs</title>
+    <link href="http://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/"/>
+    <id>http://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/</id>
+    <published>2024-02-26T21:00:00.000Z</published>
+    <updated>2024-02-27T10:49:34.752Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This presents an inconclusive attempt to create a proof-of-concept that fMRI data from human brains can help improve moral reasoning in</summary>
+        
+      
+    
+    
+    
+    
+    <category term="LLM, neuroconnectionist" scheme="http://www.artkpv.net/tag/LLM-neuroconnectionist/"/>
+    
+  </entry>
   
   <entry>
     <title>How important is AI hacking as LLMs advance</title>
