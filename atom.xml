@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2024-02-27T10:49:34.752Z</updated>
+  <updated>2024-05-04T12:26:05.106Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CCS on compound sentences</title>
+    <link href="http://www.artkpv.net/CCS-on-compound-sentences/"/>
+    <id>http://www.artkpv.net/CCS-on-compound-sentences/</id>
+    <published>2024-05-04T12:25:18.000Z</published>
+    <updated>2024-05-04T12:26:05.106Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Finding internal knowledge representation(s) inside transformer models without supervision is certainly a challenging task which is</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Inducing human-like biases in moral reasoning LMs</title>
