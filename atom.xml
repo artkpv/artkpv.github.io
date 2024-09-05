@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2024-09-05T06:33:29.415Z</updated>
+  <updated>2024-09-05T06:46:02.902Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="http://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/"/>
     <id>http://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/</id>
     <published>2024-09-05T13:20:02.000Z</published>
-    <updated>2024-09-05T06:33:29.415Z</updated>
+    <updated>2024-09-05T06:46:02.902Z</updated>
     
     
-    <summary type="html">&lt;p&gt;I am glad to publish my solutions to mathematical problems to the Math for ML book. Also, I want to publish my Anki cards, programming solutions, etc. in the updates to this post. The book is “Mathematics for Machine Learning”, (c) 2020 by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong, published by Cambridge University Press, &lt;a href=&quot;https://mml-book.github.io/&quot;&gt;https://mml-book.github.io/&lt;/a&gt;. I’m grateful to authors for their work in writing this book, for describing so concisely and clear, for providing exercises and examples to test our understanding, and for giving references to dive deper into topics of interest. Here are my solutions to exercises from the book.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;I am glad to publish my solutions to the mathematical problems in the Math for ML book. Additionally, I want to share my Anki cards, programming solutions, and more in the updates to this post. The book is “Mathematics for Machine Learning,” © 2020 by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong, published by Cambridge University Press (&lt;a href=&quot;https://mml-book.github.io/&quot;&gt;https://mml-book.github.io/&lt;/a&gt;). I’m grateful to the authors for their work in writing this book, for describing the concepts so concisely and clearly, for providing exercises and examples to test our understanding, and for giving references to dive deeper into topics of interest. Here are my solutions to the exercises from the book.&lt;/p&gt;</summary>
     
     
     
