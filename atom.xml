@@ -219,15 +219,14 @@
     <link href="http://www.artkpv.net/CodeComplete/"/>
     <id>http://www.artkpv.net/CodeComplete/</id>
     <published>2017-08-05T21:00:00.000Z</published>
-    <updated>2017-08-21T10:44:36.000Z</updated>
+    <updated>2025-01-16T12:48:43.355Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/CodeComplete/cover.png&quot; class=&quot;&quot;&gt;
 
-
-&lt;p&gt;Consider one book that would try to compile all best practices for all past years for software construction. With about 450 items in bibliography of most important publications at the time (second edition published in 2004 y.) this book endeavours to bring development process at a totally new level. Essentially this book interprets most important those publications and gives guidelines for building software. It takes recommendations of gurus in the field and scientists and presents practical rules for effectively building quality software thus narrowing the gap between production and research. Hence the title of the book which implies that it is some complete set of laws. &lt;/p&gt;
-&lt;p&gt;The book is divided into seven parts. Giving some base terms and ideas in part I, author goes from the very bottom of construction process, the code itself (parts II, III, IV) to upper processes. Part V is about working with existing code. Controlling system development is in part VI. And the last part VII is about requirements to creator itself. For quick use the book includes checklists for all stages of construction and many figures and tables as well as key terms. Thus can be used as a quick reference.&lt;/p&gt;
-&lt;p&gt;Below are my notes from the book (unfinished).&lt;/p&gt;</summary>
+&lt;p&gt;This book attempts to compile the best practices for software construction accumulated over the years. With approximately 450 bibliographic references to the most important publications at the time (second edition published in 2004), the book aims to elevate the development process to an entirely new level. Essentially, it interprets the most significant publications and provides guidelines for building software. It takes recommendations from field experts and scientists and presents practical rules for effectively creating quality software, thus bridging the gap between production and research. Hence the title, which implies a comprehensive set of laws.&lt;/p&gt;
+&lt;p&gt;The book is divided into seven parts. Starting with basic terms and ideas in Part I, the author progresses from the fundamental level of the construction process—the code itself (Parts II, III, IV)—to higher-level processes. Part V focuses on working with existing code. Part VI covers system development control. The final part, Part VII, addresses requirements for the creator themselves. For quick reference, the book includes checklists for all construction stages, along with numerous figures, tables, and key terms.&lt;/p&gt;
+&lt;p&gt;Below are some of my notes from the book.&lt;/p&gt;</summary>
     
     
     
@@ -245,14 +244,14 @@
     <link href="http://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/"/>
     <id>http://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/</id>
     <published>2017-07-20T21:00:00.000Z</published>
-    <updated>2017-08-21T10:44:36.000Z</updated>
+    <updated>2025-01-16T12:50:51.046Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/images/aa4e_cover.png&quot; class=&quot;&quot;&gt;
 
-&lt;p&gt;That great book written by D. Esposito &amp;amp; A. Saltarello collects recipes for making solutions for enterprise applications. Though it is not a usual cookbook but guiding principals for making a ‘dish’. It is based on author’s experience and common practices from other books. Second edition published in Jan 2015 seems to be a good summation of best practices with a brief history of them for that time in .NET world.&lt;/p&gt;
-&lt;p&gt;Authors begins by giving answers to such questions as what is architecture of applications? who are software architects? how modern apps developing differs from past? We can divide the book into two parts (though authors divide it into 4 parts). In the first one there are answers to these questions: what is needed for success work? what’s required from a team? what is code quality and how to achieve it? and other. In the second one, practical recommendations for developers: what types of architecture they see? what are parts of those? main advantages and disadvantages.&lt;/p&gt;
-&lt;p&gt;To my mind to understand the book a practical experience in software developing is required, it is not for beginners. &lt;/p&gt;
+&lt;p&gt;This great book, written by D. Esposito &amp;amp; A. Saltarello, collects recipes for creating solutions for enterprise applications. It is not a typical cookbook but provides guiding principles for creating a ‘dish’. The book is based on the authors’ experience and common practices from other books. The second edition, published in January 2015, seems to be a good summation of best practices with a brief history of their development in the .NET world.&lt;/p&gt;
+&lt;p&gt;The authors begin by answering questions such as: What is the architecture of applications? Who are software architects? How do modern apps differ from past developments? The book can be divided into two parts (though the authors divide it into four parts). The first part provides answers to questions like: What is needed for successful work? What is required from a team? What is code quality and how to achieve it? The second part offers practical recommendations for developers, including types of architecture, their components, and main advantages and disadvantages.&lt;/p&gt;
+&lt;p&gt;In my opinion, practical experience in software development is required to fully understand the book; it is not intended for beginners.&lt;/p&gt;
 &lt;p&gt;Below are notes and mind maps of the book.&lt;/p&gt;</summary>
     
     
@@ -271,13 +270,13 @@
     <link href="http://www.artkpv.net/Patterns-of-Enterprise/"/>
     <id>http://www.artkpv.net/Patterns-of-Enterprise/</id>
     <published>2017-07-16T21:00:00.000Z</published>
-    <updated>2017-08-21T10:44:36.000Z</updated>
+    <updated>2025-01-16T12:52:18.090Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/poeaa.jpg&quot; alt=&quot;PoEAA&quot;&gt;&lt;/p&gt;
-&lt;p&gt;This is the book you need if you wish to develop an application for quickly evolving, complex rules of some enterprise. Though it has some out dated parts probably every serious programmer should read it. The book is about patterns for building enterprise applications those ordered for some specific users and with main limitation being development time and intended to run long. Authors compiled many years of top professional developers wisdom. They do not need an introduction I guess (esp. Martin Fowler).&lt;/p&gt;
-&lt;p&gt;Book is large and divided into two parts. The first one gives some tutorial on applying patterns. The second part is a reference. &lt;/p&gt;
-&lt;p&gt;Below is my very short notes to some key chapters. &lt;/p&gt;</summary>
+&lt;p&gt;This is the book you need if you wish to develop an application for quickly evolving, complex enterprise systems. Though it has some outdated parts, probably every serious programmer should read it. The book is about patterns for building enterprise applications that are ordered for specific users, with the main limitation being development time and intended for long-term use. The authors compiled many years of top professional developers’ wisdom. They do not need an introduction, I guess (especially Martin Fowler).&lt;/p&gt;
+&lt;p&gt;The book is large and divided into two parts. The first part provides a tutorial on applying patterns. The second part serves as a reference.&lt;/p&gt;
+&lt;p&gt;Below are my very short notes on some key chapters.&lt;/p&gt;</summary>
     
     
     
@@ -295,11 +294,13 @@
     <link href="http://www.artkpv.net/pragmatic-programmer/"/>
     <id>http://www.artkpv.net/pragmatic-programmer/</id>
     <published>2017-07-03T21:00:00.000Z</published>
-    <updated>2017-08-21T10:44:36.000Z</updated>
+    <updated>2025-01-16T12:52:45.840Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/pragmatic_programmer.jpg&quot; alt=&quot;pragmatic programmer&quot;&gt;&lt;/p&gt;
-&lt;p&gt;This is a popular book from 1999 y. which don’t lose its value even now was created by coders who did their applications in 80-90th. It looks like authors got their success as writers or speakers more than by actually coding something. As the title entails it is about how to become productive programmer, rules for it. Those vary from general (like fix a ‘broken window’) to specific ones (like use postconditions). Most of the time it is better to think out your examples to connect dots, to remember it but still examples from the book can be taken also. It has some enlightening thoughts about programming philosophy, e.g. it states that the main matter we mangle with is plain text thus we have to master right tools. I use rules from this book in my everyday work and strongly advice this to any programmer regardless of her programming language or platform. So below are my notes from this book.&lt;/p&gt;</summary>
+&lt;p&gt;This is a popular book from 1999 that has not lost its value, even now. It was created by coders who developed their applications in the 1980s and 1990s. It seems the authors gained more success as writers or speakers than as actual programmers. As the title suggests, it is about how to become a productive programmer and the rules for doing so. These rules range from general principles (like fixing a ‘broken window’) to specific techniques (like using postconditions).&lt;/p&gt;
+&lt;p&gt;Most of the time, it is better to think through your own examples to connect the dots and remember the concepts, but the book’s examples can also be helpful. The book offers some enlightening thoughts about programming philosophy, such as the idea that the primary material we work with is plain text, and therefore we must master the right tools.&lt;/p&gt;
+&lt;p&gt;I use the rules from this book in my everyday work and strongly recommend it to any programmer, regardless of their programming language or platform. Below are my notes from the book.&lt;/p&gt;</summary>
     
     
     
