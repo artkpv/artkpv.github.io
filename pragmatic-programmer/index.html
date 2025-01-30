@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://www.artkpv.net/images/pragmatic_programmer.jpg">
 <meta property="article:published_time" content="2017-07-03T21:00:00.000Z">
-<meta property="article:modified_time" content="2025-01-16T12:52:45.840Z">
+<meta property="article:modified_time" content="2025-01-30T08:07:05.496Z">
 <meta property="article:author" content="Artyom Karpov">
 <meta property="article:tag" content="книги">
 <meta property="article:tag" content="books">
@@ -226,7 +226,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-16 15:52:45" itemprop="dateModified" datetime="2025-01-16T15:52:45+03:00">2025-01-16</time>
+      <time title="Modified: 2025-01-30 11:07:05" itemprop="dateModified" datetime="2025-01-30T11:07:05+03:00">2025-01-30</time>
     </span>
 
   
@@ -247,52 +247,34 @@
 <h2 id="Ch-1-About-philosophy-of-PP-about-love-of-PP-General-rules-of-PP"><a href="#Ch-1-About-philosophy-of-PP-about-love-of-PP-General-rules-of-PP" class="headerlink" title="Ch 1. About philosophy of PP, about love of PP. General rules of PP"></a>Ch 1. About philosophy of PP, about love of PP. General rules of PP</h2><ol>
 <li>The cat ate my source code. Provide options, don’t make lame excuses. Take responsibility. </li>
 <li>Software Entropy. Don’t live with broken windows.</li>
-<li>Stoned soup and boiled frogs. </li>
-</ol>
-<ul>
+<li>Stoned soup and boiled frogs. <ul>
 <li>Be catalyst for change. Permissions are not given then try it yourself. Excuses are cheaper then permissions. </li>
 <li>Keep tracking of the big picture. Remember the slowly boiled frog as it didn’t track temperature raise.</li>
 </ul>
-<h2 id="Ch-2-More-specific-PP-unspoken-rules"><a href="#Ch-2-More-specific-PP-unspoken-rules" class="headerlink" title="Ch 2. More specific PP unspoken rules"></a>Ch 2. More specific PP unspoken rules</h2><ol start="7">
-<li>Don’t Repeat Youself (DRY). It can be because it seems to be no other way (documentation and code) or it can be unseen (objects has the same field) or developers don’t want to not duplicate or there are many progers).</li>
-<li>Eliminate effect between unrelated parts (make that orthogonal, change in one doesn’t effect the other part) (that is similar to abstraction).</li>
+</li>
 </ol>
-<ul>
+<h2 id="Ch-2-More-specific-PP-unspoken-rules"><a href="#Ch-2-More-specific-PP-unspoken-rules" class="headerlink" title="Ch 2. More specific PP unspoken rules"></a>Ch 2. More specific PP unspoken rules</h2><ol start="7">
+<li>Don’t Repeat Youself (DRY). Avoid temptation to repeat. Repetition can happen because it seems to be no other way (documentation and code) or it can be unseen (objects has the same field) or developers want to duplicate or there are many progers).</li>
+<li>Orthogonality. Eliminate effect between unrelated parts, i.e. make them orthogonal, change in one part doesn’t effect another part. <ul>
 <li>(Examples, benefits, non-orthogonal systems minuses, better/worse technologies)</li>
 <li>While coding: avoid global data (and singletons), similar functions (check design) and coupled code.</li>
 <li>Assessment of orthogonality: unit tests don’t touch many objects, bug fixes don’t touch many files/objects. Make tags in GIT to assess how many files were touched on a bug fix (monthly assessments)</li>
 </ul>
-<ol start="9">
-<li>Reversibility</li>
-</ol>
-<ul>
-<li>Reversibility — the implementation way with possible future total change.</li>
+</li>
+<li>Reversibility<ul>
+<li>Reversibility — implement a thing in such a way that it is possible to reverse this thing in the future.</li>
 <li>Make reversible decisions: isolate database, client-server to standalone and back reversible application, isolate OS calls, etc. No decision is final.</li>
 </ul>
-<ol start="10">
-<li>Tracer Bullets</li>
-</ol>
-<ul>
+</li>
+<li>Tracer Bullets<ul>
 <li>Use tracer bullets to get feedback (target) quickly</li>
 <li>Tracer bullet is the same production code but without all functionality there. All parts connected. It is skeleton on which further parts are put.</li>
 <li>(See pluses: quick demo, integration environment, etc.)</li>
 </ul>
-<ol start="11">
+</li>
 <li>Prototyping and Post-It notes</li>
-</ol>
-<ul>
-<li>..</li>
-</ul>
-<ol start="12">
 <li>Domain languages</li>
-</ol>
-<ul>
-<li>..</li>
-</ul>
-<ol start="13">
-<li>Estimating</li>
-</ol>
-<ul>
+<li>Estimating<ul>
 <li>About importance of estimating</li>
 <li>Estimate to avoid surprises </li>
 <li>Choose worse accuracy for longer periods (e.g. 120 days -&gt; “about 6 weeks”).</li>
@@ -307,126 +289,104 @@
 </li>
 <li>Don’t give quick estimates</li>
 </ul>
-<h2 id="Ch-3-Tools-of-PP"><a href="#Ch-3-Tools-of-PP" class="headerlink" title="Ch 3. Tools of PP"></a>Ch 3. Tools of PP</h2><p>In short: It convinces for using plain text, shell, one power editor, version control system and other.<br>Intro</p>
+</li>
+</ol>
+<h2 id="Ch-3-Tools-of-PP"><a href="#Ch-3-Tools-of-PP" class="headerlink" title="Ch 3. Tools of PP"></a>Ch 3. Tools of PP</h2><p>He advice using plain text, shell, one power editor, version control system and other.  </p>
 <ul>
 <li>Don’t use single IDE. Get know basic tool set.</li>
 </ul>
 <ol start="14">
-<li>Keep knowledge in plain text.  Plain text is a self-explanatory and understandable text. Could be structured (XML, html, etc.). </li>
-</ol>
-<ul>
+<li>Keep knowledge in plain text.  Plain text is a self-explanatory and understandable text. Could be structured (XML, html, etc.). <ul>
 <li>Advantages: it doesn’t get obsolete, it can be taken by many tools. And it can drive tests (?).</li>
 </ul>
-<ol start="15">
-<li>Shell games.</li>
-</ol>
-<ul>
+</li>
+<li>Shell games.<ul>
 <li>Use shell to work with OS. Advantages: commands can be combined, and other. GUI is limited to what is shown.</li>
 </ul>
-<ol start="16">
-<li>Power editting.</li>
-</ol>
-<ul>
+</li>
+<li>Power editting.<ul>
 <li>Use one power editor…</li>
 </ul>
-<ol start="17">
+</li>
 <li>Source code control</li>
-<li>Debugging</li>
-</ol>
-<ul>
+<li>Debugging<ul>
 <li>Fix the problem, don’t blame.</li>
 <li>Think about problem and don’t panic.</li>
 <li>Fix compiler warnings first.</li>
 </ul>
-<ol start="19">
-<li>Text manipulation (scripts)</li>
-</ol>
-<ul>
+</li>
+<li>Text manipulation (scripts)<ul>
 <li>Learn text manipulation language : awk, sed, Perl, TCL, Python, etc.</li>
 </ul>
-<ol start="20">
-<li>Code generators (CG)</li>
-</ol>
-<ul>
+</li>
+<li>Code generators (CG)<ul>
 <li>Write code that writes code. That will reduce complexity and chance of mistake.</li>
 <li>Use passive CG to produce beginning of source code (e.g. Resharper) and for other</li>
 <li>Use active CG to synchronise things with each other. E.g. ORM or two different languages. And other. Active CG doesn’t break DRY principle. </li>
 </ul>
+</li>
+</ol>
 <h2 id="Ch-4-Protection-of-code-from-yourself-other-code-and-user"><a href="#Ch-4-Protection-of-code-from-yourself-other-code-and-user" class="headerlink" title="Ch 4. Protection of code from yourself, other code and user."></a>Ch 4. Protection of code from yourself, other code and user.</h2><p>Intro. You can’t write perfect code. Protect code from itself and from other code. As on road, none is sure above actions of others. </p>
 <ol start="21">
-<li>Design by Contract (DBC) ( <a target="_blank" rel="noopener" href="http://research.microsoft.com/en-us/projects/contracts/">http://research.microsoft.com/en-us/projects/contracts/</a> and  <a target="_blank" rel="noopener" href="http://blogs.jetbrains.com/dotnet/2012/08/contract-annotations-in-resharper-7/">http://blogs.jetbrains.com/dotnet/2012/08/contract-annotations-in-resharper-7/</a>)</li>
-</ol>
-<ul>
+<li>Design by Contract (DBC)<ul>
+<li>An entity (class, method, module) should do a thing and no more, no less. Contracts are for this insurance. Write ‘shy’ modules.</li>
 <li>Preconditions — a state of “world” in order to run routine. It is responsibility of a caller to pass good data.</li>
 <li>Postconditions — a state of “world” after routine has done work.</li>
 <li>Class invariants — something that should not change before and after routine execution in class.</li>
-<li>Program should do something no more no less. Contracts are for this insurance. </li>
-<li>Design with Contracts to adhere Orthogonality principle (? p.111)</li>
-<li>Use contracts to support Liscov Substitution principle. That is that a sub class can really be used as base class. It is very good suited for inheritance and polymorphism. </li>
+<li>Design with Contracts to adhere Orthogonality principle.</li>
+<li>Use contracts to support Liskov Substitution principle. That is that a sub class can really be used as base class. It is very good suited for inheritance and polymorphism. </li>
 <li>Use DBC not to get into programming by coincidence. </li>
 <li>Use assertions if DBC is not supported. Assertions can’t substitute DBC.</li>
 <li>DbC supports crashing early. </li>
 <li>Invariants can be used to check values in loops.</li>
 <li>Inviolate requirements (laws) are thought as semantic contracts, project invariants. </li>
 </ul>
-<ol start="22">
-<li>Dead Program Tells No Lies.</li>
-</ol>
-<ul>
+</li>
+<li>Dead Program Tells No Lies.<ul>
 <li>Crash early so that no damage done.</li>
 </ul>
-<ol start="23">
-<li>Assertive Programming</li>
-</ol>
-<ul>
+</li>
+<li>Assertive Programming<ul>
 <li>Use assertions for situations that could never happen.</li>
 <li>Use assertions for prod also. Remove only critical for performance.</li>
 </ul>
-<ol start="24">
-<li>When To Use Exceptions</li>
-</ol>
-<ul>
+</li>
+<li>When To Use Exceptions<ul>
 <li>Use them only for exceptional situations, unexpected. </li>
 <li>Use error handlers (routine called on exception) instead of exceptions if they can’t be used (in C, in remote calls when it is a lot of duplicates.</li>
 </ul>
-<ol start="25">
-<li>How to Balance Resources</li>
-</ol>
-<ul>
+</li>
+<li>How to Balance Resources<ul>
 <li>Deallocate resources in object or routine that allocated them. See example about file opening and closing.</li>
 <li>(See rules for nest allocation, also about deallocation in C++ and Java.)</li>
 <li>(About inability to balance resources…)</li>
 </ul>
-<h2 id="Ch-5-Bend-or-break-Rules-for-writing-reversible-decoupled-code"><a href="#Ch-5-Bend-or-break-Rules-for-writing-reversible-decoupled-code" class="headerlink" title="Ch 5. Bend or break. Rules for writing reversible (decoupled) code"></a>Ch 5. Bend or break. Rules for writing reversible (decoupled) code</h2><ol start="26">
-<li>Decoupling and the Law of Demeter</li>
+</li>
 </ol>
+<h2 id="Ch-5-Bend-or-break-Rules-for-writing-reversible-decoupled-code"><a href="#Ch-5-Bend-or-break-Rules-for-writing-reversible-decoupled-code" class="headerlink" title="Ch 5. Bend or break. Rules for writing reversible (decoupled) code"></a>Ch 5. Bend or break. Rules for writing reversible (decoupled) code</h2><ol start="26">
+<li>Decoupling and the Law of Demeter<ul>
+<li>Coupling is a link between entities (class, method, module) that causes a change of one entity when another entity changes. Decoupling is the opposite: when one entity changes, the other doesn’t. </li>
+</ul>
 <ul>
 <li>Design code such that modules (cells) don’t interact with others much. Or decrease coupling.</li>
 <li>Use Law of Demeter: any function should only call methods of 1) self object, 2) passed params, 3) directly held objects (static in C#); 4) created in the object objects.</li>
 <li>Balance usage of the Law of Demeter. It leads to many wrapper methods and hence higher resource usage; on the other side, not using it leads to unflexible but performance design. </li>
 <li>(Also physical coupling should be reduced in large scale projects?)</li>
 </ul>
-<ol start="27">
-<li>Meta-programming</li>
-</ol>
-<ul>
+</li>
+<li>Meta-programming<ul>
 <li>Use metadata, don’t integrate. Use it everywhere. Get rid of details: kind of UI, algorithm choice and other.</li>
 <li>Metadata is data about data (e.g. database scheme), it is used and accessed at run time. It can be key/value pairs or some language (domain languages).</li>
 <li>Put abstractions into code, details in metadata. Think declaratively (?).</li>
 <li>Use metadata to configure even business logic (see Domain languages).</li>
 <li>If flexibility required consider rereading metadata in runtime.</li>
 </ul>
-<ol start="28">
-<li>Temporal coupling — couplings things or model in time. </li>
-</ol>
-<ul>
+</li>
+<li>Temporal coupling — couplings things or model in time. <ul>
 <li>(About designing for concurrency.)</li>
-<li>…</li>
 </ul>
-<ol start="29">
-<li>It’s Just a View</li>
-</ol>
-<ul>
+</li>
+<li>It’s Just a View<ul>
 <li>Solving the problem of decoupled objects communication with publish/subscribe protocol (observer pattern). </li>
 <li>Event — </li>
 <li>Model — abstract data itself. </li>
@@ -435,49 +395,37 @@
 <li>Separate views from models.</li>
 <li>Use MVC not only for GUI but it can be use in more general way.</li>
 </ul>
-<ol start="30">
-<li>Blackboards </li>
-</ol>
-<ul>
+</li>
+<li>Blackboards <ul>
 <li>Blackboard — a space with consistent access where any object can access it to put/read/take or do smth else. Blackboard triggers event like smth put. Blackboard can be partitioned to ease data access.</li>
 <li>Use blackboard to coordinate workflow. (Helmes? Unit Of Work?)</li>
 <li>NExt: exerciess on 170</li>
 </ul>
-<h2 id="Ch-6-Rules-that-apply-to-coding-activity"><a href="#Ch-6-Rules-that-apply-to-coding-activity" class="headerlink" title="Ch 6. Rules that apply to coding activity"></a>Ch 6. Rules that apply to coding activity</h2><ol start="31">
-<li>Programming by coincidence</li>
+</li>
 </ol>
-<ul>
+<h2 id="Ch-6-Rules-that-apply-to-coding-activity"><a href="#Ch-6-Rules-that-apply-to-coding-activity" class="headerlink" title="Ch 6. Rules that apply to coding activity"></a>Ch 6. Rules that apply to coding activity</h2><ol start="31">
+<li>Programming by coincidence<ul>
 <li>It is programming on luck, not taking responsibility for all possible ways the code can run. Not thinking about what you write. Not knowing problem or requirements to the end before starting, not knowing context. Also it is not documenting assumptions. It is relying on unreliable things. </li>
 <li>Don’t program by coincidence </li>
 <li>Program deliberately: be aware of the code, and other.</li>
 </ul>
-<ol start="32">
-<li>Algorithm speed</li>
-</ol>
-<ul>
-<li><p>Use O() notation — order of an algorithm (See examples of O(1), O(n), O(n^2) etc))</p>
 </li>
-<li><p>Know about common algorithms (common sense):</p>
-<ul>
+<li>Algorithm speed<ul>
+<li>Use O() notation — order of an algorithm (See examples of O(1), O(n), O(n^2) etc))</li>
+<li>Know about common algorithms (common sense):<ul>
 <li>Get item from array — O(1)</li>
 <li>Loops — O(n)</li>
 <li>Loop in loop (bubble sort) — O(n*m)</li>
 <li>Quicksort (divine and conquer) — O(n*lg(n))</li>
 </ul>
 </li>
-<li><p>Estimate the Order, O() of an algorithm</p>
-</li>
-<li><p>Check you estimates</p>
-</li>
-<li><p>Don’t choose inappropriate algorithm</p>
-</li>
-<li><p>Don’t waste time on unneeded optimization for now.</p>
-</li>
+<li>Estimate the Order, O() of an algorithm</li>
+<li>Check you estimates</li>
+<li>Don’t choose inappropriate algorithm</li>
+<li>Don’t waste time on unneeded optimization for now.</li>
 </ul>
-<ol start="33">
-<li>Refactoring</li>
-</ol>
-<ul>
+</li>
+<li>Refactoring<ul>
 <li>Best metaphor for software development is gardening, not building construction. I can get out bad plants, move some plants to other places, get split some big plants, etc.</li>
 <li>Say to customers: refactoring is like managing “growth” (cancer form). If it is managed now it will grow and kill organism or it will be harder to remove it later. </li>
 <li>Refactor often, refactor early. </li>
@@ -488,48 +436,35 @@
 </ul>
 </li>
 </ul>
-<ol start="34">
-<li>Code That’s Easy To Test</li>
-</ol>
-<ul>
-<li><p>Like circuit a code can be tested. </p>
 </li>
-<li><p>Do it from isolated unit tests to tests as a whole.</p>
-</li>
-<li><p>Test against code contracts (border cases, non-supported values, smth other)</p>
-</li>
-<li><p>Design system to test: modularity.</p>
-</li>
-<li><p>Place tests:</p>
-<ul>
+<li>Code That’s Easy To Test<ul>
+<li>Like circuit a code can be tested. </li>
+<li>Do it from isolated unit tests to tests as a whole.</li>
+<li>Test against code contracts (border cases, non-supported values, smth other)</li>
+<li>Design system to test: modularity.</li>
+<li>Place tests:<ul>
 <li>for small systems: in a class itself</li>
 <li>bigger: in a subdirectory </li>
 </ul>
 </li>
-<li><p>Use Test Harness for large projects (nUnit, jUnit etc).</p>
-</li>
-<li><p>Create test cases from debugging data.</p>
-</li>
-<li><p>Build a Test Window: </p>
-<ul>
+<li>Use Test Harness for large projects (nUnit, jUnit etc).</li>
+<li>Create test cases from debugging data.</li>
+<li>Build a Test Window: <ul>
 <li>log files,</li>
 <li>pop-up windows on hot-keys for help desk.</li>
 <li>web server built into application  to get full info.</li>
 </ul>
 </li>
-<li><p>Test Your Software or users will. </p>
-</li>
+<li>Test Your Software or users will. </li>
 </ul>
-<ol start="35">
-<li>Evil wizards</li>
-</ol>
-<ul>
+</li>
+<li>Evil wizards<ul>
 <li>Don’t use wizards (XSD) you don’t understand. That is because this code becomes your own. The third libraries are not. </li>
 </ul>
-<h2 id="Ch-7-Preparing-for-coding-Rules-before-coding"><a href="#Ch-7-Preparing-for-coding-Rules-before-coding" class="headerlink" title="Ch 7. Preparing for coding. Rules before coding"></a>Ch 7. Preparing for coding. Rules before coding</h2><ol start="36">
-<li>The Requirements Pit</li>
+</li>
 </ol>
-<ul>
+<h2 id="Ch-7-Preparing-for-coding-Rules-before-coding"><a href="#Ch-7-Preparing-for-coding-Rules-before-coding" class="headerlink" title="Ch 7. Preparing for coding. Rules before coding"></a>Ch 7. Preparing for coding. Rules before coding</h2><ol start="36">
+<li>The Requirements Pit<ul>
 <li>Strive for perfection by removing. </li>
 <li>Dig for requirements</li>
 <li>Requirement — abstract statement of a need; it is a need.</li>
@@ -546,38 +481,27 @@
 <li>Publish requirements for all members.</li>
 <li>(see challenges and exercise — UNDONE)</li>
 </ul>
-<ol start="37">
-<li>Solving impossible puzzles</li>
-</ol>
-<ul>
+</li>
+<li>Solving impossible puzzles<ul>
 <li>Find a box. Define real constraints. Check that they are for sure real. </li>
 </ul>
-<ol start="38">
-<li>Not until you’re ready</li>
-</ol>
-<ul>
+</li>
+<li>Not until you’re ready<ul>
 <li>Listen to nagging doubts, heed it. Prototype to find you whether it was procrastination or a real hidden problem. </li>
 </ul>
-<ol start="39">
-<li><p>Specification Trap </p>
 </li>
-<li><p>Circles and Arrows</p>
+<li>Specification Trap </li>
+<li>Circles and Arrows<ul>
+<li>(About how important design tools are. They are not important.)</li>
+</ul>
 </li>
 </ol>
-<ul>
-<li>(SKIPPED) (About how important design tools are. They are not important.)</li>
-</ul>
 <h2 id="Ch-8-Pragmatic-Projects-Rules-for-teams"><a href="#Ch-8-Pragmatic-Projects-Rules-for-teams" class="headerlink" title="Ch. 8. Pragmatic Projects. (Rules for teams)"></a>Ch. 8. Pragmatic Projects. (Rules for teams)</h2><ol start="41">
-<li>Pragmatic Teams</li>
-</ol>
-<ul>
+<li>Pragmatic Teams<ul>
 <li>(The same as in previous paragraphs but for teams)</li>
-<li>(SKIPPED)</li>
 </ul>
-<ol start="42">
-<li>Ubiquitous Automation </li>
-</ol>
-<ul>
+</li>
+<li>Ubiquitous Automation <ul>
 <li>Automate everything</li>
 <li>Don’t use manual procedures (people get it wrong)</li>
 <li>Use schedulers (cron at Linux, at in Windows) </li>
@@ -591,20 +515,13 @@
 </ul>
 </li>
 </ul>
-<ol start="43">
-<li>Ruthless Testing</li>
-</ol>
-<ul>
-<li><p>Be eager to find bugs.</p>
 </li>
-<li><p>Test often. Test early. Test automatically. </p>
-</li>
-<li><p>Test code can be bigger than work code. </p>
-</li>
-<li><p>Coding ain’t done, till all tests run. </p>
-</li>
-<li><p>What to test:</p>
-<ul>
+<li>Ruthless Testing<ul>
+<li>Be eager to find bugs.</li>
+<li>Test often. Test early. Test automatically. </li>
+<li>Test code can be bigger than work code. </li>
+<li>Coding ain’t done, till all tests run. </li>
+<li>What to test:<ul>
 <li>Units. Unit tests. Units meet their contracts. Must</li>
 <li>Subsystems, system. Integration tests. Subsystems meet their contracts. Must</li>
 <li>Meeting of users’ needs. Validation and verification. </li>
@@ -613,8 +530,7 @@
 <li>Usability. By real users. As early as possible.</li>
 </ul>
 </li>
-<li><p>How to test</p>
-<ul>
+<li>How to test<ul>
 <li>Regression tests — tests run after functionality implemented. All automated tests. </li>
 <li>Test data. Can be real-world and synthetic.</li>
 <li>For GUI — automating tools. Decouple system so that model errors are found before view errors. Then it is easier to test GUI. </li>
@@ -622,48 +538,33 @@
 <li>Test state coverage, not code coverage. Number of states is huge. It is big problem. </li>
 </ul>
 </li>
-<li><p>When to test</p>
-<ul>
+<li>When to test<ul>
 <li>Test as soon as production code appears.</li>
 <li>Test before checking in.</li>
 <li>Make stress tests on regular basis.</li>
 </ul>
 </li>
-<li><p>Add test if a bug found. Find bugs once. Then it is the last time the bug found.</p>
-</li>
+<li>Add test if a bug found. Find bugs once. Then it is the last time the bug found.</li>
 </ul>
-<ol start="44">
-<li>It’s All Writing</li>
-</ol>
-<ul>
-<li><p>Do not duplicate effort while writing documentation. Use pragmatic advices from here. Treat English as Just another Programming language. </p>
 </li>
-<li><p>Keep it close at hand. </p>
-</li>
-<li><p>Two kinds of documentation. Internal documentation — source code, comments, design and other. External doc — user manuals, shipped to outside.</p>
-</li>
-<li><p>Build Documentation in, Don’t bolt it on. (?)</p>
-</li>
-<li><p>About comments.</p>
-<ul>
+<li>It’s All Writing<ul>
+<li>Do not duplicate effort while writing documentation. Use pragmatic advices from here. Treat English as Just another Programming language. </li>
+<li>Keep it close at hand. </li>
+<li>Two kinds of documentation. Internal documentation — source code, comments, design and other. External doc — user manuals, shipped to outside.</li>
+<li>Build Documentation in, Don’t bolt it on. (?)</li>
+<li>About comments.<ul>
 <li>Comment why it is done so, not about how it is done (it is already in source code). In module level (assembly), data, type declarations, per-class, per-method. </li>
 <li>Use meaningful variable names. Don’t mislead by var. names.</li>
 <li>Leave in comments: author’s name, copyright notices. Can leave in comments: data of the last change.</li>
 </ul>
 </li>
-<li><p>Source code, documents, database tables are all views of a model (see It’s just a view). Choose one main source and generate other views from it.</p>
-</li>
-<li><p>Technical writers should also use basic principles of Pragmatic Programmers. </p>
-</li>
-<li><p>Produce documentation that can be kept up to date. Produce it automatically. Don’t violate DRY by copy-pasting. Paper is hard for it.</p>
-</li>
-<li><p>Use some markup language for doc. DocBook. (Markdown?)</p>
-</li>
+<li>Source code, documents, database tables are all views of a model (see It’s just a view). Choose one main source and generate other views from it.</li>
+<li>Technical writers should also use basic principles of Pragmatic Programmers. </li>
+<li>Produce documentation that can be kept up to date. Produce it automatically. Don’t violate DRY by copy-pasting. Paper is hard for it.</li>
+<li>Use some markup language for doc. DocBook. (Markdown?)</li>
 </ul>
-<ol start="45">
-<li>Great expectations</li>
-</ol>
-<ul>
+</li>
+<li>Great expectations<ul>
 <li>Gently Exceed Your Users’ Expectations. <ul>
 <li>Communicate users. </li>
 <li>Don’t manage expectations.</li>
@@ -672,16 +573,15 @@
 </ul>
 </li>
 </ul>
-<ol start="46">
-<li>Pride and Prejudice.</li>
-</ol>
-<ul>
+</li>
+<li>Pride and Prejudice.<ul>
 <li>Sign your work.</li>
 </ul>
+</li>
+</ol>
 <h2 id="Glossary"><a href="#Glossary" class="headerlink" title="Glossary"></a>Glossary</h2><ul>
 <li>Прагматизм (от др.-греч. πράγμα, родительный падеж πράγματος — «дело, действие») — философское течение, базирующееся на практике как критерии истины и смысловой значимости.</li>
 </ul>
-<p><em>Last updated at 2017-07-14</em></p>
 
     </div>
 
