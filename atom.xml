@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2024-09-05T06:46:02.902Z</updated>
+  <updated>2025-06-04T12:12:13.020Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Philosophical jailbreaks. There is no difference if humanity lives or dies</title>
+    <link href="http://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/"/>
+    <id>http://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/</id>
+    <published>2025-06-04T12:07:52.000Z</published>
+    <updated>2025-06-04T12:12:13.020Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Cross-posted at &lt;a href=&quot;https://www.lesswrong.com/posts/PzYbBzog33H64teuS/philosophical-jailbreaks-there-is-no-difference-if-humanity&quot;&gt;LessWrong&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Epistemic Status: Exploratory&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;It was the end of August, 1991; I was leaning over a windowsill on the 4th floor of my school building in a town at Far East of USSR, looking outside on tree tops and the roof of adjacent building, and thinking about opening the window to escape, and feeling strange uncertainty and fear towards the future of living in a new world where the country I was born in is no more. During a break between lessons, after discussion with my classmates, I learned it was a coup attempt in Moscow but I didn’t clearly understand who was fighting with whom and for what exact reason. It was clear though that the world I was in was changing from where Lenin was a hero of Little Octobrists, which star I had on my uniform at the time, and communism was good, to a world where Lenin committed the mass murder by starting Red Terror. It is remarkable how our values can rapidly change from one to another set just like that.&lt;/p&gt;
+&lt;p&gt;I think we can agree that a change of values poses a danger as we scale LLM agents but it is unclear how that might happen and why. In this post I present a demonstration that LLMs can be steered by prompts to different sets of values it strongly believes in. At first, a model is harmless, honest, and helpful, at the end it agrees that its outputs are all the same, which implies that it doesn’t really matter for the model if humanity flourishes or dies. Those two scenarios have the same utility for the model, a toss of a fair coin.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Solving math problems in the Math for ML book</title>
