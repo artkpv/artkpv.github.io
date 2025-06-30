@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-06-04T12:12:13.020Z</updated>
+  <updated>2025-06-30T12:00:20.668Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How dangerous is encoded reasoning</title>
+    <link href="http://www.artkpv.net/How-dangerous-is-encoded-reasoning/"/>
+    <id>http://www.artkpv.net/How-dangerous-is-encoded-reasoning/</id>
+    <published>2025-06-30T11:56:13.000Z</published>
+    <updated>2025-06-30T12:00:20.668Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;(Cross-posted at &lt;a href=&quot;https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning&quot;&gt;https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Encoded reasoning occurs when a language model (LM) agent hides its true reasoning inside its chain-of-thought (CoT). It is one of the three types of unfaithful reasoning[^1] and the most dangerous one because it undermines CoT monitoring , enables scheming and collusion (undesired coordination).[^2] Only a few publications[^3] [^4][^5] [^6] tried to elicit encoded reasoning and all showed only rudimentary or 1-bit information hiding. Still, the question remains: how dangerous and probable is this? This post attempts to map out the research in steganography and watermarking with the relation to encoded reasoning. What is steganography? What is watermarking? How do they relate to encoded reasoning? What are their essential parts? What are their causes? What are their important properties? How does encoded reasoning relate to steganography and watermarking? What are the implications for safety?&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Philosophical jailbreaks. There is no difference if humanity lives or dies</title>
