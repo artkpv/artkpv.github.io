@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-06-30T12:00:20.668Z</updated>
+  <updated>2025-07-01T09:00:35.956Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="http://www.artkpv.net/How-dangerous-is-encoded-reasoning/"/>
     <id>http://www.artkpv.net/How-dangerous-is-encoded-reasoning/</id>
     <published>2025-06-30T11:56:13.000Z</published>
-    <updated>2025-06-30T12:00:20.668Z</updated>
+    <updated>2025-07-01T09:00:35.956Z</updated>
     
     
     <summary type="html">&lt;p&gt;(Cross-posted at &lt;a href=&quot;https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning&quot;&gt;https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Encoded reasoning occurs when a language model (LM) agent hides its true reasoning inside its chain-of-thought (CoT). It is one of the three types of unfaithful reasoning[^1] and the most dangerous one because it undermines CoT monitoring , enables scheming and collusion (undesired coordination).[^2] Only a few publications[^3] [^4][^5] [^6] tried to elicit encoded reasoning and all showed only rudimentary or 1-bit information hiding. Still, the question remains: how dangerous and probable is this? This post attempts to map out the research in steganography and watermarking with the relation to encoded reasoning. What is steganography? What is watermarking? How do they relate to encoded reasoning? What are their essential parts? What are their causes? What are their important properties? How does encoded reasoning relate to steganography and watermarking? What are the implications for safety?&lt;/p&gt;</summary>
+&lt;p&gt;Encoded reasoning occurs when a language model (LM) agent hides its true reasoning inside its chain-of-thought (CoT). It is one of the three types of unfaithful reasoning&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; and the most dangerous one because it undermines CoT monitoring , enables scheming and collusion (undesired coordination).&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt; Only a few publications&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn3&quot; id=&quot;fnref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt; &lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn4&quot; id=&quot;fnref4&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn5&quot; id=&quot;fnref5&quot;&gt;[5]&lt;/a&gt;&lt;/sup&gt; &lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn6&quot; id=&quot;fnref6&quot;&gt;[6]&lt;/a&gt;&lt;/sup&gt; tried to elicit encoded reasoning and all showed only rudimentary or 1-bit information hiding. Still, the question remains: how dangerous and probable is this? This post attempts to map out the research in steganography and watermarking with the relation to encoded reasoning. What is steganography? What is watermarking? How do they relate to encoded reasoning? What are their essential parts? What are their causes? What are their important properties? How does encoded reasoning relate to steganography and watermarking? What are the implications for safety?&lt;/p&gt;</summary>
     
     
     
