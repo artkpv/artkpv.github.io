@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-07-01T09:00:35.956Z</updated>
+  <updated>2025-07-25T08:51:24.315Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>My AI safety independent research engineer path so far</title>
+    <link href="http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/"/>
+    <id>http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/</id>
+    <published>2025-07-25T08:50:41.000Z</published>
+    <updated>2025-07-25T08:51:24.315Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;(Also posted at &lt;a href=&quot;https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far&quot;&gt;https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far&lt;/a&gt; )&lt;/p&gt;
+&lt;p&gt;This post aims to highlight mistakes and successes that I believe are important on my journey. It should serve as a guide to my past self and perhaps others in similar situations to help avoid the mistakes I made along the way.&lt;/p&gt;
+&lt;p&gt;I became interested in AI safety in 2018 when I conducted a career review using the &lt;a href=&quot;https://80000hours.org/&quot;&gt;80K hours guide&lt;/a&gt;. I doubted my suitability for the AI safety path at the time, but in 2022, I was more certain and decided to transition from a software developer to an AI safety research engineer. This was a difficult decision because I was, and still am, uncertain about the common claims made regarding AI and its development. Especially concerning was how much I can contribute and to what extent it is a solvable, neglected problem. It is not easy to look back and remember everything, but in this post I’ve tried to compile a list of a few important mistakes and successes I’ve experienced.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>How dangerous is encoded reasoning</title>
