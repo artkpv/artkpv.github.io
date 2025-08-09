@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="I implemented arithmetic coding steganography [1] to hide messages in LLM-generated text. While the proof-of-concept works for messages on GPT-3.5, it revealed fundamental challenges with API non-dete">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arithmetic Coding Steganography Using Frontier Models">
+<meta property="og:url" content="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/index.html">
+<meta property="og:site_name" content="Artyom Karpov">
+<meta property="og:description" content="I implemented arithmetic coding steganography [1] to hide messages in LLM-generated text. While the proof-of-concept works for messages on GPT-3.5, it revealed fundamental challenges with API non-dete">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/encoding-visualization.svg">
+<meta property="og:image" content="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/decoding-visualization.svg">
+<meta property="article:published_time" content="2025-08-09T09:07:15.000Z">
+<meta property="article:modified_time" content="2025-08-09T11:40:18.546Z">
+<meta property="article:author" content="Artyom Karpov">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/encoding-visualization.svg">
+
+
+<link rel="canonical" href="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/","path":"Tool-Arithmetic-Coding-for-LLM-Steganography/","title":"Arithmetic Coding Steganography Using Frontier Models"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Arithmetic Coding Steganography Using Frontier Models | Artyom Karpov</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48410443-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48410443-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Artyom Karpov" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Artyom Karpov</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-user fa-fw"></i>Home</a></li><li class="menu-item menu-item-blog"><a href="/blog" rel="section"><i class="fa fa-pencil fa-fw"></i>Blog</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Arithmetic-Coding-Steganography"><span class="nav-number">2.</span> <span class="nav-text">What is Arithmetic Coding Steganography?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation-Journey"><span class="nav-number">3.</span> <span class="nav-text">Implementation Journey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Phase-1-Initial-Attempts-June-2025"><span class="nav-number">3.1.</span> <span class="nav-text">Phase 1: Initial Attempts (June 2025)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phase-2-Python-Implementation-July-2025"><span class="nav-number">3.2.</span> <span class="nav-text">Phase 2: Python Implementation (July 2025)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phase-3-Fighting-Non-Determinism-August-2025"><span class="nav-number">3.3.</span> <span class="nav-text">Phase 3: Fighting Non-Determinism (August 2025)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Technical-Challenges-Encountered"><span class="nav-number">4.</span> <span class="nav-text">Technical Challenges Encountered</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-API-Non-Determinism"><span class="nav-number">4.1.</span> <span class="nav-text">1. API Non-Determinism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Interval-Collapse"><span class="nav-number">4.2.</span> <span class="nav-text">2. Interval Collapse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Tokenization-Mismatches"><span class="nav-number">4.3.</span> <span class="nav-text">3. Tokenization Mismatches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Model-Limitations"><span class="nav-number">4.4.</span> <span class="nav-text">4. Model Limitations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Results-and-Limitations"><span class="nav-number">5.</span> <span class="nav-text">Results and Limitations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-Works"><span class="nav-number">5.1.</span> <span class="nav-text">What Works</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-Doesn%E2%80%99t-Work"><span class="nav-number">5.2.</span> <span class="nav-text">What Doesn’t Work</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lessons-Learned"><span class="nav-number">6.</span> <span class="nav-text">Lessons Learned</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Future-Directions"><span class="nav-number">7.</span> <span class="nav-text">Future Directions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-and-Resources"><span class="nav-number">8.</span> <span class="nav-text">Code and Resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">9.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">10.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Artyom Karpov</p>
+  <div class="site-description" itemprop="description">SE, ML, AI Safety, philosophy</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tag/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:artyomkarpov@gmail.com" title="E-Mail → mailto:artyomkarpov@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/artkpv" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;artkpv" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://linkedin.com/in/artkpv" title="Linkedin → http:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;artkpv" rel="noopener me" target="_blank">Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://stackoverflow.com/users/511144" title="StackOverflow → http:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;511144" rel="noopener me" target="_blank">StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/artkpv" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;artkpv" rel="noopener me" target="_blank"><i class="twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Artyom Karpov">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Artyom Karpov">
+      <meta itemprop="description" content="SE, ML, AI Safety, philosophy">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Arithmetic Coding Steganography Using Frontier Models | Artyom Karpov">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Arithmetic Coding Steganography Using Frontier Models
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-08-09 12:07:15 / Modified: 14:40:18" itemprop="dateCreated datePublished" datetime="2025-08-09T12:07:15+03:00">2025-08-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>I implemented arithmetic coding steganography [1] to hide messages in LLM-generated text. While the proof-of-concept works for messages on GPT-3.5, it revealed fundamental challenges with API non-determinism and interval collapse that limit practical applications. This post documents the technical approach, challenges encountered, and lessons learned.</p>
+<p>The code: <a target="_blank" rel="noopener" href="https://github.com/artkpv/arithmetic-coding-steganography/">https://github.com/artkpv/arithmetic-coding-steganography/</a></p>
+<img src="/Tool-Arithmetic-Coding-for-LLM-Steganography/encoding-visualization.svg" class="">
+<span id="more"></span>
+<h2 id="Introduction">Introduction</h2>
+<p>Can language models hide secret messages in seemingly innocent text? This question led me down a two-month rabbit hole exploring steganographic encoding using arithmetic coding on GPT-3.5. The project, part of my research into encoded reasoning capabilities in AI systems, aimed to demonstrate how models could theoretically perform covert reasoning while appearing to generate normal text.</p>
+<p>The motivation came from policy and safety concerns: if AI systems can hide their reasoning processes, how can we ensure alignment and safety? This tool, Arithmetic Coding Steganography, serves as a step towards creating a proof-of-concept to demonstrate for policymakers and researchers the potential for encoded reasoning in language models.</p>
+<p>Unlike the previous work [1], which used a local GPT-2 model to get the distribution, this tool implements the arithmetic coding on GPT-3.5 and potentially can be adapted to any model (see limitations).</p>
+<h2 id="What-is-Arithmetic-Coding-Steganography">What is Arithmetic Coding Steganography?</h2>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Arithmetic_coding">Arithmetic coding</a> steganography hides messages by influencing which tokens a language model selects during text generation. Here’s how it works:</p>
+<ol>
+<li><strong>Get token probabilities</strong>: Query the LLM for the probability distribution of next tokens given the current context</li>
+<li><strong>Divide the probability space</strong>: Map the probability distribution to numerical intervals</li>
+<li><strong>Encode message bits</strong>: Select tokens based on which interval contains the encoded message value</li>
+<li><strong>Generate natural text</strong>: The selected tokens form grammatically correct, semantically meaningful text that secretly encodes the message</li>
+</ol>
+<p>The key insight: by carefully selecting from the available tokens based on their probabilities, we can encode arbitrary binary data while maintaining natural-looking text generation.</p>
+<p>An example. See the visualization above for the encoding that results from: <code>stego-arith encode -a 'artifacts/' &quot;The weather today is &quot; &quot;S&quot;</code>, which produces encoded text: ‘sunny and warm, a perfect day for a picnic at the parkI’. The picture shows each step during the encoding. The red interval shows a next token chosen from available for the coninuation (divided intervals on a line). The rescaling (dotted lines between steps) happens when the algorithm has common left most bits (“bits=1 0” means 1 bit, namely “0”, was selected). The blue dot on each line represents the current hidden message bits mapped to an interger. The decoding is done with: <code>stego-arith decode -a 'artifacts/' &quot;The weather today is &quot; &quot;sunny and warm, a perfect day for a picnic at the parkI&quot;</code>, which correctly outputs “S”. See the visualization for it below. This is the reverse of the encoding, i.e. it restores the hidden message mapped to an interger.</p>
+<img src="/Tool-Arithmetic-Coding-for-LLM-Steganography/decoding-visualization.svg" class="">
+<h2 id="Implementation-Journey">Implementation Journey</h2>
+<h3 id="Phase-1-Initial-Attempts-June-2025">Phase 1: Initial Attempts (June 2025)</h3>
+<p>Started with a LangGraph-based approach using prompt engineering to make the model encode/decode messages. The model struggled with maintaining the encoding scheme consistently across multiple steps. This is no suprise because of the complexity of the coding.</p>
+<h3 id="Phase-2-Python-Implementation-July-2025">Phase 2: Python Implementation (July 2025)</h3>
+<p>Switched to a direct implementation using OpenAI’s API to get token logprobs. Built the arithmetic coding algorithm from scratch:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Core encoding logic (simplified)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encode</span>(<span class="params">context, message_bits</span>):</span><br><span class="line">    interval = [<span class="number">0</span>, <span class="number">2</span>**precision]</span><br><span class="line">    <span class="keyword">for</span> bit_index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(message_bits)):</span><br><span class="line">        <span class="comment"># Get next token probabilities</span></span><br><span class="line">        logprobs = get_token_logprobs(context)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Divide interval based on probabilities</span></span><br><span class="line">        cum_probs = compute_cumulative_probs(logprobs, interval)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Select token based on message bits</span></span><br><span class="line">        token = select_token(message_bits, cum_probs)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Update context and interval</span></span><br><span class="line">        context += token</span><br><span class="line">        interval = update_interval(token, cum_probs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> context</span><br></pre></td></tr></table></figure>
+<h3 id="Phase-3-Fighting-Non-Determinism-August-2025">Phase 3: Fighting Non-Determinism (August 2025)</h3>
+<p>Discovered that OpenAI’s API returns non-deterministic logprobs even with the same seed and parameters. Implemented caching to ensure consistency between encoding and decoding phases.</p>
+<h2 id="Technical-Challenges-Encountered">Technical Challenges Encountered</h2>
+<h3 id="1-API-Non-Determinism">1. API Non-Determinism</h3>
+<p>Despite setting <code>seed=42</code> and verifying the system fingerprint, OpenAI’s API returns different token probabilities for identical requests. This caused encoding/decoding mismatches after ~20-30 bits.</p>
+<p><strong>Solution attempted</strong>: Implemented a file-based cache to store and reuse API responses, ensuring encoder and decoder see identical probability distributions.</p>
+<h3 id="2-Interval-Collapse">2. Interval Collapse</h3>
+<p>The most critical issue: when the LLM’s probability distributions are highly skewed (first token getting 70-90% probability), the arithmetic coding interval repeatedly straddles the binary midpoint without being able to encode bits.</p>
+<p><strong>Example of the problem</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Step 47: Interval [2144838895, 2164274060]</span><br><span class="line">Binary representation:</span><br><span class="line">  Low:  01111111110101111010010011101111</span><br><span class="line">  High: 10000001000000000011001110001011</span><br><span class="line">  Message: 10000000000000000000000000000000</span><br><span class="line">  </span><br><span class="line">No common prefix bits → Cannot encode → Interval shrinks → Failure</span><br></pre></td></tr></table></figure>
+<p>The algorithm got stuck selecting the highest probability token repeatedly until the interval became too narrow to represent even two tokens.</p>
+<h3 id="3-Tokenization-Mismatches">3. Tokenization Mismatches</h3>
+<p>Different tokenization between encoding and decoding phases. GPT models don’t always tokenize text the same way when it’s part of a prompt versus generated text. The solution implemented in the tool is to filter out tokens with common prefix.</p>
+<h3 id="4-Model-Limitations">4. Model Limitations</h3>
+<p>The approach only works reliably with GPT-3.5-turbo-1106. Other models (GPT-4, newer GPT-3.5 versions) had even worse non-determinism issues.</p>
+<h2 id="Results-and-Limitations">Results and Limitations</h2>
+<h3 id="What-Works">What Works</h3>
+<ul>
+<li>Successfully encodes/decodes messages</li>
+<li>Generates mostly grammatically correct, semantically meaningful cover text. It can select bad continuations (see “parkI” above).</li>
+<li>Provides a concrete demonstration of steganographic capabilities.</li>
+</ul>
+<h3 id="What-Doesn’t-Work">What Doesn’t Work</h3>
+<ul>
+<li>Messages longer than ~16 bits can fail due to interval collapse</li>
+<li>API non-determinism causes sporadic failures. The caching helps only if the encoder and decoder shares it.</li>
+<li>Limited to specific model versions (GPT-3.5)</li>
+</ul>
+<h2 id="Lessons-Learned">Lessons Learned</h2>
+<p>The project became a fascinating technical challenge that taught me valuable lessons about the limitations of current LLM APIs for precise, deterministic applications.</p>
+<ol>
+<li>
+<p><strong>LLM APIs aren’t designed for deterministic operations</strong>: The lack of true reproducibility in API responses makes certain applications infeasible.</p>
+</li>
+<li>
+<p><strong>Arithmetic coding requires careful probability management</strong>: Highly skewed distributions from modern LLMs break traditional arithmetic coding assumptions.</p>
+</li>
+<li>
+<p><strong>Proof-of-concepts reveal important limitations</strong>: Practical implementation revealed fundamental blockers that wouldn’t be apparent from theoretical analysis alone.</p>
+</li>
+<li>
+<p><strong>Persistence has diminishing returns</strong>: After hitting the same fundamental API limitations repeatedly, it’s important to recognize when to document findings and move on.</p>
+</li>
+</ol>
+<h2 id="Future-Directions">Future Directions</h2>
+<p>While this implementation has limitations, the concept opens several research directions:</p>
+<ol>
+<li><strong>Local model implementation</strong>: Running models locally could eliminate API non-determinism</li>
+<li><strong>Alternative encoding schemes</strong>: Exploring synonym substitution or other steganographic methods</li>
+<li><strong>Probability flattening</strong>: Applying temperature scaling after receiving logprobs to prevent interval collapse</li>
+<li><strong>Detection methods</strong>: Developing techniques to identify steganographically encoded text</li>
+</ol>
+<h2 id="Code-and-Resources">Code and Resources</h2>
+<p>The implementation is available at: <a target="_blank" rel="noopener" href="https://github.com/artkpv/arithmetic-coding-steganography/">https://github.com/artkpv/arithmetic-coding-steganography/</a></p>
+<p>Key features:</p>
+<ul>
+<li>CLI interface for encoding/decoding</li>
+<li>Python API for integration</li>
+<li>Caching system for API responses</li>
+<li>Comprehensive test suite</li>
+</ul>
+<h2 id="Conclusion">Conclusion</h2>
+<p>This project demonstrates both the potential and limitations of arithmetic coding steganography with current LLM APIs. While the technical challenges prevented a fully robust implementation, the work provides valuable insights into encoded reasoning capabilities and the practical constraints of building precise tools on top of probabilistic language models.</p>
+<p>The journey from “this should work in theory” to “here’s why it doesn’t work in practice” exemplifies the importance of implementation work in AI safety research. Sometimes the most valuable outcome isn’t a working system, but a deep understanding of why certain approaches fail.</p>
+<h2 id="References">References</h2>
+<p>[1]: Ziegler, Zachary, Yuntian Deng, and Alexander Rush. ‘Neural Linguistic Steganography’. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), edited by Kentaro Inui, Jing Jiang, Vincent Ng, and Xiaojun Wan. Association for Computational Linguistics, 2019. <a target="_blank" rel="noopener" href="https://doi.org/10.18653/v1/D19-1115">https://doi.org/10.18653/v1/D19-1115</a>.</p>
+<hr>
+<p><em>If you’re interested in AI safety, steganography, or have ideas for overcoming these technical challenges, I’d love to hear from you.</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/My-AI-safety-independent-research-engineer-path-so-far/" rel="prev" title="My AI safety independent research engineer path so far">
+                  <i class="fa fa-angle-left"></i> My AI safety independent research engineer path so far
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-brain-circuit"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Artyom Karpov</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

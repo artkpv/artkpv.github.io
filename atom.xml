@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-07-25T08:51:24.315Z</updated>
+  <updated>2025-08-09T11:40:18.546Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Arithmetic Coding Steganography Using Frontier Models</title>
+    <link href="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/"/>
+    <id>http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/</id>
+    <published>2025-08-09T09:07:15.000Z</published>
+    <updated>2025-08-09T11:40:18.546Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;I implemented arithmetic coding steganography [1] to hide messages in LLM-generated text. While the proof-of-concept works for messages on GPT-3.5, it revealed fundamental challenges with API non-determinism and interval collapse that limit practical applications. This post documents the technical approach, challenges encountered, and lessons learned.&lt;/p&gt;
+&lt;p&gt;The code: &lt;a href=&quot;https://github.com/artkpv/arithmetic-coding-steganography/&quot;&gt;https://github.com/artkpv/arithmetic-coding-steganography/&lt;/a&gt;&lt;/p&gt;
+&lt;img src=&quot;/Tool-Arithmetic-Coding-for-LLM-Steganography/encoding-visualization.svg&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>My AI safety independent research engineer path so far</title>
