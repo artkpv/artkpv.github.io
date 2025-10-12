@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-08-09T11:40:18.546Z</updated>
+  <updated>2025-10-12T10:02:37.228Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Are LLMs a dead end?</title>
+    <link href="http://www.artkpv.net/Whether-LLMs-hit-a-developmental-wall/"/>
+    <id>http://www.artkpv.net/Whether-LLMs-hit-a-developmental-wall/</id>
+    <published>2025-10-12T10:01:17.000Z</published>
+    <updated>2025-10-12T10:02:37.228Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;The question of whether LLMs are a dead end, as discussed by &lt;a href=&quot;https://www.dwarkesh.com/p/richard-sutton&quot;&gt;R. Sutton&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=m3H2q6MXAzs&quot;&gt;Y. LeCun&lt;/a&gt;, and &lt;a href=&quot;https://www.tobyord.com/writing/half-life&quot;&gt;T. Ord&lt;/a&gt;, among many others, is hundreds of years old. Currently, we see that the chance of an LLM agent failing a task rises with the number of steps taken. This was observed even before the era of LLMs, when agents were trained with &lt;a href=&quot;http://rail.eecs.berkeley.edu/deeprlcourse/deeprlcourse/static/slides/lec-2.pdf&quot;&gt;imitation learning&lt;/a&gt;. The crux is whether further training of LLMs leads to the completion of longer tasks or if these agents hit a wall. Do LLMs indeed build a real-world model that allows them to take the right actions in long time horizon tasks? Yet, models might only build a model from predicting what humans would say as their next token. Then the question is whether humans possess the necessary knowledge.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Arithmetic Coding Steganography Using Frontier Models</title>
