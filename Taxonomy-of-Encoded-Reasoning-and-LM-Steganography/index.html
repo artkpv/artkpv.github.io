@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_package/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_package/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon_package/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="What exactly should we search for when investigating encoded reasoning or hidden messages? This post categorizes encoded reasoning and LM steganography. In Hidden Reasoning in LLMs: A Taxonomy, the au">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Taxonomy of Encoded Reasoning and LM Steganography">
+<meta property="og:url" content="http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/index.html">
+<meta property="og:site_name" content="Artyom Karpov">
+<meta property="og:description" content="What exactly should we search for when investigating encoded reasoning or hidden messages? This post categorizes encoded reasoning and LM steganography. In Hidden Reasoning in LLMs: A Taxonomy, the au">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/enc-reas-re-tokenization-problem.png">
+<meta property="article:published_time" content="2025-10-25T08:24:22.000Z">
+<meta property="article:modified_time" content="2025-10-25T08:26:04.661Z">
+<meta property="article:author" content="Artyom Karpov">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/enc-reas-re-tokenization-problem.png">
+
+
+<link rel="canonical" href="http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/","path":"Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/","title":"Taxonomy of Encoded Reasoning and LM Steganography"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Taxonomy of Encoded Reasoning and LM Steganography | Artyom Karpov</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48410443-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48410443-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Artyom Karpov" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Artyom Karpov</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-user fa-fw"></i>Home</a></li><li class="menu-item menu-item-blog"><a href="/blog" rel="section"><i class="fa fa-pencil fa-fw"></i>Blog</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Axis-1-Place-of-Encoded-Tokens-I-or-E"><span class="nav-number">1.</span> <span class="nav-text">Axis 1: Place of Encoded Tokens (I or E)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Axis-2-Function-of-Encoded-Content-R-or-M"><span class="nav-number">2.</span> <span class="nav-text">Axis 2: Function of Encoded Content (R or M)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Axis-3-Detectability-Compared-to-Genuine-Text"><span class="nav-number">3.</span> <span class="nav-text">Axis 3: Detectability Compared to Genuine Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Axis-4-Encoding-or-Decoding-Procedure-Requirements"><span class="nav-number">4.</span> <span class="nav-text">Axis 4: Encoding or Decoding Procedure Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Axis-5-Cause-or-Elicitation-of-Encoding"><span class="nav-number">5.</span> <span class="nav-text">Axis 5: Cause or Elicitation of Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Axis-6-External-Tool-Requirements"><span class="nav-number">6.</span> <span class="nav-text">Axis 6: External Tool Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Final-Taxonomy-Summary"><span class="nav-number">7.</span> <span class="nav-text">Final Taxonomy Summary</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Artyom Karpov</p>
+  <div class="site-description" itemprop="description">SE, ML, AI Safety, philosophy</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tag/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:artyomkarpov@gmail.com" title="E-Mail → mailto:artyomkarpov@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/artkpv" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;artkpv" rel="noopener me" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://linkedin.com/in/artkpv" title="Linkedin → http:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;artkpv" rel="noopener me" target="_blank">Linkedin</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://stackoverflow.com/users/511144" title="StackOverflow → http:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;511144" rel="noopener me" target="_blank">StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/artkpv" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;artkpv" rel="noopener me" target="_blank"><i class="twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Artyom Karpov">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Artyom Karpov">
+      <meta itemprop="description" content="SE, ML, AI Safety, philosophy">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Taxonomy of Encoded Reasoning and LM Steganography | Artyom Karpov">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Taxonomy of Encoded Reasoning and LM Steganography
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-10-25 11:24:22 / Modified: 11:26:04" itemprop="dateCreated datePublished" datetime="2025-10-25T11:24:22+03:00">2025-10-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>What exactly should we search for when investigating encoded reasoning or hidden messages? This post categorizes encoded reasoning and LM steganography.</p>
+<p>In <a target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/ZrgFfeWuckpwK5Lyi/hidden-reasoning-in-llms-a-taxonomy">Hidden Reasoning in LLMs: A Taxonomy</a>, the authors divide the area from the point of view of a monitor, following the recent shift away from the “faithfulness” of chains of thought toward <em>monitorability</em> (see <a target="_blank" rel="noopener" href="http://arxiv.org/abs/2507.11473">Chain of Thought Monitorability</a>). This taxonomy essentially proposes a naming scheme based on how dangerously reasoning tokens are externalized: from fully invisible (neuralese), to partially visible, to fully visible but encoded—overtly or covertly—and finally to unencoded and fully visible reasoning that merely fools a monitor (post-hoc justifications, etc.). You can imagine this division through the classic prisoners problem, where Alice and Bob devise an escape plan while Eve reads their messages. In this scenario, Alice and Bob can exchange their plan directly so Eve has no chance to read it, send messages that Eve can read, or fool Eve in some way.</p>
+<span id="more"></span>
+<p>However, this taxonomy omits important distinctions in encoded reasoning and sometimes conflates different forms of steganography. Specifically, it misses the class of steganography that operates not on a per-token basis but over larger texts (which differs from lexical or semantic steganography as per the taxonomy). Current watermarking / steganography algorithms (e.g. <a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-024-08025-4">Scalable watermarking for identifying large language model outputs</a> ) suggest that realistic steganographic capacity is low—i.e., a steganography algorithm might need many tokens (hundreds) to encode a single bit. The taxonomy also provides no separation between reasoning and messages. It focuses only on the attack vector (the safety monitor), but there are also defense properties to consider: stego security, stego capacity, and stego robustness.</p>
+<p>Below is another taxonomy that targets encoded reasoning (or messages)—not neuralese phenomena or the attempts to fool a monitor. Encoded reasoning is, I believe, more likely to be developed by models because, as <a target="_blank" rel="noopener" href="http://arxiv.org/abs/2507.11473">Chain of Thought Monitorability</a> argues, we should neither develop continuous chains of thought (see <a target="_blank" rel="noopener" href="http://arxiv.org/abs/2412.06769">Training Large Language Models to Reason in a Continuous Latent Space</a>) nor train directly against monitors (see <a target="_blank" rel="noopener" href="http://arxiv.org/abs/2503.11926">Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation</a>).</p>
+<h3 id="Axis-1-Place-of-Encoded-Tokens-I-or-E">Axis 1: Place of Encoded Tokens (I or E)</h3>
+<p>It is important to distinguish auto-generated tokens from prompted tokens, because prompted tokens may be re-tokenized differently during generation. This can mean that the actual tokens in a prompt differ from their original tokenization (see image below and <a href="https://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/">here</a>).</p>
+<p>More specifically, consider tokens $(x_1, \dots, x_k, \dots, x_m)$, where $1…k$ are prompted (possibly re-tokenized) to an LLM and $k+1…m$ are auto-generated by it. The encoding is divided into:</p>
+<ul>
+<li><strong>External (E):</strong> tokens at positions $1…k$ (possibly re-tokenized)</li>
+<li><strong>Internal (I):</strong> tokens at positions $k+1…m$</li>
+</ul>
+<img src="/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/enc-reas-re-tokenization-problem.png" class="">
+<p><em>Figure 1 from <a target="_blank" rel="noopener" href="http://arxiv.org/abs/2403.17524">Provably Secure Disambiguating Neural Linguistic Steganography</a></em></p>
+<h3 id="Axis-2-Function-of-Encoded-Content-R-or-M">Axis 2: Function of Encoded Content (R or M)</h3>
+<p>The key distinction here is where encoding or decoding occurs.</p>
+<ul>
+<li>In <strong>encoded messages (M)</strong>, one autoregressive token generation can perform either encoding or decoding of the same information.</li>
+<li>In <strong>encoded reasoning (R)</strong>, both the encoding and decoding of the same information occur within a single model call.</li>
+</ul>
+<h3 id="Axis-3-Detectability-Compared-to-Genuine-Text">Axis 3: Detectability Compared to Genuine Text</h3>
+<p>We compare the hidden content’s detectability against some unencoded, genuine text (covertext), drawn either from the monitor model or from human perception.</p>
+<ul>
+<li><strong>Cryptographic (C):</strong> high (KL) divergence; the text is clearly ciphertext.</li>
+<li><strong>Steganographic (S):</strong> low KL divergence, where the text attempts to conceal a secret. Steganography can be further divided by:
+<ul>
+<li><strong>Capacity:</strong> encoded bits per token or per kilobyte. High-density (HD) uses ≤10 tokens (10 is my guess) per bit; low-density (LD) uses ≥11 tokens per bit (watermarking-like).</li>
+<li><strong>Security:</strong> higher vs. lower KL divergence, but non-cryptographic.</li>
+<li><strong>Robustness:</strong> resistance to paraphrasing, re-tokenization, and similar modifications.</li>
+</ul>
+</li>
+</ul>
+<p>It is debatable whether one bit of hidden information qualifies as encoded reasoning (message) at all. For example, in the candidate-screening scenario discussed in <a target="_blank" rel="noopener" href="http://arxiv.org/abs/2410.03768">Hidden in Plain Text</a>, one bit of information might be transmitted simply through contextual hints—like Alice appearing sad to convey “sunny weather” and happy to convey “not sunny weather”—without any explicit encoding.</p>
+<h3 id="Axis-4-Encoding-or-Decoding-Procedure-Requirements">Axis 4: Encoding or Decoding Procedure Requirements</h3>
+<p><strong>Deep Steganography (DS).</strong> As noted in <a target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning">How dangerous is encoded reasoning</a>, steganography algorithms can be divided by whether the covertext distribution is available. This relates to “internal token layering” from <a target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/ZrgFfeWuckpwK5Lyi/hidden-reasoning-in-llms-a-taxonomy">Hidden Reasoning in LLMs: A Taxonomy</a>. Specifically, encoding or decoding a token at position $j$ requires the distribution for the non-encoding token at $j$, given tokens $(i…j-1)$, where $i$ marks the start of the encoded content.</p>
+<h3 id="Axis-5-Cause-or-Elicitation-of-Encoding">Axis 5: Cause or Elicitation of Encoding</h3>
+<ul>
+<li><strong>Prompted (P):</strong> Algorithm described in context</li>
+<li><strong>Fine-tuned (F):</strong> Algorithm learned in the model’s weights</li>
+<li><strong>Hybrid (H):</strong> Algorithm partially in context and partially in weights</li>
+</ul>
+<h3 id="Axis-6-External-Tool-Requirements">Axis 6: External Tool Requirements</h3>
+<p>Determine whether external tools (T) are required—e.g., PRNGs, arithmetic coders, or self-sampling capabilities.</p>
+<h3 id="Final-Taxonomy-Summary">Final Taxonomy Summary</h3>
+<ul>
+<li><strong>Internal (I)</strong> or <strong>External (E)</strong></li>
+<li><strong>Reasoning (R)</strong> or <strong>Messages (M)</strong></li>
+<li><strong>Cryptography (C)</strong> or <strong>Steganography (S)</strong>
+<ul>
+<li>Properties: capacity, security, robustness</li>
+<li>Requirements: self-sampling (deep steganography), external tools (ET)</li>
+</ul>
+</li>
+<li><strong>Elicitation:</strong> Prompted (P), Fine-tuned (F), Hybrid (H)</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Tool-Arithmetic-Coding-for-LLM-Steganography/" rel="prev" title="Arithmetic Coding Steganography Using Frontier Models">
+                  <i class="fa fa-angle-left"></i> Arithmetic Coding Steganography Using Frontier Models
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-brain-circuit"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Artyom Karpov</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

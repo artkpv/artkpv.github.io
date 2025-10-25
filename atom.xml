@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-08-09T11:40:18.546Z</updated>
+  <updated>2025-10-25T08:26:04.661Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Taxonomy of Encoded Reasoning and LM Steganography</title>
+    <link href="http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/"/>
+    <id>http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/</id>
+    <published>2025-10-25T08:24:22.000Z</published>
+    <updated>2025-10-25T08:26:04.661Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;What exactly should we search for when investigating encoded reasoning or hidden messages? This post categorizes encoded reasoning and LM steganography.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&quot;https://www.lesswrong.com/posts/ZrgFfeWuckpwK5Lyi/hidden-reasoning-in-llms-a-taxonomy&quot;&gt;Hidden Reasoning in LLMs: A Taxonomy&lt;/a&gt;, the authors divide the area from the point of view of a monitor, following the recent shift away from the “faithfulness” of chains of thought toward &lt;em&gt;monitorability&lt;/em&gt; (see &lt;a href=&quot;http://arxiv.org/abs/2507.11473&quot;&gt;Chain of Thought Monitorability&lt;/a&gt;). This taxonomy essentially proposes a naming scheme based on how dangerously reasoning tokens are externalized: from fully invisible (neuralese), to partially visible, to fully visible but encoded—overtly or covertly—and finally to unencoded and fully visible reasoning that merely fools a monitor (post-hoc justifications, etc.). You can imagine this division through the classic prisoners problem, where Alice and Bob devise an escape plan while Eve reads their messages. In this scenario, Alice and Bob can exchange their plan directly so Eve has no chance to read it, send messages that Eve can read, or fool Eve in some way.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Arithmetic Coding Steganography Using Frontier Models</title>
