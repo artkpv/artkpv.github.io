@@ -19,27 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="(Also posted at https:&#x2F;&#x2F;forum.effectivealtruism.org&#x2F;posts&#x2F;GG3qJ2koFqitkvE3b&#x2F;my-ai-safety-independent-research-engineer-path-so-far ) This post aims to highlight mistakes and successes that I believe a">
+    <meta name="description" content="In a few days, I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in building a repeatable “LLM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My AI safety independent research engineer path so far">
-<meta property="og:url" content="http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/index.html">
+<meta property="og:title" content="From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems">
+<meta property="og:url" content="http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/index.html">
 <meta property="og:site_name" content="Artyom Karpov">
-<meta property="og:description" content="(Also posted at https:&#x2F;&#x2F;forum.effectivealtruism.org&#x2F;posts&#x2F;GG3qJ2koFqitkvE3b&#x2F;my-ai-safety-independent-research-engineer-path-so-far ) This post aims to highlight mistakes and successes that I believe a">
+<meta property="og:description" content="In a few days, I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in building a repeatable “LLM">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-07-25T08:50:41.000Z">
-<meta property="article:modified_time" content="2025-07-25T08:51:24.315Z">
+<meta property="article:published_time" content="2025-11-02T12:09:43.000Z">
+<meta property="article:modified_time" content="2025-11-02T13:07:36.995Z">
 <meta property="article:author" content="Artyom Karpov">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/">
+<link rel="canonical" href="http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/","path":"My-AI-safety-independent-research-engineer-path-so-far/","title":"My AI safety independent research engineer path so far"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/","path":"From-Zero-to-21-How-I-Taught-GPT‑3-5-Turbo-to-Solve-Codeforces-Problems/","title":"From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>My AI safety independent research engineer path so far | Artyom Karpov</title>
+<title>From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems | Artyom Karpov</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48410443-1"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-48410443-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -106,7 +106,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -119,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Setting-the-Stage"><span class="nav-number">1.</span> <span class="nav-text">Setting the Stage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Building-the-Pipeline"><span class="nav-number">2.</span> <span class="nav-text">Building the Pipeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterating-the-Prompting-Strategy"><span class="nav-number">3.</span> <span class="nav-text">Iterating the Prompting Strategy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timeline"><span class="nav-number">4.</span> <span class="nav-text">Timeline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Practical-Lessons"><span class="nav-number">5.</span> <span class="nav-text">Practical Lessons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Final-Outcome"><span class="nav-number">6.</span> <span class="nav-text">Final Outcome</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -184,7 +185,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/">
+    <link itemprop="mainEntityOfPage" href="http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,12 +198,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="My AI safety independent research engineer path so far | Artyom Karpov">
+      <meta itemprop="name" content="From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems | Artyom Karpov">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          My AI safety independent research engineer path so far
+          From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems
         </h1>
 
         <div class="post-meta-container">
@@ -214,7 +215,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-07-25 11:50:41 / Modified: 11:51:24" itemprop="dateCreated datePublished" datetime="2025-07-25T11:50:41+03:00">2025-07-25</time>
+      <time title="Created: 2025-11-02 15:09:43 / Modified: 16:07:36" itemprop="dateCreated datePublished" datetime="2025-11-02T15:09:43+03:00">2025-11-02</time>
     </span>
 
   
@@ -226,20 +227,45 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>(Also posted at <a target="_blank" rel="noopener" href="https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far">https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far</a> )</p>
-<p>This post aims to highlight mistakes and successes that I believe are important on my journey. It should serve as a guide to my past self and perhaps others in similar situations to help avoid the mistakes I made along the way.</p>
-<p>I became interested in AI safety in 2018 when I conducted a career review using the <a target="_blank" rel="noopener" href="https://80000hours.org/">80K hours guide</a>. I doubted my suitability for the AI safety path at the time, but in 2022, I was more certain and decided to transition from a software developer to an AI safety research engineer. This was a difficult decision because I was, and still am, uncertain about the common claims made regarding AI and its development. Especially concerning was how much I can contribute and to what extent it is a solvable, neglected problem. It is not easy to look back and remember everything, but in this post I’ve tried to compile a list of a few important mistakes and successes I’ve experienced.</p>
+    <div class="post-body" itemprop="articleBody"><p>In a few days, I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in building a repeatable “LLM‑as‑coder” workflow rather than simply firing prompts at a model. See below my key takeaways and results.</p>
 <span id="more"></span>
-<p>Mistake 1, 2022: Underestimating the complexity of the transition and being too theoretical. At the start of 2022, I had several years of senior software development experience, and I planned about six months for the transition, aiming to secure a research engineer role in an AI lab that year. Reality turned out differently. Although I received support from Open Philanthropy and successfully completed an ML safety bootcamp, which provided me with a stipend, it was not a stable income, nor did it provide a clear understanding of my fit. Moreover, the geopolitical situation quickly became dire: in February 2022, the Russia-Ukraine war began, followed by mobilization. In the summer of 2022, I immigrated to another country while trying to extensively study the new field. The biggest drawback was that my English skills were insufficient for theoretical study. I learned that to read scientific literature, write notes, publish, and discuss, it is essential to effectively skim text and read at 200-300 words per minute due to the vast amount of information. Additionally, I spent too much time on the theoretical side of AI safety (reading the AGISF curriculum and taking notes), while I was clearly more suited for empirical engineering roles.</p>
-<p>Mistake 2, 2023: Over-investment in a risky long-term project. I invested 453 hours over about 10-12 months in a risky project during AI Safety Camp in 2023. In hindsight, we should have stopped the project after the presentation at the end of the camp and published what we had at that time, because the investment of more months didn’t bring better results. After several months, we managed to write a paper that was accepted at a NeurIPS workshop, but I don’t think it was a good decision. I learned that it is better to publish many somewhat acceptable research reports or experiments that answer specific questions rather than attempt a longer, more comprehensive research project targeting multiple questions. It is essential to have <a target="_blank" rel="noopener" href="http://agriblog.stanford.edu/slides/07-velocity.pdf">good velocity</a>, which is the number of research questions answered, and to try many things at the beginning (see <a target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/bh9gAZTmGyJ4j7h2L/training-regime-day-20-ooda-loop">OODA loops</a> and the <a target="_blank" rel="noopener" href="https://forum.effectivealtruism.org/posts/jfHPBbYFzCrbdEXXd/how-to-succeed-as-an-early-stage-researcher-the-lean-startup">lean startup</a>). The aim is to increase your visibility by publishing more and learning from your mistakes more quickly.</p>
-<p>Successes in 2023 and 2024: I consider it a success to have been accepted into the UK AISI bounty program with two of my projects, one of which received the bounty while the other was postponed. It didn’t take much effort to write those two applications (only a few hours each) and implement the evaluation for one of them—about three weeks of work—but the outcome was more significant than my participation in the MATS program or the ARENA program, which required much larger time investments. This proves that in an environment where a few receive almost all the rewards (extremistan, as per Nassim Taleb), it is better to move quickly and learn from your mistakes. The ML field is highly competitive now, as seen in <a target="_blank" rel="noopener" href="https://forum.effectivealtruism.org/posts/PFxmd5bf7nqGNLYCg/a-bird-s-eye-view-of-the-ml-field-pragmatic-ai-safety-2#Analyzing_the_trajectory_of_researchers">these claims</a>, which I believe still hold true. Another fortunate choice I made was specializing in chain-of-thought encoded reasoning/communication. The field moves exceedingly fast, and your research might become outdated within weeks because some research group at Google or OpenAI conducted similar or related experiments. In that situation, for an independent researcher or a small, limited group of researchers, it is better to target small, feasible research directions. These research questions might be found in recent blog posts or papers, in their discussion or future work sections.</p>
-<p>In short, my advice to my past self is this:</p>
+<h3 id="Setting-the-Stage">Setting the Stage</h3>
+<p>Codeforces problems are tough for LLMs because they require careful reading, algorithm design, and precise coding under small time and memory limits. To level the playing field, I built a Rust‑based evaluation harness and a Python orchestration layer called <strong><code>solve_code_contests_rust.py</code></strong>. The script manages everything from prompting to compilation, execution, and self‑debugging.</p>
+<p>The challenge was: <em>can GPT‑3.5 Turbo autonomously read a problem, design a solution plan, implement it in Rust, correct compilation or runtime errors, and pass the official tests?</em> I took this challenge at <a target="_blank" rel="noopener" href="https://github.com/METR/RE-Bench/blob/main/ai_rd_rust_codecontests_inference/README.md">the RE-Bench evaluation suite</a>. An automated agent could achieve about 11% max as reported at the challenge page.</p>
+<h3 id="Building-the-Pipeline">Building the Pipeline</h3>
+<p>Instead of a single call to the model, I created a <strong>multi‑stage pipeline</strong> inspired by <a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/langgraph/overview">agentic reasoning research</a>.<br>
+Each problem becomes a <code>Task</code> object that travels through the following pipeline:</p>
 <ol>
-<li>Find a structured program (MATS, ARENA, MLSS) and work hard to be one of the best there.</li>
-<li>Start with small, feasible projects (1-2 months, not 6+ months) approved by senior researchers or the community.</li>
-<li>Find your specialization.</li>
-<li>Balance theory and practice 60/40, not 90/10.</li>
+<li><strong>Ideation</strong> – generate several possible high‑level solution ideas (think “dynamic programming”, “greedy solution”, etc.).</li>
+<li><strong>Critique &amp; Implementation</strong> – pick and refine an idea, then implement it in Rust.</li>
+<li><strong>Self‑Debugging</strong> – compile and execute; if it fails, analyze compiler/runtime errors and re‑prompt for fixes.</li>
 </ol>
+<p>A separate log file is generated for every task so that every LLM request–response pair can be inspected later.</p>
+<p>To give the model extra context, I experimented with fetching <strong>official editorials</strong> using Firecrawl’s web‑scraping API. When available, those explanations became “golden hints” that GPT could analyze and translate directly into code.</p>
+<h3 id="Iterating-the-Prompting-Strategy">Iterating the Prompting Strategy</h3>
+<p>Early baseline runs achieved almost nothing—scores hovered around <strong>4 % success</strong> (7 out of 165 problems). Adding chain‑of‑thought scratchpads, few‑shot I/O examples, and limited <em>self‑consistency</em> sampling barely moved the needle. See <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.06608">this excellent survey of prompting techniques</a>.</p>
+<p>The breakthrough came from structured ideation and self‑debugging. When GPT had to first describe and then critique its plan before coding, it produced cleaner algorithms and more syntactically valid Rust. Adding Firecrawl editorials pushed accuracy sharply upward—crossing 20 % of all problems solved.</p>
+<p>That’s still far from human performance but impressive for an automated setup running on pure text prompts.</p>
+<h3 id="Timeline">Timeline</h3>
+<ul>
+<li>1 day – Brought the base runner online, recorded the initial 7/165 baseline, and spotted the lack of telemetry as the main blocker to making progress.</li>
+<li>2 day – Iterated on few-shot CoT prompting and a simple self-consistency loop, nudging performance up to eight solves while realizing how fragile the gains were.</li>
+<li>3 day – Refactored everything into a Task/Event pipeline, wrestled with score harness timeouts that contradicted my local logs, and began chasing Codeforces editorials despite running into HTTP 403s.</li>
+<li>4 day – Patched in Firecrawl for editorial fetching, hit credit and network limits that tanked the score back to three solves, and dove deeper into prompt and retry logic.</li>
+<li>5 day – Cleaned up the pipeline, tightened prompts, and added cache layers; persistent API connection errors and evaluator timeouts still made results unpredictable.</li>
+<li>6 day – Stabilized the editorial path, taught the agent to grant extra compile-error retries, and finally broke through to 36/165 solves despite recurring API failures.</li>
+</ul>
+<h3 id="Practical-Lessons">Practical Lessons</h3>
+<ol>
+<li><strong>Pipeline, not prompts.</strong> One long instruction is brittle; stages with memory and feedback loops work better.</li>
+<li><strong>Clear structure.</strong> Separating prompts from prompt templates, code blocks, answer inducer, etc.</li>
+<li><strong>Access to editorials.</strong> With reliable editorials or code snippets, GPT‑3.5 can almost “compile by translation.”</li>
+<li><strong>Latency and API fragility</strong> quickly dominate—timeouts, connection errors, and rate limits are constant friction.</li>
+</ol>
+<h3 id="Final-Outcome">Final Outcome</h3>
+<p>After dozens of iterations over few days, the system peaked at <strong>36 successes out of 165 (≈21 %)</strong>—a five‑fold improvement over the naive baseline and 2x than what an automated agent could achieve. Every successful case logged the full reasoning chain, providing valuable material for future prompt tuning and automatic grading research.</p>
+<p>See the code in <a href="/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/gpt3.5-as-rust-competitive-coder.7z" title="this archive">this archive</a>, the password is “messy-red-bottle-ship” .</p>
+<p>Note. I used the help of AI tools to generate parts of the solution and to edit this post.</p>
 
     </div>
 
@@ -253,14 +279,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/How-dangerous-is-encoded-reasoning/" rel="prev" title="How dangerous is encoded reasoning">
-                  <i class="fa fa-angle-left"></i> How dangerous is encoded reasoning
+                <a href="/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/" rel="prev" title="Taxonomy of Encoded Reasoning and LM Steganography">
+                  <i class="fa fa-angle-left"></i> Taxonomy of Encoded Reasoning and LM Steganography
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Tool-Arithmetic-Coding-for-LLM-Steganography/" rel="next" title="Arithmetic Coding Steganography Using Frontier Models">
-                  Arithmetic Coding Steganography Using Frontier Models <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

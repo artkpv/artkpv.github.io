@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-10-25T08:26:04.661Z</updated>
+  <updated>2025-11-02T13:07:36.995Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems</title>
+    <link href="http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/"/>
+    <id>http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/</id>
+    <published>2025-11-02T12:09:43.000Z</published>
+    <updated>2025-11-02T13:07:36.995Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;In a few days, I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in building a repeatable “LLM‑as‑coder” workflow rather than simply firing prompts at a model. See below my key takeaways and results.&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Taxonomy of Encoded Reasoning and LM Steganography</title>
@@ -394,25 +409,6 @@
     <category term="books" scheme="http://www.artkpv.net/tag/books/"/>
     
     <category term="programming" scheme="http://www.artkpv.net/tag/programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Перевод. Введение в программирование через поведение (BDD)</title>
-    <link href="http://www.artkpv.net/translation-of-the-introduction-to-bdd-by-don-north/"/>
-    <id>http://www.artkpv.net/translation-of-the-introduction-to-bdd-by-don-north/</id>
-    <published>2014-03-10T20:00:00.000Z</published>
-    <updated>2017-07-04T15:41:20.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;(&lt;i&gt;Прим. Оригинал статьи на &lt;a href=&quot;http://dannorth.net/introducing-bdd&quot;&gt;http://dannorth.net/introducing-bdd&lt;/a&gt;. Дэн Норт — преподаватель agile методологий разработки. Разрабатывает ПО и учит этому около 20 лет. Создатель собственного агентства по консультированию и разработке ПО. Ввел понятие разработка через поведение (BDD).&lt;/i&gt; Опубликовал этот перевод на Хабре &lt;a href=&quot;http://habrahabr.ru/post/216923/&quot;&gt;здесь&lt;/a&gt;.)&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;История: Эта статья впервые появилась в журнале &lt;a href=&quot;http://www.stickyminds.com/resources/magazine-articles&quot;&gt;Better Software&lt;/a&gt; в марте 2006. Она была переведена на несколько языков.&lt;/i&gt;&lt;/p&gt;
-&lt;p&gt;Однажды я столкнулся с проблемой. Обучая разработчиков практикам agile программирования, таким как TDD в различных проектах, я часто встречал непонимание и растерянность. Они хотели знать, где начать, что тестировать, а что не тестировать, как много тестировать за раз, как называть тесты и как понять, почему тесты падают. &lt;/p&gt;
-&lt;p&gt;Чем больше я пользовался TDD, тем больше я понимал, что не столько оттачиваю своё мастерство, достигая новых его вершин, сколько то, что это было движение в слепую. Я помню, как мне все чаще приходила мысль: “Эх, вот бы мне кто-нибудь сказал это раньше!”, чем мысль: “Отлично, дорога ясна”. Я решил, что нужно найти способ обучать TDD, показывающий, как верно работать с ним сразу и без ошибок.&lt;/p&gt;
-&lt;p&gt;И этот способ — это программирование через поведение. Оно выросло из выработанных agile практик и призвано сделать их доступнее и эффективнее для команд, незнакомых с ними. Со временем, BDD стало включать в себя agile анализ и автоматическое приемочное (&lt;i&gt;прим. &lt;/i&gt;acceptance) тестирование.&lt;/p&gt;</summary>
-    
-    
-    
     
   </entry>
   
