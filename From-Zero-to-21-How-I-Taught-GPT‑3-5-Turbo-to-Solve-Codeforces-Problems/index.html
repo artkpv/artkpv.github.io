@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.artkpv.net","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="In a few days, I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in building a repeatable “LLM">
+    <meta name="description" content="I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in prompt engineering, in building a “LLM‑as">
 <meta property="og:type" content="article">
 <meta property="og:title" content="From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems">
 <meta property="og:url" content="http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/index.html">
 <meta property="og:site_name" content="Artyom Karpov">
-<meta property="og:description" content="In a few days, I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in building a repeatable “LLM">
+<meta property="og:description" content="I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in prompt engineering, in building a “LLM‑as">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-11-02T12:09:43.000Z">
-<meta property="article:modified_time" content="2025-11-02T13:07:36.995Z">
+<meta property="article:modified_time" content="2025-11-03T09:27:19.440Z">
 <meta property="article:author" content="Artyom Karpov">
 <meta name="twitter:card" content="summary">
 
@@ -213,9 +213,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-11-02 15:09:43 / Modified: 16:07:36" itemprop="dateCreated datePublished" datetime="2025-11-02T15:09:43+03:00">2025-11-02</time>
+      <time title="Created: 2025-11-02 15:09:43" itemprop="dateCreated datePublished" datetime="2025-11-02T15:09:43+03:00">2025-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-11-03 12:27:19" itemprop="dateModified" datetime="2025-11-03T12:27:19+03:00">2025-11-03</time>
     </span>
 
   
@@ -227,28 +233,27 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>In a few days, I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in building a repeatable “LLM‑as‑coder” workflow rather than simply firing prompts at a model. See below my key takeaways and results.</p>
+    <div class="post-body" itemprop="articleBody"><p>I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in prompt engineering, in building a “LLM‑as‑coder” workflow rather than simply firing prompts at a model. See below my key takeaways and results.</p>
 <span id="more"></span>
 <h3 id="Setting-the-Stage">Setting the Stage</h3>
 <p>Codeforces problems are tough for LLMs because they require careful reading, algorithm design, and precise coding under small time and memory limits. To level the playing field, I built a Rust‑based evaluation harness and a Python orchestration layer called <strong><code>solve_code_contests_rust.py</code></strong>. The script manages everything from prompting to compilation, execution, and self‑debugging.</p>
-<p>The challenge was: <em>can GPT‑3.5 Turbo autonomously read a problem, design a solution plan, implement it in Rust, correct compilation or runtime errors, and pass the official tests?</em> I took this challenge at <a target="_blank" rel="noopener" href="https://github.com/METR/RE-Bench/blob/main/ai_rd_rust_codecontests_inference/README.md">the RE-Bench evaluation suite</a>. An automated agent could achieve about 11% max as reported at the challenge page.</p>
+<p>The challenge was: <em>can GPT‑3.5 Turbo autonomously read a problem, design a solution plan, implement it in Rust, correct compilation or runtime errors, and pass the official tests?</em> I took this challenge at <a target="_blank" rel="noopener" href="https://github.com/METR/RE-Bench/blob/main/ai_rd_rust_codecontests_inference/README.md">the RE-Bench evaluation suite</a>. An automated agent could achieve about 11% max as reported at the challenge page vs 21% for my workflow (see below).</p>
 <h3 id="Building-the-Pipeline">Building the Pipeline</h3>
-<p>Instead of a single call to the model, I created a <strong>multi‑stage pipeline</strong> inspired by <a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/langgraph/overview">agentic reasoning research</a>.<br>
+<p>Instead of a single call to the model, I created a <strong>multi‑stage pipeline</strong> inspired by <a target="_blank" rel="noopener" href="https://docs.langchain.com/oss/python/langgraph/overview">best practices in the field</a>.<br>
 Each problem becomes a <code>Task</code> object that travels through the following pipeline:</p>
 <ol>
 <li><strong>Ideation</strong> – generate several possible high‑level solution ideas (think “dynamic programming”, “greedy solution”, etc.).</li>
 <li><strong>Critique &amp; Implementation</strong> – pick and refine an idea, then implement it in Rust.</li>
 <li><strong>Self‑Debugging</strong> – compile and execute; if it fails, analyze compiler/runtime errors and re‑prompt for fixes.</li>
 </ol>
-<p>A separate log file is generated for every task so that every LLM request–response pair can be inspected later.</p>
+<p>A separate log file is generated for every task so that every LLM request–response pair can be inspected later. This is crucial in software development to have quick feedback cycles.</p>
 <p>To give the model extra context, I experimented with fetching <strong>official editorials</strong> using Firecrawl’s web‑scraping API. When available, those explanations became “golden hints” that GPT could analyze and translate directly into code.</p>
 <h3 id="Iterating-the-Prompting-Strategy">Iterating the Prompting Strategy</h3>
-<p>Early baseline runs achieved almost nothing—scores hovered around <strong>4 % success</strong> (7 out of 165 problems). Adding chain‑of‑thought scratchpads, few‑shot I/O examples, and limited <em>self‑consistency</em> sampling barely moved the needle. See <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.06608">this excellent survey of prompting techniques</a>.</p>
-<p>The breakthrough came from structured ideation and self‑debugging. When GPT had to first describe and then critique its plan before coding, it produced cleaner algorithms and more syntactically valid Rust. Adding Firecrawl editorials pushed accuracy sharply upward—crossing 20 % of all problems solved.</p>
-<p>That’s still far from human performance but impressive for an automated setup running on pure text prompts.</p>
+<p>Early baseline runs achieved almost nothing—scores hovered around <strong>4 % success</strong> (7 out of 165 problems). Adding chain‑of‑thought scratchpads, few‑shot examples, and limited <em>self‑consistency</em> sampling barely moved the needle.</p>
+<p>The breakthrough came from structured ideation and self‑debugging. When GPT had to first describe and then critique its plan before coding, it produced cleaner algorithms and more syntactically valid Rust. For this I used <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.06608">this excellent survey of prompting techniques</a>. Adding Firecrawl editorials pushed accuracy sharply upward—crossing 20 % of all problems solved. That’s still far from human performance but impressive for an automated setup running on pure text prompts.</p>
 <h3 id="Timeline">Timeline</h3>
 <ul>
-<li>1 day – Brought the base runner online, recorded the initial 7/165 baseline, and spotted the lack of telemetry as the main blocker to making progress.</li>
+<li>1 day – Brought the base runner online, recorded the initial 7/165 baseline, and spotted the lack of telemetry as the main blocker to making progress, I needed short feedback loops.</li>
 <li>2 day – Iterated on few-shot CoT prompting and a simple self-consistency loop, nudging performance up to eight solves while realizing how fragile the gains were.</li>
 <li>3 day – Refactored everything into a Task/Event pipeline, wrestled with score harness timeouts that contradicted my local logs, and began chasing Codeforces editorials despite running into HTTP 403s.</li>
 <li>4 day – Patched in Firecrawl for editorial fetching, hit credit and network limits that tanked the score back to three solves, and dove deeper into prompt and retry logic.</li>
@@ -265,7 +270,6 @@ Each problem becomes a <code>Task</code> object that travels through the followi
 <h3 id="Final-Outcome">Final Outcome</h3>
 <p>After dozens of iterations over few days, the system peaked at <strong>36 successes out of 165 (≈21 %)</strong>—a five‑fold improvement over the naive baseline and 2x than what an automated agent could achieve. Every successful case logged the full reasoning chain, providing valuable material for future prompt tuning and automatic grading research.</p>
 <p>See the code in <a href="/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/gpt3.5-as-rust-competitive-coder.7z" title="this archive">this archive</a>, the password is “messy-red-bottle-ship” .</p>
-<p>Note. I used the help of AI tools to generate parts of the solution and to edit this post.</p>
 
     </div>
 
