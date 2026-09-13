@@ -6,7 +6,7 @@
   <link href="http://www.artkpv.net/atom.xml" rel="self"/>
   
   <link href="http://www.artkpv.net/"/>
-  <updated>2025-11-03T09:30:42.431Z</updated>
+  <updated>2026-09-13T06:04:06.138Z</updated>
   <id>http://www.artkpv.net/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Conscious AI is very unlikely now, less than 5%</title>
+    <link href="http://www.artkpv.net/consious-ai-is-unlikely/"/>
+    <id>http://www.artkpv.net/consious-ai-is-unlikely/</id>
+    <published>2026-09-13T12:58:00.000Z</published>
+    <updated>2026-09-13T06:04:06.138Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;(Cross-posted at: &lt;a href=&quot;https://substack.com/home/post/p-215460793&quot;&gt;https://substack.com/home/post/p-215460793&lt;/a&gt; )&lt;/p&gt;
+&lt;p&gt;Continuing the series about my favorite papers. Another paper that increased my understanding of AIs is &lt;a href=&quot;https://www.jstor.org/stable/2183914?origin=crossref&quot;&gt;Nagel, ‘What Is It Like to Be a Bat?’&lt;/a&gt; about consciousness, but this post will be about the probability that AIs are conscious. Nagel writes “an organism is conscious if and only if there is something that it is like to be that organism”. That introduces an important connection between consciousness and the idea of being. The concept of being or existence is one of the central ideas in philosophy. If there is “something it is like for” an AI then it is conscious. If an AI is conscious then we face questions of whether AIs can suffer and what moral status they should have. Should we treat them like humans then? I asked GPT-6 Astra:&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems</title>
@@ -376,30 +392,6 @@
 &lt;p&gt;This is the book you need if you wish to develop an application for quickly evolving, complex enterprise systems. Though it has some outdated parts, probably every serious programmer should read it. The book is about patterns for building enterprise applications that are ordered for specific users, with the main limitation being development time and intended for long-term use. The authors compiled many years of top professional developers’ wisdom. They do not need an introduction, I guess (especially Martin Fowler).&lt;/p&gt;
 &lt;p&gt;The book is large and divided into two parts. The first part provides a tutorial on applying patterns. The second part serves as a reference.&lt;/p&gt;
 &lt;p&gt;Below are my very short notes on some key chapters.&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="книги" scheme="http://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
-    
-    <category term="books" scheme="http://www.artkpv.net/tag/books/"/>
-    
-    <category term="programming" scheme="http://www.artkpv.net/tag/programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes from The Pragmatic Programmer book</title>
-    <link href="http://www.artkpv.net/pragmatic-programmer/"/>
-    <id>http://www.artkpv.net/pragmatic-programmer/</id>
-    <published>2017-07-03T21:00:00.000Z</published>
-    <updated>2025-01-30T08:07:05.496Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/pragmatic_programmer.jpg&quot; alt=&quot;pragmatic programmer&quot;&gt;&lt;/p&gt;
-&lt;p&gt;This is a popular book from 1999 that has not lost its value, even now. It was created by coders who developed their applications in the 1980s and 1990s. It seems the authors gained more success as writers or speakers than as actual programmers. As the title suggests, it is about how to become a productive programmer and the rules for doing so. These rules range from general principles (like fixing a ‘broken window’) to specific techniques (like using postconditions).&lt;/p&gt;
-&lt;p&gt;Most of the time, it is better to think through your own examples to connect the dots and remember the concepts, but the book’s examples can also be helpful. The book offers some enlightening thoughts about programming philosophy, such as the idea that the primary material we work with is plain text, and therefore we must master the right tools.&lt;/p&gt;
-&lt;p&gt;I use the rules from this book in my everyday work and strongly recommend it to any programmer, regardless of their programming language or platform. Below are my notes from the book.&lt;/p&gt;</summary>
     
     
     
