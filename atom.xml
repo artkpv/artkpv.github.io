@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Artyom Karpov</title>
-  <icon>http://www.artkpv.net/icon.png</icon>
+  <icon>https://www.artkpv.net/icon.png</icon>
   
-  <link href="http://www.artkpv.net/atom.xml" rel="self"/>
+  <link href="https://www.artkpv.net/atom.xml" rel="self"/>
   
-  <link href="http://www.artkpv.net/"/>
+  <link href="https://www.artkpv.net/"/>
   <updated>2026-09-13T06:04:06.138Z</updated>
-  <id>http://www.artkpv.net/</id>
+  <id>https://www.artkpv.net/</id>
   
   <author>
     <name>Artyom Karpov</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Conscious AI is very unlikely now, less than 5%</title>
-    <link href="http://www.artkpv.net/consious-ai-is-unlikely/"/>
-    <id>http://www.artkpv.net/consious-ai-is-unlikely/</id>
+    <link href="https://www.artkpv.net/consious-ai-is-unlikely/"/>
+    <id>https://www.artkpv.net/consious-ai-is-unlikely/</id>
     <published>2026-09-13T12:58:00.000Z</published>
     <updated>2026-09-13T06:04:06.138Z</updated>
     
@@ -34,8 +34,8 @@
   
   <entry>
     <title>From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems</title>
-    <link href="http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/"/>
-    <id>http://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/</id>
+    <link href="https://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/"/>
+    <id>https://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/</id>
     <published>2025-11-02T12:09:43.000Z</published>
     <updated>2025-11-03T09:30:42.431Z</updated>
     
@@ -49,8 +49,8 @@
   
   <entry>
     <title>Taxonomy of Encoded Reasoning and LM Steganography</title>
-    <link href="http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/"/>
-    <id>http://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/</id>
+    <link href="https://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/"/>
+    <id>https://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/</id>
     <published>2025-10-25T08:24:22.000Z</published>
     <updated>2025-10-25T08:26:04.661Z</updated>
     
@@ -65,8 +65,8 @@
   
   <entry>
     <title>Arithmetic Coding Steganography Using Frontier Models</title>
-    <link href="http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/"/>
-    <id>http://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/</id>
+    <link href="https://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/"/>
+    <id>https://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/</id>
     <published>2025-08-09T09:07:15.000Z</published>
     <updated>2025-08-09T11:40:18.546Z</updated>
     
@@ -82,8 +82,8 @@
   
   <entry>
     <title>My AI safety independent research engineer path so far</title>
-    <link href="http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/"/>
-    <id>http://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/</id>
+    <link href="https://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/"/>
+    <id>https://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/</id>
     <published>2025-07-25T08:50:41.000Z</published>
     <updated>2025-07-25T08:51:24.315Z</updated>
     
@@ -99,8 +99,8 @@
   
   <entry>
     <title>How dangerous is encoded reasoning</title>
-    <link href="http://www.artkpv.net/How-dangerous-is-encoded-reasoning/"/>
-    <id>http://www.artkpv.net/How-dangerous-is-encoded-reasoning/</id>
+    <link href="https://www.artkpv.net/How-dangerous-is-encoded-reasoning/"/>
+    <id>https://www.artkpv.net/How-dangerous-is-encoded-reasoning/</id>
     <published>2025-06-30T11:56:13.000Z</published>
     <updated>2025-07-01T09:00:35.956Z</updated>
     
@@ -115,8 +115,8 @@
   
   <entry>
     <title>Philosophical jailbreaks. There is no difference if humanity lives or dies</title>
-    <link href="http://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/"/>
-    <id>http://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/</id>
+    <link href="https://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/"/>
+    <id>https://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/</id>
     <published>2025-06-04T12:07:52.000Z</published>
     <updated>2025-06-04T12:12:13.020Z</updated>
     
@@ -133,8 +133,8 @@
   
   <entry>
     <title>Solving math problems in the Math for ML book</title>
-    <link href="http://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/"/>
-    <id>http://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/</id>
+    <link href="https://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/"/>
+    <id>https://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/</id>
     <published>2024-09-05T13:20:02.000Z</published>
     <updated>2024-09-05T06:46:02.902Z</updated>
     
@@ -148,8 +148,8 @@
   
   <entry>
     <title>CCS on compound sentences</title>
-    <link href="http://www.artkpv.net/CCS-on-compound-sentences/"/>
-    <id>http://www.artkpv.net/CCS-on-compound-sentences/</id>
+    <link href="https://www.artkpv.net/CCS-on-compound-sentences/"/>
+    <id>https://www.artkpv.net/CCS-on-compound-sentences/</id>
     <published>2024-05-04T12:25:18.000Z</published>
     <updated>2024-05-04T12:26:05.106Z</updated>
     
@@ -169,8 +169,8 @@
   
   <entry>
     <title>Inducing human-like biases in moral reasoning LMs</title>
-    <link href="http://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/"/>
-    <id>http://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/</id>
+    <link href="https://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/"/>
+    <id>https://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/</id>
     <published>2024-02-26T21:00:00.000Z</published>
     <updated>2024-02-27T10:49:34.752Z</updated>
     
@@ -186,32 +186,32 @@
     
     
     
-    <category term="LLM, neuroconnectionist" scheme="http://www.artkpv.net/tag/LLM-neuroconnectionist/"/>
+    <category term="LLM, neuroconnectionist" scheme="https://www.artkpv.net/tag/LLM-neuroconnectionist/"/>
     
   </entry>
   
   <entry>
     <title>How important is AI hacking as LLMs advance</title>
-    <link href="http://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/"/>
-    <id>http://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/</id>
+    <link href="https://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/"/>
+    <id>https://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/</id>
     <published>2024-02-02T12:17:41.000Z</published>
     <updated>2024-02-02T12:48:32.775Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Offensive technologies will likely become more advanced while the defense ones will lag behind. AI hacking capabilities might be the second most important problem after AI alignment.  &lt;/p&gt;
+    <summary type="html">&lt;p&gt;Offensive technologies will likely become more advanced while the defense ones will lag behind. AI hacking capabilities might be the second most important problem after AI alignment.&lt;/p&gt;
 &lt;img src=&quot;/How-important-is-AI-hacking-as-LLMs-advance/ai_hacking.png&quot; class=&quot;&quot;&gt;</summary>
     
     
     
     
-    <category term="AI Safety, hacking" scheme="http://www.artkpv.net/tag/AI-Safety-hacking/"/>
+    <category term="AI Safety, hacking" scheme="https://www.artkpv.net/tag/AI-Safety-hacking/"/>
     
   </entry>
   
   <entry>
     <title>Third condition of the deceptive alignment</title>
-    <link href="http://www.artkpv.net/Third-condition-of-the-deceptive-alignment/"/>
-    <id>http://www.artkpv.net/Third-condition-of-the-deceptive-alignment/</id>
+    <link href="https://www.artkpv.net/Third-condition-of-the-deceptive-alignment/"/>
+    <id>https://www.artkpv.net/Third-condition-of-the-deceptive-alignment/</id>
     <published>2023-06-24T21:00:00.000Z</published>
     <updated>2023-06-30T08:25:46.901Z</updated>
     
@@ -225,8 +225,8 @@
   
   <entry>
     <title>About PAIS and Risks from Learned Optimization</title>
-    <link href="http://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/"/>
-    <id>http://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/</id>
+    <link href="https://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/"/>
+    <id>https://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/</id>
     <published>2022-10-20T14:54:13.000Z</published>
     <updated>2022-11-06T16:23:54.265Z</updated>
     
@@ -236,14 +236,14 @@
     
     
     
-    <category term="ml ai-safety" scheme="http://www.artkpv.net/tag/ml-ai-safety/"/>
+    <category term="ml ai-safety" scheme="https://www.artkpv.net/tag/ml-ai-safety/"/>
     
   </entry>
   
   <entry>
     <title>ML Safety Scholars</title>
-    <link href="http://www.artkpv.net/mlss-summer-2022/"/>
-    <id>http://www.artkpv.net/mlss-summer-2022/</id>
+    <link href="https://www.artkpv.net/mlss-summer-2022/"/>
+    <id>https://www.artkpv.net/mlss-summer-2022/</id>
     <published>2022-09-05T08:01:59.000Z</published>
     <updated>2022-09-05T08:15:24.094Z</updated>
     
@@ -253,7 +253,6 @@
         
         
     <summary type="html">&lt;img src=&quot;/mlss-summer-2022/mlss_mnist_calibration.png&quot; class=&quot;&quot;&gt;
-
 &lt;p&gt;This summer I took part in &lt;a</summary>
         
       
@@ -261,33 +260,32 @@
     
     
     
-    <category term="ml" scheme="http://www.artkpv.net/tag/ml/"/>
+    <category term="ml" scheme="https://www.artkpv.net/tag/ml/"/>
     
   </entry>
   
   <entry>
     <title>Intro to plain text productivity</title>
-    <link href="http://www.artkpv.net/plain-text-organization/"/>
-    <id>http://www.artkpv.net/plain-text-organization/</id>
+    <link href="https://www.artkpv.net/plain-text-organization/"/>
+    <id>https://www.artkpv.net/plain-text-organization/</id>
     <published>2021-02-27T15:07:59.000Z</published>
     <updated>2021-03-01T06:56:49.135Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/plain-text-organization/screenshotn.jpg&quot; class=&quot;&quot;&gt;
-
-&lt;p&gt;Here is a way to organize your tasks, your personal info, your reference library, your values, your life. This aims to be a simple yet powerful system that one can master or extend without limit. Yes, that puts high demand on knowledge and skill, on a user. It is primarily for powerful users, even for developers. In essence, we base this on plan text, version control system, powerful text editor and shell. All this tools even when mastered doesn’t immediately give a clean system, one need to have an understanding on how to prioritize, how to manage and how to execute because this starts as a blank sheet, it is open for any kind of modifications. &lt;/p&gt;</summary>
+&lt;p&gt;Here is a way to organize your tasks, your personal info, your reference library, your values, your life. This aims to be a simple yet powerful system that one can master or extend without limit. Yes, that puts high demand on knowledge and skill, on a user. It is primarily for powerful users, even for developers. In essence, we base this on plan text, version control system, powerful text editor and shell. All this tools even when mastered doesn’t immediately give a clean system, one need to have an understanding on how to prioritize, how to manage and how to execute because this starts as a blank sheet, it is open for any kind of modifications.&lt;/p&gt;</summary>
     
     
     
     
-    <category term="productivity" scheme="http://www.artkpv.net/tag/productivity/"/>
+    <category term="productivity" scheme="https://www.artkpv.net/tag/productivity/"/>
     
   </entry>
   
   <entry>
     <title>Sample ASP.NET Core Web API project</title>
-    <link href="http://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/"/>
-    <id>http://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/</id>
+    <link href="https://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/"/>
+    <id>https://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/</id>
     <published>2020-03-05T11:47:55.000Z</published>
     <updated>2021-02-27T13:56:52.192Z</updated>
     
@@ -297,7 +295,6 @@
         
         
     <summary type="html">&lt;img src=&quot;/Sample-ASP-NET-Core-Web-API-project/ASP.NET-Web-API-Logo.png&quot; class=&quot;&quot;&gt;
-
 &lt;p&gt;I published a new sample &lt;a</summary>
         
       
@@ -305,40 +302,38 @@
     
     
     
-    <category term="programming, dotnet" scheme="http://www.artkpv.net/tag/programming-dotnet/"/>
+    <category term="programming, dotnet" scheme="https://www.artkpv.net/tag/programming-dotnet/"/>
     
   </entry>
   
   <entry>
     <title>Сытые философы или конкурентное программирование на .NET</title>
-    <link href="http://www.artkpv.net/dining-philosophers/"/>
-    <id>http://www.artkpv.net/dining-philosophers/</id>
+    <link href="https://www.artkpv.net/dining-philosophers/"/>
+    <id>https://www.artkpv.net/dining-philosophers/</id>
     <published>2019-05-21T21:00:00.000Z</published>
     <updated>2020-03-05T12:51:06.921Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/dining-philosophers/dotnet_logo.png&quot; class=&quot;&quot;&gt;
-
 &lt;p&gt;Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков/процессов, до модели акторов (в следующих частях). Статья может быть полезна для первого знакомства или для того, чтобы освежить свои знания.&lt;/p&gt;
 &lt;p&gt;Зачем вообще уметь это? Транзисторы достигают своего минимального размера, закон Мура упирается в ограничение скорости света и поэтому рост наблюдается в количестве, транзисторов можно делать больше. При этом количество данных растет, а пользователи ожидают немедленной реакции систем. В такой ситуации “обычное” программирование, когда у нас один выполняющий поток, уже не эффективно. Нужно как-то решать проблему одновременного или конкурентного выполнения. Причем, проблема эта существует на разных уровнях: на уровне потоков, на уровне процессов, на уровне машин в сети (распределенные системы). В .NET есть качественные, проверенные временем, технологии для быстрого и эффективного решения таких задач.&lt;/p&gt;</summary>
     
     
     
     
-    <category term="programming, concurrency, dotnet" scheme="http://www.artkpv.net/tag/programming-concurrency-dotnet/"/>
+    <category term="programming, concurrency, dotnet" scheme="https://www.artkpv.net/tag/programming-concurrency-dotnet/"/>
     
   </entry>
   
   <entry>
     <title>Code Complete, 2nd by Steve McConnell</title>
-    <link href="http://www.artkpv.net/CodeComplete/"/>
-    <id>http://www.artkpv.net/CodeComplete/</id>
+    <link href="https://www.artkpv.net/CodeComplete/"/>
+    <id>https://www.artkpv.net/CodeComplete/</id>
     <published>2017-08-05T21:00:00.000Z</published>
     <updated>2025-01-16T12:48:43.355Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/CodeComplete/cover.png&quot; class=&quot;&quot;&gt;
-
 &lt;p&gt;This book attempts to compile the best practices for software construction accumulated over the years. With approximately 450 bibliographic references to the most important publications at the time (second edition published in 2004), the book aims to elevate the development process to an entirely new level. Essentially, it interprets the most significant publications and provides guidelines for building software. It takes recommendations from field experts and scientists and presents practical rules for effectively creating quality software, thus bridging the gap between production and research. Hence the title, which implies a comprehensive set of laws.&lt;/p&gt;
 &lt;p&gt;The book is divided into seven parts. Starting with basic terms and ideas in Part I, the author progresses from the fundamental level of the construction process—the code itself (Parts II, III, IV)—to higher-level processes. Part V focuses on working with existing code. Part VI covers system development control. The final part, Part VII, addresses requirements for the creator themselves. For quick reference, the book includes checklists for all construction stages, along with numerous figures, tables, and key terms.&lt;/p&gt;
 &lt;p&gt;Below are some of my notes from the book.&lt;/p&gt;</summary>
@@ -346,24 +341,23 @@
     
     
     
-    <category term="книги" scheme="http://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
+    <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
     
-    <category term="books" scheme="http://www.artkpv.net/tag/books/"/>
+    <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
     
-    <category term="programming" scheme="http://www.artkpv.net/tag/programming/"/>
+    <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
     
   </entry>
   
   <entry>
     <title>Notes from &quot;Architecting Applications for the Enterprise&quot;</title>
-    <link href="http://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/"/>
-    <id>http://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/</id>
+    <link href="https://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/"/>
+    <id>https://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/</id>
     <published>2017-07-20T21:00:00.000Z</published>
     <updated>2025-01-16T12:50:51.046Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/images/aa4e_cover.png&quot; class=&quot;&quot;&gt;
-
 &lt;p&gt;This great book, written by D. Esposito &amp;amp; A. Saltarello, collects recipes for creating solutions for enterprise applications. It is not a typical cookbook but provides guiding principles for creating a ‘dish’. The book is based on the authors’ experience and common practices from other books. The second edition, published in January 2015, seems to be a good summation of best practices with a brief history of their development in the .NET world.&lt;/p&gt;
 &lt;p&gt;The authors begin by answering questions such as: What is the architecture of applications? Who are software architects? How do modern apps differ from past developments? The book can be divided into two parts (though the authors divide it into four parts). The first part provides answers to questions like: What is needed for successful work? What is required from a team? What is code quality and how to achieve it? The second part offers practical recommendations for developers, including types of architecture, their components, and main advantages and disadvantages.&lt;/p&gt;
 &lt;p&gt;In my opinion, practical experience in software development is required to fully understand the book; it is not intended for beginners.&lt;/p&gt;
@@ -372,18 +366,18 @@
     
     
     
-    <category term="книги" scheme="http://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
+    <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
     
-    <category term="books" scheme="http://www.artkpv.net/tag/books/"/>
+    <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
     
-    <category term="programming" scheme="http://www.artkpv.net/tag/programming/"/>
+    <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
     
   </entry>
   
   <entry>
     <title>Notes from PoEAA</title>
-    <link href="http://www.artkpv.net/Patterns-of-Enterprise/"/>
-    <id>http://www.artkpv.net/Patterns-of-Enterprise/</id>
+    <link href="https://www.artkpv.net/Patterns-of-Enterprise/"/>
+    <id>https://www.artkpv.net/Patterns-of-Enterprise/</id>
     <published>2017-07-16T21:00:00.000Z</published>
     <updated>2025-01-16T12:52:18.090Z</updated>
     
@@ -396,11 +390,11 @@
     
     
     
-    <category term="книги" scheme="http://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
+    <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
     
-    <category term="books" scheme="http://www.artkpv.net/tag/books/"/>
+    <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
     
-    <category term="programming" scheme="http://www.artkpv.net/tag/programming/"/>
+    <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
     
   </entry>
   
