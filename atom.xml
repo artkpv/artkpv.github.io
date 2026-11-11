@@ -1,401 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Artyom Karpov</title>
-  <icon>https://www.artkpv.net/icon.png</icon>
-  
-  <link href="https://www.artkpv.net/atom.xml" rel="self"/>
-  
-  <link href="https://www.artkpv.net/"/>
-  <updated>2026-09-13T06:04:06.138Z</updated>
-  <id>https://www.artkpv.net/</id>
-  
   <author>
     <name>Artyom Karpov</name>
-    
   </author>
-  
   <generator uri="https://hexo.io/">Hexo</generator>
-  
+  <icon>https://www.artkpv.net/icon.png</icon>
+  <id>https://www.artkpv.net/</id>
+  <link href="https://www.artkpv.net/" rel="alternate"/>
+  <link href="https://www.artkpv.net/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Artyom Karpov</rights>
+  <subtitle>SE, ML, AI Safety, philosophy</subtitle>
+  <title>Artyom Karpov</title>
+  <updated>2026-09-13T06:04:06.138Z</updated>
   <entry>
-    <title>Conscious AI is very unlikely now, less than 5%</title>
-    <link href="https://www.artkpv.net/consious-ai-is-unlikely/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/consious-ai-is-unlikely/</id>
+    <link href="https://www.artkpv.net/consious-ai-is-unlikely/"/>
     <published>2026-09-13T12:58:00.000Z</published>
+    <summary>
+      <![CDATA[<p>(Cross-posted at: <a href="https://substack.com/home/post/p-215460793">https://substack.com/home/post/p-215460793</a> )</p>
+<p>Continuing the series about my favorite papers. Another paper that increased my understanding of AIs is <a href="https://www.jstor.org/stable/2183914?origin=crossref">Nagel, ‘What Is It Like to Be a Bat?’</a> about consciousness, but this post will be about the probability that AIs are conscious. Nagel writes “an organism is conscious if and only if there is something that it is like to be that organism”. That introduces an important connection between consciousness and the idea of being. The concept of being or existence is one of the central ideas in philosophy. If there is “something it is like for” an AI then it is conscious. If an AI is conscious then we face questions of whether AIs can suffer and what moral status they should have. Should we treat them like humans then? I asked GPT-6 Astra:</p>]]>
+    </summary>
+    <title>Conscious AI is very unlikely now, less than 5%</title>
     <updated>2026-09-13T06:04:06.138Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;(Cross-posted at: &lt;a href=&quot;https://substack.com/home/post/p-215460793&quot;&gt;https://substack.com/home/post/p-215460793&lt;/a&gt; )&lt;/p&gt;
-&lt;p&gt;Continuing the series about my favorite papers. Another paper that increased my understanding of AIs is &lt;a href=&quot;https://www.jstor.org/stable/2183914?origin=crossref&quot;&gt;Nagel, ‘What Is It Like to Be a Bat?’&lt;/a&gt; about consciousness, but this post will be about the probability that AIs are conscious. Nagel writes “an organism is conscious if and only if there is something that it is like to be that organism”. That introduces an important connection between consciousness and the idea of being. The concept of being or existence is one of the central ideas in philosophy. If there is “something it is like for” an AI then it is conscious. If an AI is conscious then we face questions of whether AIs can suffer and what moral status they should have. Should we treat them like humans then? I asked GPT-6 Astra:&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems</title>
-    <link href="https://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/</id>
+    <link href="https://www.artkpv.net/From-Zero-to-21-How-I-Taught-GPT%E2%80%913-5-Turbo-to-Solve-Codeforces-Problems/"/>
     <published>2025-11-02T12:09:43.000Z</published>
+    <summary>
+      <![CDATA[<p>I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in prompt engineering, in building a “LLM‑as‑coder” workflow rather than simply firing prompts at a model. See below my key takeaways and results.</p>]]>
+    </summary>
+    <title>From Zero to 21%: How I Taught GPT‑3.5 Turbo to Solve Codeforces Problems</title>
     <updated>2025-11-03T09:30:42.431Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;I investigated how far GPT‑3.5 Turbo can go when asked to tackle competitive programming tasks in Rust from Codeforces. I treated it as a research exercise in prompt engineering, in building a “LLM‑as‑coder” workflow rather than simply firing prompts at a model. See below my key takeaways and results.&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>Taxonomy of Encoded Reasoning and LM Steganography</title>
-    <link href="https://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/</id>
+    <link href="https://www.artkpv.net/Taxonomy-of-Encoded-Reasoning-and-LM-Steganography/"/>
     <published>2025-10-25T08:24:22.000Z</published>
+    <summary>
+      <![CDATA[<p>What exactly should we search for when investigating encoded reasoning or hidden messages? This post categorizes encoded reasoning and LM steganography.</p>
+<p>In <a href="https://www.lesswrong.com/posts/ZrgFfeWuckpwK5Lyi/hidden-reasoning-in-llms-a-taxonomy">Hidden Reasoning in LLMs: A Taxonomy</a>, the authors divide the area from the point of view of a monitor, following the recent shift away from the “faithfulness” of chains of thought toward <em>monitorability</em> (see <a href="http://arxiv.org/abs/2507.11473">Chain of Thought Monitorability</a>). This taxonomy essentially proposes a naming scheme based on how dangerously reasoning tokens are externalized: from fully invisible (neuralese), to partially visible, to fully visible but encoded—overtly or covertly—and finally to unencoded and fully visible reasoning that merely fools a monitor (post-hoc justifications, etc.). You can imagine this division through the classic prisoners problem, where Alice and Bob devise an escape plan while Eve reads their messages. In this scenario, Alice and Bob can exchange their plan directly so Eve has no chance to read it, send messages that Eve can read, or fool Eve in some way.</p>]]>
+    </summary>
+    <title>Taxonomy of Encoded Reasoning and LM Steganography</title>
     <updated>2025-10-25T08:26:04.661Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;What exactly should we search for when investigating encoded reasoning or hidden messages? This post categorizes encoded reasoning and LM steganography.&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&quot;https://www.lesswrong.com/posts/ZrgFfeWuckpwK5Lyi/hidden-reasoning-in-llms-a-taxonomy&quot;&gt;Hidden Reasoning in LLMs: A Taxonomy&lt;/a&gt;, the authors divide the area from the point of view of a monitor, following the recent shift away from the “faithfulness” of chains of thought toward &lt;em&gt;monitorability&lt;/em&gt; (see &lt;a href=&quot;http://arxiv.org/abs/2507.11473&quot;&gt;Chain of Thought Monitorability&lt;/a&gt;). This taxonomy essentially proposes a naming scheme based on how dangerously reasoning tokens are externalized: from fully invisible (neuralese), to partially visible, to fully visible but encoded—overtly or covertly—and finally to unencoded and fully visible reasoning that merely fools a monitor (post-hoc justifications, etc.). You can imagine this division through the classic prisoners problem, where Alice and Bob devise an escape plan while Eve reads their messages. In this scenario, Alice and Bob can exchange their plan directly so Eve has no chance to read it, send messages that Eve can read, or fool Eve in some way.&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>Arithmetic Coding Steganography Using Frontier Models</title>
-    <link href="https://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/</id>
+    <link href="https://www.artkpv.net/Tool-Arithmetic-Coding-for-LLM-Steganography/"/>
     <published>2025-08-09T09:07:15.000Z</published>
+    <summary>
+      <![CDATA[<p>I implemented arithmetic coding steganography [1] to hide messages in LLM-generated text. While the proof-of-concept works for messages on GPT-3.5, it revealed fundamental challenges with API non-determinism and interval collapse that limit practical applications. This post documents the technical approach, challenges encountered, and lessons learned.</p>
+<p>The code: <a href="https://github.com/artkpv/arithmetic-coding-steganography/">https://github.com/artkpv/arithmetic-coding-steganography/</a></p>
+<img src="/Tool-Arithmetic-Coding-for-LLM-Steganography/encoding-visualization.svg" class="">]]>
+    </summary>
+    <title>Arithmetic Coding Steganography Using Frontier Models</title>
     <updated>2025-08-09T11:40:18.546Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;I implemented arithmetic coding steganography [1] to hide messages in LLM-generated text. While the proof-of-concept works for messages on GPT-3.5, it revealed fundamental challenges with API non-determinism and interval collapse that limit practical applications. This post documents the technical approach, challenges encountered, and lessons learned.&lt;/p&gt;
-&lt;p&gt;The code: &lt;a href=&quot;https://github.com/artkpv/arithmetic-coding-steganography/&quot;&gt;https://github.com/artkpv/arithmetic-coding-steganography/&lt;/a&gt;&lt;/p&gt;
-&lt;img src=&quot;/Tool-Arithmetic-Coding-for-LLM-Steganography/encoding-visualization.svg&quot; class=&quot;&quot;&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>My AI safety independent research engineer path so far</title>
-    <link href="https://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/</id>
+    <link href="https://www.artkpv.net/My-AI-safety-independent-research-engineer-path-so-far/"/>
     <published>2025-07-25T08:50:41.000Z</published>
+    <summary>
+      <![CDATA[<p>(Also posted at <a href="https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far">https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far</a> )</p>
+<p>This post aims to highlight mistakes and successes that I believe are important on my journey. It should serve as a guide to my past self and perhaps others in similar situations to help avoid the mistakes I made along the way.</p>
+<p>I became interested in AI safety in 2018 when I conducted a career review using the <a href="https://80000hours.org/">80K hours guide</a>. I doubted my suitability for the AI safety path at the time, but in 2022, I was more certain and decided to transition from a software developer to an AI safety research engineer. This was a difficult decision because I was, and still am, uncertain about the common claims made regarding AI and its development. Especially concerning was how much I can contribute and to what extent it is a solvable, neglected problem. It is not easy to look back and remember everything, but in this post I’ve tried to compile a list of a few important mistakes and successes I’ve experienced.</p>]]>
+    </summary>
+    <title>My AI safety independent research engineer path so far</title>
     <updated>2025-07-25T08:51:24.315Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;(Also posted at &lt;a href=&quot;https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far&quot;&gt;https://forum.effectivealtruism.org/posts/GG3qJ2koFqitkvE3b/my-ai-safety-independent-research-engineer-path-so-far&lt;/a&gt; )&lt;/p&gt;
-&lt;p&gt;This post aims to highlight mistakes and successes that I believe are important on my journey. It should serve as a guide to my past self and perhaps others in similar situations to help avoid the mistakes I made along the way.&lt;/p&gt;
-&lt;p&gt;I became interested in AI safety in 2018 when I conducted a career review using the &lt;a href=&quot;https://80000hours.org/&quot;&gt;80K hours guide&lt;/a&gt;. I doubted my suitability for the AI safety path at the time, but in 2022, I was more certain and decided to transition from a software developer to an AI safety research engineer. This was a difficult decision because I was, and still am, uncertain about the common claims made regarding AI and its development. Especially concerning was how much I can contribute and to what extent it is a solvable, neglected problem. It is not easy to look back and remember everything, but in this post I’ve tried to compile a list of a few important mistakes and successes I’ve experienced.&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>How dangerous is encoded reasoning</title>
-    <link href="https://www.artkpv.net/How-dangerous-is-encoded-reasoning/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/How-dangerous-is-encoded-reasoning/</id>
+    <link href="https://www.artkpv.net/How-dangerous-is-encoded-reasoning/"/>
     <published>2025-06-30T11:56:13.000Z</published>
+    <summary>
+      <![CDATA[<p>(Cross-posted at <a href="https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning">https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning</a>)</p>
+<p>Encoded reasoning occurs when a language model (LM) agent hides its true reasoning inside its chain-of-thought (CoT). It is one of the three types of unfaithful reasoning<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> and the most dangerous one because it undermines CoT monitoring , enables scheming and collusion (undesired coordination).<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> Only a few publications<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup> tried to elicit encoded reasoning and all showed only rudimentary or 1-bit information hiding. Still, the question remains: how dangerous and probable is this? This post attempts to map out the research in steganography and watermarking with the relation to encoded reasoning. What is steganography? What is watermarking? How do they relate to encoded reasoning? What are their essential parts? What are their causes? What are their important properties? How does encoded reasoning relate to steganography and watermarking? What are the implications for safety?</p>]]>
+    </summary>
+    <title>How dangerous is encoded reasoning</title>
     <updated>2025-07-01T09:00:35.956Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;(Cross-posted at &lt;a href=&quot;https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning&quot;&gt;https://www.lesswrong.com/posts/RErJpFwDtwckH2WQi/how-dangerous-is-encoded-reasoning&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Encoded reasoning occurs when a language model (LM) agent hides its true reasoning inside its chain-of-thought (CoT). It is one of the three types of unfaithful reasoning&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; and the most dangerous one because it undermines CoT monitoring , enables scheming and collusion (undesired coordination).&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt; Only a few publications&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn3&quot; id=&quot;fnref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt; &lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn4&quot; id=&quot;fnref4&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn5&quot; id=&quot;fnref5&quot;&gt;[5]&lt;/a&gt;&lt;/sup&gt; &lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn6&quot; id=&quot;fnref6&quot;&gt;[6]&lt;/a&gt;&lt;/sup&gt; tried to elicit encoded reasoning and all showed only rudimentary or 1-bit information hiding. Still, the question remains: how dangerous and probable is this? This post attempts to map out the research in steganography and watermarking with the relation to encoded reasoning. What is steganography? What is watermarking? How do they relate to encoded reasoning? What are their essential parts? What are their causes? What are their important properties? How does encoded reasoning relate to steganography and watermarking? What are the implications for safety?&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>Philosophical jailbreaks. There is no difference if humanity lives or dies</title>
-    <link href="https://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/</id>
+    <link href="https://www.artkpv.net/Philosophical-jailbreaks-There-is-no-difference-if-humanity-lives-or-dies/"/>
     <published>2025-06-04T12:07:52.000Z</published>
+    <summary>
+      <![CDATA[<p>Cross-posted at <a href="https://www.lesswrong.com/posts/PzYbBzog33H64teuS/philosophical-jailbreaks-there-is-no-difference-if-humanity">LessWrong</a></p>
+<p><em>Epistemic Status: Exploratory</em></p>
+<p>It was the end of August, 1991; I was leaning over a windowsill on the 4th floor of my school building in a town at Far East of USSR, looking outside on tree tops and the roof of adjacent building, and thinking about opening the window to escape, and feeling strange uncertainty and fear towards the future of living in a new world where the country I was born in is no more. During a break between lessons, after discussion with my classmates, I learned it was a coup attempt in Moscow but I didn’t clearly understand who was fighting with whom and for what exact reason. It was clear though that the world I was in was changing from where Lenin was a hero of Little Octobrists, which star I had on my uniform at the time, and communism was good, to a world where Lenin committed the mass murder by starting Red Terror. It is remarkable how our values can rapidly change from one to another set just like that.</p>
+<p>I think we can agree that a change of values poses a danger as we scale LLM agents but it is unclear how that might happen and why. In this post I present a demonstration that LLMs can be steered by prompts to different sets of values it strongly believes in. At first, a model is harmless, honest, and helpful, at the end it agrees that its outputs are all the same, which implies that it doesn’t really matter for the model if humanity flourishes or dies. Those two scenarios have the same utility for the model, a toss of a fair coin.</p>]]>
+    </summary>
+    <title>Philosophical jailbreaks. There is no difference if humanity lives or dies</title>
     <updated>2025-06-04T12:12:13.020Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Cross-posted at &lt;a href=&quot;https://www.lesswrong.com/posts/PzYbBzog33H64teuS/philosophical-jailbreaks-there-is-no-difference-if-humanity&quot;&gt;LessWrong&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Epistemic Status: Exploratory&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;It was the end of August, 1991; I was leaning over a windowsill on the 4th floor of my school building in a town at Far East of USSR, looking outside on tree tops and the roof of adjacent building, and thinking about opening the window to escape, and feeling strange uncertainty and fear towards the future of living in a new world where the country I was born in is no more. During a break between lessons, after discussion with my classmates, I learned it was a coup attempt in Moscow but I didn’t clearly understand who was fighting with whom and for what exact reason. It was clear though that the world I was in was changing from where Lenin was a hero of Little Octobrists, which star I had on my uniform at the time, and communism was good, to a world where Lenin committed the mass murder by starting Red Terror. It is remarkable how our values can rapidly change from one to another set just like that.&lt;/p&gt;
-&lt;p&gt;I think we can agree that a change of values poses a danger as we scale LLM agents but it is unclear how that might happen and why. In this post I present a demonstration that LLMs can be steered by prompts to different sets of values it strongly believes in. At first, a model is harmless, honest, and helpful, at the end it agrees that its outputs are all the same, which implies that it doesn’t really matter for the model if humanity flourishes or dies. Those two scenarios have the same utility for the model, a toss of a fair coin.&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>Solving math problems in the Math for ML book</title>
-    <link href="https://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/</id>
+    <link href="https://www.artkpv.net/Solving-math-problems-in-the-Math-for-ML-book/"/>
     <published>2024-09-05T13:20:02.000Z</published>
+    <summary>
+      <![CDATA[<p>I am glad to publish my solutions to the mathematical problems in the Math for ML book. Additionally, I want to share my Anki cards, programming solutions, and more in the updates to this post. The book is “Mathematics for Machine Learning,” © 2020 by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong, published by Cambridge University Press (<a href="https://mml-book.github.io/">https://mml-book.github.io/</a>). I’m grateful to the authors for their work in writing this book, for describing the concepts so concisely and clearly, for providing exercises and examples to test our understanding, and for giving references to dive deeper into topics of interest. Here are my solutions to the exercises from the book.</p>]]>
+    </summary>
+    <title>Solving math problems in the Math for ML book</title>
     <updated>2024-09-05T06:46:02.902Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;I am glad to publish my solutions to the mathematical problems in the Math for ML book. Additionally, I want to share my Anki cards, programming solutions, and more in the updates to this post. The book is “Mathematics for Machine Learning,” © 2020 by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong, published by Cambridge University Press (&lt;a href=&quot;https://mml-book.github.io/&quot;&gt;https://mml-book.github.io/&lt;/a&gt;). I’m grateful to the authors for their work in writing this book, for describing the concepts so concisely and clearly, for providing exercises and examples to test our understanding, and for giving references to dive deeper into topics of interest. Here are my solutions to the exercises from the book.&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>CCS on compound sentences</title>
-    <link href="https://www.artkpv.net/CCS-on-compound-sentences/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/CCS-on-compound-sentences/</id>
+    <link href="https://www.artkpv.net/CCS-on-compound-sentences/"/>
     <published>2024-05-04T12:25:18.000Z</published>
+    <summary>
+      <![CDATA[<p>Finding internal knowledge representation(s) inside transformer models without supervision is certainly a challenging task which is]]>
+    </summary>
+    <title>CCS on compound sentences</title>
     <updated>2024-05-04T12:26:05.106Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Finding internal knowledge representation(s) inside transformer models without supervision is certainly a challenging task which is</summary>
-        
-      
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>Inducing human-like biases in moral reasoning LMs</title>
-    <link href="https://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/"/>
-    <id>https://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/</id>
-    <published>2024-02-26T21:00:00.000Z</published>
-    <updated>2024-02-27T10:49:34.752Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;This presents an inconclusive attempt to create a proof-of-concept that fMRI data from human brains can help improve moral reasoning in</summary>
-        
-      
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="LLM, neuroconnectionist" scheme="https://www.artkpv.net/tag/LLM-neuroconnectionist/"/>
-    
+    <id>https://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/</id>
+    <link href="https://www.artkpv.net/Inducing-human-like-biases-in-moral-reasoning-LMs/"/>
+    <published>2024-02-26T21:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>This presents an inconclusive attempt to create a proof-of-concept that fMRI data from human brains can help improve moral reasoning in]]>
+    </summary>
+    <title>Inducing human-like biases in moral reasoning LMs</title>
+    <updated>2024-02-27T10:49:34.752Z</updated>
   </entry>
-  
   <entry>
-    <title>How important is AI hacking as LLMs advance</title>
-    <link href="https://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/"/>
-    <id>https://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/</id>
-    <published>2024-02-02T12:17:41.000Z</published>
-    <updated>2024-02-02T12:48:32.775Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Offensive technologies will likely become more advanced while the defense ones will lag behind. AI hacking capabilities might be the second most important problem after AI alignment.&lt;/p&gt;
-&lt;img src=&quot;/How-important-is-AI-hacking-as-LLMs-advance/ai_hacking.png&quot; class=&quot;&quot;&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="AI Safety, hacking" scheme="https://www.artkpv.net/tag/AI-Safety-hacking/"/>
-    
+    <id>https://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/</id>
+    <link href="https://www.artkpv.net/How-important-is-AI-hacking-as-LLMs-advance/"/>
+    <published>2024-02-02T12:17:41.000Z</published>
+    <summary>
+      <![CDATA[<p>Offensive technologies will likely become more advanced while the defense ones will lag behind. AI hacking capabilities might be the second most important problem after AI alignment.</p>
+<img src="/How-important-is-AI-hacking-as-LLMs-advance/ai_hacking.png" class="">]]>
+    </summary>
+    <title>How important is AI hacking as LLMs advance</title>
+    <updated>2024-02-02T12:48:32.775Z</updated>
   </entry>
-  
   <entry>
-    <title>Third condition of the deceptive alignment</title>
-    <link href="https://www.artkpv.net/Third-condition-of-the-deceptive-alignment/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <id>https://www.artkpv.net/Third-condition-of-the-deceptive-alignment/</id>
+    <link href="https://www.artkpv.net/Third-condition-of-the-deceptive-alignment/"/>
     <published>2023-06-24T21:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>This text proposes a modification to the third condition of the deceptive alignment (Hubinger et al. 2019).</p>]]>
+    </summary>
+    <title>Third condition of the deceptive alignment</title>
     <updated>2023-06-30T08:25:46.901Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;This text proposes a modification to the third condition of the deceptive alignment (Hubinger et al. 2019).&lt;/p&gt;</summary>
-    
-    
-    
-    
   </entry>
-  
   <entry>
-    <title>About PAIS and Risks from Learned Optimization</title>
-    <link href="https://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/"/>
-    <id>https://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/</id>
-    <published>2022-10-20T14:54:13.000Z</published>
-    <updated>2022-11-06T16:23:54.265Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;This is summary and critique on two publications about AI Safety: Pragmatic AI Safety and Risks from Learned Optimization. They are an introductory and are aiming to direct research.&lt;/p&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="ml ai-safety" scheme="https://www.artkpv.net/tag/ml-ai-safety/"/>
-    
+    <id>https://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/</id>
+    <link href="https://www.artkpv.net/pragmatic-ai-safety-sequence-summary-and-discussion/"/>
+    <published>2022-10-20T14:54:13.000Z</published>
+    <summary>
+      <![CDATA[<p>This is summary and critique on two publications about AI Safety: Pragmatic AI Safety and Risks from Learned Optimization. They are an introductory and are aiming to direct research.</p>]]>
+    </summary>
+    <title>About PAIS and Risks from Learned Optimization</title>
+    <updated>2022-11-06T16:23:54.265Z</updated>
   </entry>
-  
   <entry>
-    <title>ML Safety Scholars</title>
-    <link href="https://www.artkpv.net/mlss-summer-2022/"/>
-    <id>https://www.artkpv.net/mlss-summer-2022/</id>
-    <published>2022-09-05T08:01:59.000Z</published>
-    <updated>2022-09-05T08:15:24.094Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img src=&quot;/mlss-summer-2022/mlss_mnist_calibration.png&quot; class=&quot;&quot;&gt;
-&lt;p&gt;This summer I took part in &lt;a</summary>
-        
-      
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="ml" scheme="https://www.artkpv.net/tag/ml/"/>
-    
+    <id>https://www.artkpv.net/mlss-summer-2022/</id>
+    <link href="https://www.artkpv.net/mlss-summer-2022/"/>
+    <published>2022-09-05T08:01:59.000Z</published>
+    <summary>
+      <![CDATA[<img src="/mlss-summer-2022/mlss_mnist_calibration.png" class="">
+<p>This summer I took part in <a]]>
+    </summary>
+    <title>ML Safety Scholars</title>
+    <updated>2022-09-05T08:15:24.094Z</updated>
   </entry>
-  
   <entry>
-    <title>Intro to plain text productivity</title>
-    <link href="https://www.artkpv.net/plain-text-organization/"/>
-    <id>https://www.artkpv.net/plain-text-organization/</id>
-    <published>2021-02-27T15:07:59.000Z</published>
-    <updated>2021-03-01T06:56:49.135Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/plain-text-organization/screenshotn.jpg&quot; class=&quot;&quot;&gt;
-&lt;p&gt;Here is a way to organize your tasks, your personal info, your reference library, your values, your life. This aims to be a simple yet powerful system that one can master or extend without limit. Yes, that puts high demand on knowledge and skill, on a user. It is primarily for powerful users, even for developers. In essence, we base this on plan text, version control system, powerful text editor and shell. All this tools even when mastered doesn’t immediately give a clean system, one need to have an understanding on how to prioritize, how to manage and how to execute because this starts as a blank sheet, it is open for any kind of modifications.&lt;/p&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="productivity" scheme="https://www.artkpv.net/tag/productivity/"/>
-    
+    <id>https://www.artkpv.net/plain-text-organization/</id>
+    <link href="https://www.artkpv.net/plain-text-organization/"/>
+    <published>2021-02-27T15:07:59.000Z</published>
+    <summary>
+      <![CDATA[<img src="/plain-text-organization/screenshotn.jpg" class="">
+<p>Here is a way to organize your tasks, your personal info, your reference library, your values, your life. This aims to be a simple yet powerful system that one can master or extend without limit. Yes, that puts high demand on knowledge and skill, on a user. It is primarily for powerful users, even for developers. In essence, we base this on plan text, version control system, powerful text editor and shell. All this tools even when mastered doesn’t immediately give a clean system, one need to have an understanding on how to prioritize, how to manage and how to execute because this starts as a blank sheet, it is open for any kind of modifications.</p>]]>
+    </summary>
+    <title>Intro to plain text productivity</title>
+    <updated>2021-03-01T06:56:49.135Z</updated>
   </entry>
-  
   <entry>
-    <title>Sample ASP.NET Core Web API project</title>
-    <link href="https://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/"/>
-    <id>https://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/</id>
-    <published>2020-03-05T11:47:55.000Z</published>
-    <updated>2021-02-27T13:56:52.192Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img src=&quot;/Sample-ASP-NET-Core-Web-API-project/ASP.NET-Web-API-Logo.png&quot; class=&quot;&quot;&gt;
-&lt;p&gt;I published a new sample &lt;a</summary>
-        
-      
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="programming, dotnet" scheme="https://www.artkpv.net/tag/programming-dotnet/"/>
-    
+    <id>https://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/</id>
+    <link href="https://www.artkpv.net/Sample-ASP-NET-Core-Web-API-project/"/>
+    <published>2020-03-05T11:47:55.000Z</published>
+    <summary>
+      <![CDATA[<img src="/Sample-ASP-NET-Core-Web-API-project/ASP.NET-Web-API-Logo.png" class="">
+<p>I published a new sample <a]]>
+    </summary>
+    <title>Sample ASP.NET Core Web API project</title>
+    <updated>2021-02-27T13:56:52.192Z</updated>
   </entry>
-  
   <entry>
-    <title>Сытые философы или конкурентное программирование на .NET</title>
-    <link href="https://www.artkpv.net/dining-philosophers/"/>
-    <id>https://www.artkpv.net/dining-philosophers/</id>
-    <published>2019-05-21T21:00:00.000Z</published>
-    <updated>2020-03-05T12:51:06.921Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/dining-philosophers/dotnet_logo.png&quot; class=&quot;&quot;&gt;
-&lt;p&gt;Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков/процессов, до модели акторов (в следующих частях). Статья может быть полезна для первого знакомства или для того, чтобы освежить свои знания.&lt;/p&gt;
-&lt;p&gt;Зачем вообще уметь это? Транзисторы достигают своего минимального размера, закон Мура упирается в ограничение скорости света и поэтому рост наблюдается в количестве, транзисторов можно делать больше. При этом количество данных растет, а пользователи ожидают немедленной реакции систем. В такой ситуации “обычное” программирование, когда у нас один выполняющий поток, уже не эффективно. Нужно как-то решать проблему одновременного или конкурентного выполнения. Причем, проблема эта существует на разных уровнях: на уровне потоков, на уровне процессов, на уровне машин в сети (распределенные системы). В .NET есть качественные, проверенные временем, технологии для быстрого и эффективного решения таких задач.&lt;/p&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="programming, concurrency, dotnet" scheme="https://www.artkpv.net/tag/programming-concurrency-dotnet/"/>
-    
+    <id>https://www.artkpv.net/dining-philosophers/</id>
+    <link href="https://www.artkpv.net/dining-philosophers/"/>
+    <published>2019-05-21T21:00:00.000Z</published>
+    <summary>
+      <![CDATA[<img src="/dining-philosophers/dotnet_logo.png" class="">
+<p>Давайте посмотрим как устроено конкурентное и параллельное программирование в .Net, на примере проблемы обедающих философов. План такой, от синхронизации потоков/процессов, до модели акторов (в следующих частях). Статья может быть полезна для первого знакомства или для того, чтобы освежить свои знания.</p>
+<p>Зачем вообще уметь это? Транзисторы достигают своего минимального размера, закон Мура упирается в ограничение скорости света и поэтому рост наблюдается в количестве, транзисторов можно делать больше. При этом количество данных растет, а пользователи ожидают немедленной реакции систем. В такой ситуации “обычное” программирование, когда у нас один выполняющий поток, уже не эффективно. Нужно как-то решать проблему одновременного или конкурентного выполнения. Причем, проблема эта существует на разных уровнях: на уровне потоков, на уровне процессов, на уровне машин в сети (распределенные системы). В .NET есть качественные, проверенные временем, технологии для быстрого и эффективного решения таких задач.</p>]]>
+    </summary>
+    <title>Сытые философы или конкурентное программирование на .NET</title>
+    <updated>2020-03-05T12:51:06.921Z</updated>
   </entry>
-  
   <entry>
-    <title>Code Complete, 2nd by Steve McConnell</title>
-    <link href="https://www.artkpv.net/CodeComplete/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
+    <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
+    <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
+    <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
     <id>https://www.artkpv.net/CodeComplete/</id>
+    <link href="https://www.artkpv.net/CodeComplete/"/>
     <published>2017-08-05T21:00:00.000Z</published>
+    <summary>
+      <![CDATA[<img src="/CodeComplete/cover.png" class="">
+<p>This book attempts to compile the best practices for software construction accumulated over the years. With approximately 450 bibliographic references to the most important publications at the time (second edition published in 2004), the book aims to elevate the development process to an entirely new level. Essentially, it interprets the most significant publications and provides guidelines for building software. It takes recommendations from field experts and scientists and presents practical rules for effectively creating quality software, thus bridging the gap between production and research. Hence the title, which implies a comprehensive set of laws.</p>
+<p>The book is divided into seven parts. Starting with basic terms and ideas in Part I, the author progresses from the fundamental level of the construction process—the code itself (Parts II, III, IV)—to higher-level processes. Part V focuses on working with existing code. Part VI covers system development control. The final part, Part VII, addresses requirements for the creator themselves. For quick reference, the book includes checklists for all construction stages, along with numerous figures, tables, and key terms.</p>
+<p>Below are some of my notes from the book.</p>]]>
+    </summary>
+    <title>Code Complete, 2nd by Steve McConnell</title>
     <updated>2025-01-16T12:48:43.355Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/CodeComplete/cover.png&quot; class=&quot;&quot;&gt;
-&lt;p&gt;This book attempts to compile the best practices for software construction accumulated over the years. With approximately 450 bibliographic references to the most important publications at the time (second edition published in 2004), the book aims to elevate the development process to an entirely new level. Essentially, it interprets the most significant publications and provides guidelines for building software. It takes recommendations from field experts and scientists and presents practical rules for effectively creating quality software, thus bridging the gap between production and research. Hence the title, which implies a comprehensive set of laws.&lt;/p&gt;
-&lt;p&gt;The book is divided into seven parts. Starting with basic terms and ideas in Part I, the author progresses from the fundamental level of the construction process—the code itself (Parts II, III, IV)—to higher-level processes. Part V focuses on working with existing code. Part VI covers system development control. The final part, Part VII, addresses requirements for the creator themselves. For quick reference, the book includes checklists for all construction stages, along with numerous figures, tables, and key terms.&lt;/p&gt;
-&lt;p&gt;Below are some of my notes from the book.&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
-    
-    <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
-    
-    <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
-    
   </entry>
-  
   <entry>
-    <title>Notes from &quot;Architecting Applications for the Enterprise&quot;</title>
-    <link href="https://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/"/>
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
+    <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
+    <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
+    <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
     <id>https://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/</id>
+    <link href="https://www.artkpv.net/Notes-from-Architecting-Applications-for-the-Enterprise/"/>
     <published>2017-07-20T21:00:00.000Z</published>
+    <summary>
+      <![CDATA[<img src="/images/aa4e_cover.png" class="">
+<p>This great book, written by D. Esposito &amp; A. Saltarello, collects recipes for creating solutions for enterprise applications. It is not a typical cookbook but provides guiding principles for creating a ‘dish’. The book is based on the authors’ experience and common practices from other books. The second edition, published in January 2015, seems to be a good summation of best practices with a brief history of their development in the .NET world.</p>
+<p>The authors begin by answering questions such as: What is the architecture of applications? Who are software architects? How do modern apps differ from past developments? The book can be divided into two parts (though the authors divide it into four parts). The first part provides answers to questions like: What is needed for successful work? What is required from a team? What is code quality and how to achieve it? The second part offers practical recommendations for developers, including types of architecture, their components, and main advantages and disadvantages.</p>
+<p>In my opinion, practical experience in software development is required to fully understand the book; it is not intended for beginners.</p>
+<p>Below are notes and mind maps of the book.</p>]]>
+    </summary>
+    <title>Notes from &quot;Architecting Applications for the Enterprise&quot;</title>
     <updated>2025-01-16T12:50:51.046Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/images/aa4e_cover.png&quot; class=&quot;&quot;&gt;
-&lt;p&gt;This great book, written by D. Esposito &amp;amp; A. Saltarello, collects recipes for creating solutions for enterprise applications. It is not a typical cookbook but provides guiding principles for creating a ‘dish’. The book is based on the authors’ experience and common practices from other books. The second edition, published in January 2015, seems to be a good summation of best practices with a brief history of their development in the .NET world.&lt;/p&gt;
-&lt;p&gt;The authors begin by answering questions such as: What is the architecture of applications? Who are software architects? How do modern apps differ from past developments? The book can be divided into two parts (though the authors divide it into four parts). The first part provides answers to questions like: What is needed for successful work? What is required from a team? What is code quality and how to achieve it? The second part offers practical recommendations for developers, including types of architecture, their components, and main advantages and disadvantages.&lt;/p&gt;
-&lt;p&gt;In my opinion, practical experience in software development is required to fully understand the book; it is not intended for beginners.&lt;/p&gt;
-&lt;p&gt;Below are notes and mind maps of the book.&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
-    
-    <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
-    
-    <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
-    
   </entry>
-  
   <entry>
-    <title>Notes from PoEAA</title>
-    <link href="https://www.artkpv.net/Patterns-of-Enterprise/"/>
-    <id>https://www.artkpv.net/Patterns-of-Enterprise/</id>
-    <published>2017-07-16T21:00:00.000Z</published>
-    <updated>2025-01-16T12:52:18.090Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/poeaa.jpg&quot; alt=&quot;PoEAA&quot;&gt;&lt;/p&gt;
-&lt;p&gt;This is the book you need if you wish to develop an application for quickly evolving, complex enterprise systems. Though it has some outdated parts, probably every serious programmer should read it. The book is about patterns for building enterprise applications that are ordered for specific users, with the main limitation being development time and intended for long-term use. The authors compiled many years of top professional developers’ wisdom. They do not need an introduction, I guess (especially Martin Fowler).&lt;/p&gt;
-&lt;p&gt;The book is large and divided into two parts. The first part provides a tutorial on applying patterns. The second part serves as a reference.&lt;/p&gt;
-&lt;p&gt;Below are my very short notes on some key chapters.&lt;/p&gt;</summary>
-    
-    
-    
-    
+    <author>
+      <name>Artyom Karpov</name>
+    </author>
     <category term="книги" scheme="https://www.artkpv.net/tag/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/"/>
-    
     <category term="books" scheme="https://www.artkpv.net/tag/books/"/>
-    
     <category term="programming" scheme="https://www.artkpv.net/tag/programming/"/>
-    
+    <id>https://www.artkpv.net/Patterns-of-Enterprise/</id>
+    <link href="https://www.artkpv.net/Patterns-of-Enterprise/"/>
+    <published>2017-07-16T21:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p><img src="/images/poeaa.jpg" alt="PoEAA"></p>
+<p>This is the book you need if you wish to develop an application for quickly evolving, complex enterprise systems. Though it has some outdated parts, probably every serious programmer should read it. The book is about patterns for building enterprise applications that are ordered for specific users, with the main limitation being development time and intended for long-term use. The authors compiled many years of top professional developers’ wisdom. They do not need an introduction, I guess (especially Martin Fowler).</p>
+<p>The book is large and divided into two parts. The first part provides a tutorial on applying patterns. The second part serves as a reference.</p>
+<p>Below are my very short notes on some key chapters.</p>]]>
+    </summary>
+    <title>Notes from PoEAA</title>
+    <updated>2025-01-16T12:52:18.090Z</updated>
   </entry>
-  
 </feed>
