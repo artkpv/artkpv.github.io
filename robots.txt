@@ -2,3 +2,16 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.artkpv.net/sitemap.xml
+
+
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: cohere-ai
+Disallow: /nest-site/

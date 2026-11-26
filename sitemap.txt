@@ -24,8 +24,8 @@ https://www.artkpv.net/pragmatic-programmer/
 https://www.artkpv.net/tags/index.html
 https://www.artkpv.net/translation-of-the-introduction-to-bdd-by-don-north/
 https://www.artkpv.net/
-https://www.artkpv.net/tag/programming-dotnet/
 https://www.artkpv.net/tag/programming-concurrency-dotnet/
+https://www.artkpv.net/tag/programming-dotnet/
 https://www.artkpv.net/tag/productivity/
 https://www.artkpv.net/tag/ml/
 https://www.artkpv.net/tag/ml-ai-safety/
